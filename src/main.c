@@ -9,6 +9,11 @@
 
 int main(int ac, char **av)
 {
-    my_rpg();
+    if (ac == 1) {
+        my_rpg();
+    } else {
+        my_putstr("Error! Please use \"./my_rpg\" to start the game.\n");
+        return (84);
+    }
     return (0);
 }

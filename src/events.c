@@ -21,7 +21,7 @@ int check_which_button(game_t game, int but_tested, sfVector2i c_pos)
         }
     }
     return (0);
-}   
+}
 
 game_t button_is_clicked(sfRenderWindow *window, game_t game)
 {

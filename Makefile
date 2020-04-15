@@ -9,12 +9,12 @@ CC				=			gcc -g		# on garde le -g pour valgrind
 
 NAME			=			my_rpg
 
-SRC				=			src/main.c		\
-							src/events.c	\
-							src/draw.c	\
-							src/init_game.c	\
-							src/destroy.c	\
-							src/transition.c	\
+SRC				=			src/main.c				\
+							src/events.c			\
+							src/draw.c				\
+							src/init_game.c			\
+							src/destroy.c			\
+							src/transition.c		\
 							src/my_rpg.c
 
 OBJ				=			$(SRC:%.c=%.o)
