@@ -57,6 +57,18 @@ typedef struct game_s {
     scene_t *scenes;
 } game_t;
 
+typedef struct object_s {
+    char *name;
+    int quantity;
+    sfSprite *spr;
+    sfTexture *text;
+} obj_t;
+
+typedef struct abilities_s {
+    int attack;
+    char *name;
+} abili_t;
+
 typedef struct perso_s {
     int hp;
     int attack;
@@ -70,11 +82,6 @@ typedef struct perso_s {
     abili_t **all_abili;
 } perso_t;
 
-typedef struct abilities_s {
-    int attack;
-    char *name;
-} abili_t;
-
 typedef struct enemy_s {
     char *name;
     int hp;
@@ -86,12 +93,6 @@ typedef struct enemy_s {
     sfTexture *text;
 } enemy_t;
 
-typedef struct object_s {
-    char *name;
-    int quantity;
-    sfSprite *spr;
-    sfTexture *text;
-} obj_t;
 
 void my_putstr(char*);
 void destroy_menu(game_t game);
