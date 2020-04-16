@@ -65,17 +65,18 @@ typedef struct object_s {
 } obj_t;
 
 typedef struct abilities_s {
-    int attack;
+    float ratio;
     char *name;
 } abili_t;
 
 typedef struct perso_s {
+    char *name;
     int hp;
     int attack;
     int armor;
     int level;
     int exp;
-    //int gold;
+    int gold;
     obj_t **invent;
     sfSprite *spr;
     sfTexture *text;
@@ -101,5 +102,8 @@ int draw_window(sfRenderWindow* window, game_t game);
 game_t analyse_events(sfRenderWindow*window, sfEvent event, game_t game);
 void close_window(sfRenderWindow *window);
 game_t initialize_game(game_t game);
+void init_perso(perso_t *perso);
+void check_perso(perso_t *perso);
+void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 
 #endif /* MYDEF_ */
