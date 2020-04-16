@@ -14,8 +14,8 @@
 #include <fcntl.h>
 #include <sys/types.h>
 
-#ifndef MYDEF_
-#define MYDEF_
+#ifndef RPG_
+#define RPG_
 
 typedef struct button_s {
     int state; //(idle, hover, clicked);
@@ -24,7 +24,7 @@ typedef struct button_s {
 } button_t;
 
 typedef struct npc_s {
-    int hp;
+    //int hp;
     char *name;
     sfSprite *spr;
     sfTexture *text;
@@ -56,6 +56,42 @@ typedef struct game_s {
     filter_t fade;
     scene_t *scenes;
 } game_t;
+
+typedef struct perso_s {
+    int hp;
+    int attack;
+    int armor;
+    int level;
+    int exp;
+    //int gold;
+    obj_t **invent;
+    sfSprite *spr;
+    sfTexture *text;
+    abili_t **all_abili;
+} perso_t;
+
+typedef struct abilities_s {
+    int attack;
+    char *name;
+} abili_t;
+
+typedef struct enemy_s {
+    char *name;
+    int hp;
+    int attack;
+    int armor;
+    int giv_xp;
+    //int giv_gold;
+    sfSprite *spr;
+    sfTexture *text;
+} enemy_t;
+
+typedef struct object_s {
+    char *name;
+    int quantity;
+    sfSprite *spr;
+    sfTexture *text;
+} obj_t;
 
 void my_putstr(char*);
 void destroy_menu(game_t game);
