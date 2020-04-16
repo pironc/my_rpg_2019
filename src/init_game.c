@@ -5,7 +5,7 @@
 ** initialize functions in different scenes
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 button_t init_button(button_t button, sfVector2f position, char *filepath)
 {

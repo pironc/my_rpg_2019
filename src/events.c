@@ -5,7 +5,7 @@
 ** handle events
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 void close_window(sfRenderWindow *window)
 {
