@@ -15,5 +15,6 @@ int main(int ac, char **av)
         my_putstr("Error! Please use \"./my_rpg\" to start the game.\n");
         return (84);
     }
+    merge();
     return (0);
 }
