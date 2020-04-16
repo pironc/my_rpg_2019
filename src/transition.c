@@ -5,7 +5,7 @@
 ** fade in and out between scenes and other transitions
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 /*sfUint8 fade_in(sfRenderWindow *window, game_t game)
 {

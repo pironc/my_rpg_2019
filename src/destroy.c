@@ -5,7 +5,7 @@
 ** destroy elemnts when changing scenes
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 void destroy_menu(game_t game)
 {

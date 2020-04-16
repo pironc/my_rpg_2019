@@ -5,7 +5,7 @@
 ** function where everything will be called in order to make the rpg work
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 int my_rpg(void)
 {

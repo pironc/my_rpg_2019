@@ -5,7 +5,7 @@
 ** main function of my_rpg
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 int main(int ac, char **av)
 {

@@ -5,7 +5,7 @@
 ** draw
 */
 
-#include "../include/my.h"
+#include "../include/rpg.h"
 
 void draw_elements(sfRenderWindow *window, game_t game)
 {
