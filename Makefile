@@ -17,6 +17,7 @@ SRC				=			src/main.c				\
 							src/transition.c		\
 							src/my_rpg.c			\
 							src/init_perso.c		\
+							src/combat_scene.c		\
 							src/gameplay.c
 
 OBJ				=			$(SRC:%.c=%.o)

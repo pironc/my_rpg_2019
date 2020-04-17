@@ -10,10 +10,10 @@
 int my_rpg(void)
 {
     sfVideoMode mode = {1920, 1080, 32};
-    sfRenderWindow *window = sfRenderWindow_create(mode, "My_Defender", \
+    sfRenderWindow *window = sfRenderWindow_create(mode, "My_RPG", \
     sfResize | sfClose, NULL);
     game_t game;
-    game.scenes = malloc(sizeof(scene_t) * 3);
+    game.scenes = malloc(sizeof(scene_t) * 4);
     sfTime time;
     float seconds;
     sfClock *clock = sfClock_create();
