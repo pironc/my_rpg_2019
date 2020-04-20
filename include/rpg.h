@@ -103,6 +103,7 @@ game_t analyse_events(sfRenderWindow*window, sfEvent event, game_t game);
 void close_window(sfRenderWindow *window);
 game_t initialize_game(game_t game);
 void init_perso(perso_t *perso);
+gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 void check_perso(perso_t *perso);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 

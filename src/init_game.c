@@ -44,6 +44,9 @@ void init_menu(game_t game)
 
 void init_game_scene(game_t game)
 {
+    sfVector2f fight_but_pos = {100, 50};
+
+    game.scenes[1].buttons = malloc(sizeof(button_t) * 1);
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], "ressources/map_forest.jpg");
 }
@@ -58,17 +61,23 @@ void init_options(game_t game)
     game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
-game_t initialize_game(game_t game)
+void init_transition(game_t game)
 {
     sfVector2f size = {1920, 1080};
-    game.cur_scn = 0;
-    game.scenes[0].obj_nbr = 1;
-    game.scenes[0].but_nbr = 3;
-    /*game.fade.fade_clock = sfClock_create();
+    
+    game.fade.fade_clock = sfClock_create();
     game.fade.active = 0;
     game.fade.rect = sfRectangleShape_create();
     sfRectangleShape_setSize(game.fade.rect, size);
-    game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);*/
+    game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);
+}
+
+game_t initialize_game(game_t game)
+{
+    game.cur_scn = 0;
+    game.scenes[0].obj_nbr = 1;
+    game.scenes[0].but_nbr = 3;
+    //init_transition(game);
     init_menu(game);
     init_options(game);
     init_game_scene(game);
