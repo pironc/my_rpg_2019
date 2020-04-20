@@ -45,7 +45,7 @@ void init_menu(game_t game)
 void init_game_scene(game_t game)
 {
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], "ressources/game_temp.jpg");
+    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], "ressources/map_forest.jpg");
 }
 
 void init_options(game_t game)
