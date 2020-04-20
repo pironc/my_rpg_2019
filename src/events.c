@@ -74,6 +74,14 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
     return (game);
 }
 
+game_t key_is_pressed(sfRenderWindow *window, sfEvent event, game_t game)
+{
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue && game.cur_scn > 0) {
+        //open_pause_menu();
+    }
+    return (game);
+}
+
 game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
@@ -82,6 +90,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked(window, game);
+        }
+        if (event.type == sfEvtKeyPressed) {
+            game = key_is_pressed(window, event, game);
         }
     }
     return (game);
