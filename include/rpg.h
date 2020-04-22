@@ -51,12 +51,6 @@ typedef struct scene_s {
     gm_obj_t *gm_objcts;
 } scene_t;
 
-typedef struct game_s {
-    int cur_scn;
-    filter_t fade;
-    scene_t *scenes;
-} game_t;
-
 typedef struct object_s {
     char *name;
     int quantity;
@@ -81,7 +75,15 @@ typedef struct perso_s {
     sfSprite *spr;
     sfTexture *text;
     abili_t **all_abili;
+    sfVector2f position;
 } perso_t;
+
+typedef struct game_s {
+    int cur_scn;
+    filter_t fade;
+    scene_t *scenes;
+    perso_t *perso;
+} game_t;
 
 typedef struct enemy_s {
     char *name;
@@ -104,6 +106,7 @@ void close_window(sfRenderWindow *window);
 game_t initialize_game(game_t game);
 void init_perso(perso_t *perso);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
+button_t init_button(button_t button, sfVector2f position, char *filepath);
 void check_perso(perso_t *perso);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 

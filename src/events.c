@@ -55,16 +55,34 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
         }
     }
     if (but_clicked == 1) {
-        init_combat_scene(game, window);
         game.cur_scn = 3;
-        game.scenes[3].but_nbr = 0;
-        game.scenes[3].obj_nbr = 1;
+        game.scenes[3].but_nbr = 1;
+        game.scenes[3].obj_nbr = 2;
+        init_combat_scene(game, window);
+        //combat(window, game);
+    }
+    return (game);
+}
+
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game)
+{
+    int but_clicked = 0;
+    if (game.scenes[3].but_nbr > 0) {
+        for (int i = 1; but_clicked == 0; i++) {
+            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
+        }
+    }
+    if (but_clicked == 1) {
+        my_putchar('a');
     }
     return (game);
 }
 
 game_t button_is_clicked(sfRenderWindow *window, game_t game)
 {
+    if (game.cur_scn == 3) {
+        game = button_is_clicked_combat(window, game);
+    }
     if (game.cur_scn == 1) {
         game = button_is_clicked_game(window, game);
     }
@@ -96,4 +114,18 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
     }
     return (game);
+}
+
+void analyse_combat_event(sfRenderWindow *window, game_t game)
+{
+    sfEvent *event;
+
+    while (sfRenderWindow_pollEvent(window, event)) {
+        if (event->type == sfEvtClosed) {
+            close_window(window);
+        }
+        if (event->type == sfEvtMouseButtonPressed) {
+            game = button_is_clicked(window, game);
+        }
+    }
 }
