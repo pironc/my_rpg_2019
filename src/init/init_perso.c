@@ -55,10 +55,10 @@ void init_perso(perso_t *perso)
     perso->exp = 0;
     perso->gold = 10;
     perso->spr = sfSprite_create();
-    perso->text = sfTexture_createFromFile("ressources/perso_static.png", NULL);
-    perso->rect = set_rect(32, 32);
+    perso->text = sfTexture_createFromFile("ressources/perso_static_down.png", NULL);
+    perso->rect = set_rect(64, 64);
     perso->pos = set_pos(300, 575);
-    sfVector2f scale_perso = {2, 2};
+    sfVector2f scale_perso = {1.5, 1.5};
     sfSprite_setScale(perso->spr, scale_perso);
     sfSprite_setTexture(perso->spr, perso->text, sfTrue);
     sfSprite_setTextureRect(perso->spr, perso->rect); 

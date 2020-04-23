@@ -11,11 +11,13 @@ void key_pressed(sfRenderWindow *window, sfEvent event, \
 perso_t *perso, game_t *game)
 {
     if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue)
+    sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
         move_perso(perso, 1);
+    }
     if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue)
+    sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
         move_perso(perso, 2);
+    }
     if (sfKeyboard_isKeyPressed(sfKeyQ) == sfTrue || \
     sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
         move_perso(perso, 3);
@@ -36,7 +38,7 @@ sfEvent event, perso_t *perso)
             key_pressed(window, event, perso, game);
         }
         if (event.type == sfEvtKeyReleased) {
-            change_sprite(perso, "ressources/perso_static.png");
+            change_sprite(perso, "ressources/perso_static_down.png");
         }
     }
 }

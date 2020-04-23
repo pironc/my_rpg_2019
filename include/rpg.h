@@ -127,5 +127,6 @@ void destroy_perso(perso_t *perso);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void init_enemies(enemy_t **enemies);
 void check_enemy(enemy_t **enemies);
+void enemy_anim_test(enemy_t **enemies);
 
 #endif /* RPG_ */
