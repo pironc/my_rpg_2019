@@ -75,7 +75,8 @@ typedef struct perso_s {
     sfSprite *spr;
     sfTexture *text;
     abili_t **all_abili;
-    sfVector2f position;
+    sfVector2f pos;
+    sfIntRect rect;
 } perso_t;
 
 typedef struct game_s {
@@ -108,6 +109,16 @@ void init_perso(perso_t *perso);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
 void check_perso(perso_t *perso);
-void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
+void gameplay(sfRenderWindow *window, game_t *game, perso_t *perso);
+sfVector2f set_pos(int x, int y);
+sfIntRect set_rect(int width, int height);
+void perso_anim(perso_t *perso);
+void move_rect(sfIntRect *rect, int offset, int max_value);
+void draw_elements(sfRenderWindow *window, game_t game);
+void analyse_move_event(sfRenderWindow *window, game_t *game, \
+sfEvent event, perso_t *perso);
+void move_perso(perso_t *perso, int i);
+void change_sprite(perso_t *perso, char *filepath);
+void destroy_perso(perso_t *perso);
 
 #endif /* MYDEF_ */

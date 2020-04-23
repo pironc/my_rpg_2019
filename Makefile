@@ -18,8 +18,11 @@ SRC				=			src/main.c				\
 							src/my_rpg.c			\
 							src/init_perso.c		\
 							src/combat_scene.c		\
-							src/pause_menu.c		\
-							src/gameplay.c
+							src/gameplay.c			\
+							src/set_rect_pos.c		\
+							src/moves_perso.c		\
+							src/move_events.c		\
+							#src/pause_menu.c
 
 OBJ				=			$(SRC:%.c=%.o)
 

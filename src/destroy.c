@@ -16,3 +16,17 @@ void destroy_menu(game_t game)
         sfTexture_destroy(game.scenes[0].buttons[i].text);
     }
 }
+
+void destroy_perso(perso_t *perso)
+{
+    sfSprite_destroy(perso->spr);
+    sfTexture_destroy(perso->text);
+    for (int i = 0; perso->invent[i]; i++) {
+        sfSprite_destroy(perso->invent[i]->spr);
+        sfTexture_destroy(perso->invent[i]->text);
+        free(perso->invent[i]);
+    }
+    for (int i = 0; perso->all_abili[i]; i++) {
+        free(perso->all_abili[i]);
+    }
+}

@@ -29,17 +29,15 @@ int draw_window(sfRenderWindow *window, game_t game)
     sfEvent event;
     perso_t *perso = malloc(sizeof(perso_t) * 1);
     init_perso(perso);
-    check_perso(perso);
+    //check_perso(perso);
     game.perso = perso;
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         game = analyse_events(window, event, game);
         draw_elements(window, game);
-        if (game.cur_scn != 0) {
-            sfRenderWindow_drawSprite(window, perso->spr, NULL);
-        }
-        gameplay(window, game, perso);
+        gameplay(window, &game, perso);
         sfRenderWindow_display(window);
     }
+    destroy_perso(perso);
     return (0);
 }
