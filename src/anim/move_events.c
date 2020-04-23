@@ -5,9 +5,10 @@
 ** move event
 */
 
-#include "../include/rpg.h"
+#include "../../include/rpg.h"
 
-void key_pressed(sfRenderWindow *window, sfEvent event, perso_t *perso)
+void key_pressed(sfRenderWindow *window, sfEvent event, \
+perso_t *perso, game_t *game)
 {
     if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue || \
     sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue)
@@ -32,7 +33,7 @@ sfEvent event, perso_t *perso)
             close_window(window);
         }
         if (event.type == sfEvtKeyPressed) {
-            key_pressed(window, event, perso);
+            key_pressed(window, event, perso, game);
         }
         if (event.type == sfEvtKeyReleased) {
             change_sprite(perso, "ressources/perso_static.png");

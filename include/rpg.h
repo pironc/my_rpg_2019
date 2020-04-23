@@ -84,6 +84,7 @@ typedef struct game_s {
     filter_t fade;
     scene_t *scenes;
     perso_t *perso;
+    enemy_t **enemies;
 } game_t;
 
 typedef struct enemy_s {
@@ -95,6 +96,8 @@ typedef struct enemy_s {
     //int giv_gold;
     sfSprite *spr;
     sfTexture *text;
+    sfIntRect rect;
+    sfVector2f pos;
 } enemy_t;
 
 
@@ -120,5 +123,8 @@ sfEvent event, perso_t *perso);
 void move_perso(perso_t *perso, int i);
 void change_sprite(perso_t *perso, char *filepath);
 void destroy_perso(perso_t *perso);
+void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
+void init_enemies(enemy_t **enemies);
+void check_enemy(enemy_t **enemies);
 
-#endif /* MYDEF_ */
+#endif /* RPG_ */

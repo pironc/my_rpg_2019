@@ -27,17 +27,19 @@ void draw_elements(sfRenderWindow *window, game_t game)
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    perso_t *perso = malloc(sizeof(perso_t) * 1);
-    init_perso(perso);
-    //check_perso(perso);
-    game.perso = perso;
+    game.perso = malloc(sizeof(perso_t) * 1);
+    game.enemies = mallo(sizeof(enemy_t*) * 4);
+    init_perso(game.perso);
+    init_enemies(game.enemies);
+    //check_enemy(enemies);
+    check_perso(game.perso);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         game = analyse_events(window, event, game);
         draw_elements(window, game);
-        gameplay(window, &game, perso);
+        gameplay(window, &game, game.perso);
         sfRenderWindow_display(window);
     }
-    destroy_perso(perso);
+    destroy_perso(game.perso);
     return (0);
 }
