@@ -20,6 +20,7 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 void gameplay(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfClock *clock = sfClock_create();
+    sfClock *clock2 = sfClock_create();
     float seconds;
     sfEvent event;
     sfTime time;
@@ -32,6 +33,12 @@ void gameplay(sfRenderWindow *window, game_t *game, perso_t *perso)
         if (seconds > 0.1) {
             perso_anim(perso);
             sfClock_restart(clock);
+        }
+        time = sfClock_getElapsedTime(clock2);
+        seconds = time.microseconds / 1000000.000;
+        if (seconds > 0.2) {
+            enemy_anim_test(game->enemies);
+            sfClock_restart(clock2);
         }
     }
 }
