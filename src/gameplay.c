@@ -12,6 +12,8 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     sfRenderWindow_clear(window, sfBlack);
     draw_elements(window, *game);
     sfRenderWindow_drawSprite(window, perso->spr, NULL);
+    for (int i = 0; i < 3; i++)
+        sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
     sfRenderWindow_display(window);
 }
 

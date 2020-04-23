@@ -28,7 +28,7 @@ int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
     game.perso = malloc(sizeof(perso_t) * 1);
-    game.enemies = mallo(sizeof(enemy_t*) * 4);
+    game.enemies = malloc(sizeof(enemy_t*) * 4);
     init_perso(game.perso);
     init_enemies(game.enemies);
     //check_enemy(enemies);

@@ -79,14 +79,6 @@ typedef struct perso_s {
     sfIntRect rect;
 } perso_t;
 
-typedef struct game_s {
-    int cur_scn;
-    filter_t fade;
-    scene_t *scenes;
-    perso_t *perso;
-    enemy_t **enemies;
-} game_t;
-
 typedef struct enemy_s {
     char *name;
     int hp;
@@ -99,6 +91,15 @@ typedef struct enemy_s {
     sfIntRect rect;
     sfVector2f pos;
 } enemy_t;
+
+typedef struct game_s {
+    int cur_scn;
+    filter_t fade;
+    scene_t *scenes;
+    perso_t *perso;
+    enemy_t **enemies;
+} game_t;
+
 
 
 void my_putstr(char*);
