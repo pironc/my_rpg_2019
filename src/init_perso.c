@@ -46,6 +46,7 @@ void init_abilites(perso_t *perso)
 
 void init_perso(perso_t *perso)
 {
+    sfVector2f gm_pos = {50, 270};
     perso->name = malloc(sizeof(char) * 10);
     perso->name = "Jean-Louis";
     perso->hp = 50;
@@ -61,6 +62,8 @@ void init_perso(perso_t *perso)
     init_invent(perso);
     perso->all_abili = malloc(sizeof(abili_t*) * 3);
     init_abilites(perso);
+    perso->position = gm_pos;
+    sfSprite_setPosition(perso->spr, perso->position);
 }
 
 void check_perso(perso_t *perso)

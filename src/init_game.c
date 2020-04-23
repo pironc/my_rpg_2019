@@ -75,10 +75,14 @@ void init_transition(game_t game)
 
 game_t initialize_game(game_t game)
 {
+    perso_t *perso = malloc(sizeof(perso_t) * 1);
+
     game.cur_scn = 0;
     game.scenes[0].obj_nbr = 1;
     game.scenes[0].but_nbr = 3;
-    //init_transition(game);
+    init_perso(perso);
+    check_perso(perso);
+    game.perso = perso;
     init_menu(game);
     init_options(game);
     init_game_scene(game);

@@ -24,21 +24,27 @@ void draw_elements(sfRenderWindow *window, game_t game)
     }*/
 }
 
+void draw_combat(sfRenderWindow *window, game_t game)
+{
+    for (int i = 0; i != game.scenes[3].obj_nbr; i++) {
+        sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[i].spr, NULL);
+    }
+    for (int i = 0; i != game.scenes[3].but_nbr; i++) {
+        sfRenderWindow_drawSprite(window, game.scenes[3].buttons[i].spr, NULL);
+    }
+}
+
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    perso_t *perso = malloc(sizeof(perso_t) * 1);
-    init_perso(perso);
-    check_perso(perso);
-    game.perso = perso;
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         game = analyse_events(window, event, game);
         draw_elements(window, game);
         if (game.cur_scn != 0) {
-            sfRenderWindow_drawSprite(window, perso->spr, NULL);
+            sfRenderWindow_drawSprite(window, game.perso->spr, NULL);
         }
-        gameplay(window, game, perso);
+        gameplay(window, game, game.perso);
         sfRenderWindow_display(window);
     }
     return (0);

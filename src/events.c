@@ -59,7 +59,7 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
         game.scenes[3].but_nbr = 1;
         game.scenes[3].obj_nbr = 2;
         init_combat_scene(game, window);
-        //combat(window, game);
+        combat(window, game);
     }
     return (game);
 }
@@ -80,9 +80,6 @@ game_t button_is_clicked_combat(sfRenderWindow *window, game_t game)
 
 game_t button_is_clicked(sfRenderWindow *window, game_t game)
 {
-    if (game.cur_scn == 3) {
-        game = button_is_clicked_combat(window, game);
-    }
     if (game.cur_scn == 1) {
         game = button_is_clicked_game(window, game);
     }
@@ -116,16 +113,15 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
     return (game);
 }
 
-void analyse_combat_event(sfRenderWindow *window, game_t game)
+game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game)
 {
-    sfEvent *event;
-
-    while (sfRenderWindow_pollEvent(window, event)) {
-        if (event->type == sfEvtClosed) {
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed) {
             close_window(window);
         }
-        if (event->type == sfEvtMouseButtonPressed) {
-            game = button_is_clicked(window, game);
+        if (event.type == sfEvtMouseButtonPressed) {
+            my_putchar('a');
+            game = button_is_clicked_combat(window, game);
         }
     }
 }

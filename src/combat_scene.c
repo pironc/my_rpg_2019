@@ -53,8 +53,11 @@ void init_combat_scene(game_t game, sfRenderWindow *window)
 
 void combat(sfRenderWindow *window, game_t game)
 {
+    sfEvent event;
     int combat_over = 0;
-    while(combat_over == 1) {
-        ;
+
+    while(combat_over == 0) {
+        game = analyse_combat_event(window, event, game);
+        draw_combat(window, game);
     }
 }
