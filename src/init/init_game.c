@@ -65,7 +65,7 @@ void init_options(game_t game)
 void init_transition(game_t game)
 {
     sfVector2f size = {1920, 1080};
-    
+
     game.fade.fade_clock = sfClock_create();
     game.fade.active = 0;
     game.fade.rect = sfRectangleShape_create();

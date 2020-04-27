@@ -9,14 +9,15 @@
 
 int my_rpg(void)
 {
+    game_t game;
+    sfTime time;
+    sfClock *clock = sfClock_create();
+    float seconds;
+
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "My_RPG", \
     sfResize | sfClose, NULL);
-    game_t game;
     game.scenes = malloc(sizeof(scene_t) * 4);
-    sfTime time;
-    float seconds;
-    sfClock *clock = sfClock_create();
     sfRenderWindow_setFramerateLimit(window, 60);
     if (!window) {
         return (EXIT_FAILURE);

@@ -7,7 +7,7 @@
 
 #include "../include/rpg.h"
 
-void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso) 
+void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_elements(window, *game);
