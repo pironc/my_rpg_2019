@@ -4,8 +4,8 @@
 ** File description:
 ** handles combat scene events
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void combat_scene_intro(sfRenderWindow *window, game_t game, sfVector2f board_pos, sfVector2f but_pos)
 {

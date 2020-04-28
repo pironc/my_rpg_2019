@@ -4,8 +4,8 @@
 ** File description:
 ** destroy elemnts when changing scenes
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void destroy_menu(game_t game)
 {

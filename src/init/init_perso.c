@@ -4,8 +4,8 @@
 ** File description:
 ** init perso
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 obj_t *init_obj(char *name, int quantity, char *filepath)
 {

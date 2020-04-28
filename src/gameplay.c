@@ -4,8 +4,8 @@
 ** File description:
 ** gameplay
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 {

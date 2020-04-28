@@ -4,8 +4,8 @@
 ** File description:
 ** initialize functions in different scenes
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 button_t init_button(button_t button, sfVector2f position, char *filepath)
 {

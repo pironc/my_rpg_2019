@@ -4,8 +4,8 @@
 ** File description:
 ** move event
 */
-
-#include "../../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void key_pressed(sfRenderWindow *window, sfEvent event, \
 perso_t *perso, game_t *game)

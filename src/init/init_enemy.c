@@ -4,8 +4,8 @@
 ** File description:
 ** init enemy
 */
-
-#include "../../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 enemy_t *init_enemy_forest(void)
 {

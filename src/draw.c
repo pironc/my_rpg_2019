@@ -4,8 +4,8 @@
 ** File description:
 ** draw
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void draw_elements(sfRenderWindow *window, game_t game)
 {

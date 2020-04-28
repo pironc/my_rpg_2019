@@ -4,8 +4,8 @@
 ** File description:
 ** main function of my_rpg
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 int main(int ac, char **av)
 {

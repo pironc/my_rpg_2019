@@ -4,8 +4,8 @@
 ** File description:
 ** moves perso
 */
-
-#include "../../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void perso_anim(perso_t *perso)
 {

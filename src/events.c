@@ -4,8 +4,8 @@
 ** File description:
 ** handle events
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void close_window(sfRenderWindow *window)
 {
