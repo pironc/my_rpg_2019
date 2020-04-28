@@ -36,18 +36,22 @@ void move_perso(perso_t *perso, int i)
         change_sprite(perso, "ressources/perso_up.png");
         if (perso->pos.x < 70 && perso->pos.y > 230 && perso->pos.y < 290)
             perso->pos.y -= 10;
-        else if (perso->pos.x > 1750 && perso->pos.y > 230 && perso->pos.y < 290)
+        else if (perso->pos.x > 1750 && perso->pos.y > 230 && \
+perso->pos.y < 290)
             perso->pos.y -= 10;
-        else if (perso->pos.x > 69 && perso->pos.x < 1760 && perso->pos.y > 100)
+        else if (perso->pos.x > 69 && perso->pos.x < 1760 && \
+perso->pos.y > 100)
             perso->pos.y -= 10;
     }
     if (i == 2) {
         change_sprite(perso, "ressources/perso_down.png");
         if (perso->pos.x < 70 && perso->pos.y > 220 && perso->pos.y < 280)
             perso->pos.y += 10;
-        else if (perso->pos.x > 1750 && perso->pos.y > 220 && perso->pos.y < 280)
+        else if (perso->pos.x > 1750 && perso->pos.y > 220 && \
+perso->pos.y < 280)
             perso->pos.y += 10;
-        else if (perso->pos.x > 69 && perso->pos.x < 1760 && perso->pos.y < 890)
+        else if (perso->pos.x > 69 && perso->pos.x < 1760 && \
+perso->pos.y < 890)
             perso->pos.y += 10;
     }
     if (i == 3) {

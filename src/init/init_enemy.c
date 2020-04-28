@@ -23,7 +23,7 @@ enemy_t *init_enemy_forest(void)
     sfVector2f scale_enemy = {1.5, 1.5};
     sfSprite_setScale(enemy->spr, scale_enemy);
     sfSprite_setTexture(enemy->spr, enemy->text, sfTrue);
-    sfSprite_setTextureRect(enemy->spr, enemy->rect); 
+    sfSprite_setTextureRect(enemy->spr, enemy->rect);
     sfSprite_setPosition(enemy->spr, enemy->pos);
     return (enemy);
 }
@@ -44,7 +44,7 @@ enemy_t *init_enemy_desert(void)
     sfVector2f scale_enemy = {1.5, 1.5};
     sfSprite_setScale(enemy->spr, scale_enemy);
     sfSprite_setTexture(enemy->spr, enemy->text, sfTrue);
-    sfSprite_setTextureRect(enemy->spr, enemy->rect); 
+    sfSprite_setTextureRect(enemy->spr, enemy->rect);
     sfSprite_setPosition(enemy->spr, enemy->pos);
     return (enemy);
 }
@@ -81,7 +81,8 @@ void init_enemies(enemy_t **enemies)
 void check_enemy(enemy_t **enemies)
 {
     for (int i = 0; i < 3; i++) {
-        printf("Enemy %d :\nName : %s\nHP : %d\nAttack : %d\n", i, enemies[i]->name, enemies[i]->hp, enemies[i]->attack);
+        printf("Enemy %d :\nName : %s\nHP : %d\nAttack : %d\n", i, \
+enemies[i]->name, enemies[i]->hp, enemies[i]->attack);
         printf("Giv xp : %d\n", enemies[i]->giv_xp);
     }
 }

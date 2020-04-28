@@ -55,13 +55,14 @@ void init_perso(perso_t *perso)
     perso->exp = 0;
     perso->gold = 10;
     perso->spr = sfSprite_create();
-    perso->text = sfTexture_createFromFile("ressources/perso_static_down.png", NULL);
+    perso->text = sfTexture_createFromFile("\
+    ressources/perso_static_down.png", NULL);
     perso->rect = set_rect(64, 64);
     perso->pos = set_pos(300, 575);
     sfVector2f scale_perso = {1.5, 1.5};
     sfSprite_setScale(perso->spr, scale_perso);
     sfSprite_setTexture(perso->spr, perso->text, sfTrue);
-    sfSprite_setTextureRect(perso->spr, perso->rect); 
+    sfSprite_setTextureRect(perso->spr, perso->rect);
     sfSprite_setPosition(perso->spr, perso->pos);
     perso->invent = malloc(sizeof(obj_t*) * 5);
     init_invent(perso);
@@ -71,12 +72,14 @@ void init_perso(perso_t *perso)
 
 void check_perso(perso_t *perso)
 {
-    printf("PERSO :\nName : %s\nHP: %d\nAttack : %d\nArmor : %d\nLevel : %d\n", \
-    perso->name, perso->hp, perso->attack, perso->armor, perso->level);
+    printf("PERSO :\nName : %s\nHP: %d\nAttack : %d\nArmor : %d\nLevel : \
+    %d\n", perso->name, perso->hp, perso->attack, perso->armor, perso->level);
     printf("EXP : %d\nHP: %d\nGold : %d\nArmor : %d\n", \
     perso->exp, perso->hp, perso->gold, perso->armor, perso->level);
     printf("INVENT :\nName : %s\nQuantity: %d\nName : %s\nQuantity : %d\n", \
-    perso->invent[0]->name, perso->invent[0]->quantity, perso->invent[1]->name, perso->invent[0]->quantity);
+    perso->invent[0]->name, perso->invent[0]->quantity, \
+    perso->invent[1]->name, perso->invent[0]->quantity);
     printf("ABILITIES :\nName : %s\nRatio: %.2f\nName : %s\nRatio : %.2f", \
-    perso->all_abili[0]->name, perso->all_abili[0]->ratio, perso->all_abili[1]->name, perso->all_abili[1]->ratio);
+    perso->all_abili[0]->name, perso->all_abili[0]->ratio, \
+    perso->all_abili[1]->name, perso->all_abili[1]->ratio);
 }
