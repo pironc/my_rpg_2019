@@ -23,7 +23,7 @@ enemy_t *init_enemy_forest(void)
     sfVector2f scale_enemy = {1.5, 1.5};
     sfSprite_setScale(enemy->spr, scale_enemy);
     sfSprite_setTexture(enemy->spr, enemy->text, sfTrue);
-    sfSprite_setTextureRect(enemy->spr, enemy->rect); 
+    sfSprite_setTextureRect(enemy->spr, enemy->rect);
     sfSprite_setPosition(enemy->spr, enemy->pos);
     return (enemy);
 }
@@ -44,7 +44,7 @@ enemy_t *init_enemy_desert(void)
     sfVector2f scale_enemy = {1.5, 1.5};
     sfSprite_setScale(enemy->spr, scale_enemy);
     sfSprite_setTexture(enemy->spr, enemy->text, sfTrue);
-    sfSprite_setTextureRect(enemy->spr, enemy->rect); 
+    sfSprite_setTextureRect(enemy->spr, enemy->rect);
     sfSprite_setPosition(enemy->spr, enemy->pos);
     return (enemy);
 }
