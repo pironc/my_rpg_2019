@@ -56,8 +56,14 @@ void init_perso(perso_t *perso)
     perso->exp = 0;
     perso->gold = 10;
     perso->spr = sfSprite_create();
-    perso->text = sfTexture_createFromFile("ressources/perso.png", NULL);
+    perso->text = sfTexture_createFromFile("ressources/perso_static.png", NULL);
+    perso->rect = set_rect(32, 32);
+    perso->pos = set_pos(300, 575);
+    sfVector2f scale_perso = {2, 2};
+    sfSprite_setScale(perso->spr, scale_perso);
     sfSprite_setTexture(perso->spr, perso->text, sfTrue);
+    sfSprite_setTextureRect(perso->spr, perso->rect); 
+    sfSprite_setPosition(perso->spr, perso->pos);
     perso->invent = malloc(sizeof(obj_t*) * 5);
     init_invent(perso);
     perso->all_abili = malloc(sizeof(abili_t*) * 3);
