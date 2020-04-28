@@ -58,9 +58,9 @@ void init_perso(perso_t *perso)
     perso->text = sfTexture_createFromFile("\
     ressources/perso_static_down.png", NULL);
     perso->rect = set_rect(64, 64);
-    perso->pos = set_pos(300, 575);
-    sfVector2f scale_perso = {1.5, 1.5};
-    sfSprite_setScale(perso->spr, scale_perso);
+    perso->pos = set_pos(296, 576);
+    //sfVector2f scale_perso = {1.5, 1.5};
+    //sfSprite_setScale(perso->spr, scale_perso);
     sfSprite_setTexture(perso->spr, perso->text, sfTrue);
     sfSprite_setTextureRect(perso->spr, perso->rect);
     sfSprite_setPosition(perso->spr, perso->pos);
