@@ -39,6 +39,10 @@ void enemy_anim_test(enemy_t **enemies, game_t game);
 void move_rect(sfIntRect *rect, int offset, int max_value);
 void move_perso(perso_t *perso, int i);
 
+/*----------Menu RPG-------------*/
+
+void text_in_button(button_t *button);
+
 /*----------Init RPG-------------*/
 
 game_t initialize_game(game_t game);
