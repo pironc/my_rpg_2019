@@ -59,7 +59,7 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
         game.scenes[3].but_nbr = 1;
         game.scenes[3].obj_nbr = 2;
         init_combat_scene(game, window);
-        combat(window, game);
+        game = combat(window, game);
     }
     return (game);
 }
@@ -73,7 +73,9 @@ game_t button_is_clicked_combat(sfRenderWindow *window, game_t game)
         }
     }
     if (but_clicked == 1) {
-        my_putchar('a');
+        game.scenes[3].enemys[0].hp -= game.perso->attack;
+        game.player_turn = sfFalse;
+        game.scenes[3].enemys[0] = refresh_hp_bar_enemy(window, game.scenes[3].enemys[0]);
     }
     return (game);
 }
@@ -120,8 +122,8 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game)
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
-            my_putchar('a');
             game = button_is_clicked_combat(window, game);
         }
     }
+    return (game);
 }
