@@ -4,22 +4,25 @@
 ** File description:
 ** move event
 */
+#include "proto.h"
+#include "rpg.h"
 
-#include "../include/rpg.h"
-
-void key_pressed(sfRenderWindow *window, sfEvent event, perso_t *perso)
+void key_pressed(sfRenderWindow *window, sfEvent event, \
+perso_t *perso, game_t *game)
 {
     if (sfKeyboard_isKeyPressed(sfKeyZ) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue)
+    sfKeyboard_isKeyPressed(sfKeyUp) == sfTrue) {
         move_perso(perso, 1);
+    }
     if (sfKeyboard_isKeyPressed(sfKeyS) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue)
+    sfKeyboard_isKeyPressed(sfKeyDown) == sfTrue) {
         move_perso(perso, 2);
+    }
     if (sfKeyboard_isKeyPressed(sfKeyQ) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
+        sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
         move_perso(perso, 3);
     if (sfKeyboard_isKeyPressed(sfKeyD) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue)
+        sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue)
         move_perso(perso, 4);
 }
 
@@ -32,10 +35,10 @@ sfEvent event, perso_t *perso)
             close_window(window);
         }
         if (event.type == sfEvtKeyPressed) {
-            key_pressed(window, event, perso);
+            key_pressed(window, event, perso, game);
         }
         if (event.type == sfEvtKeyReleased) {
-            change_sprite(perso, "ressources/perso_static.png");
+            change_sprite(perso, "ressources/perso_static_down.png");
         }
     }
 }

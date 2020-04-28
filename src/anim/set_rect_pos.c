@@ -4,8 +4,8 @@
 ** File description:
 ** set rect pos
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 sfVector2f set_pos(int x, int y)
 {

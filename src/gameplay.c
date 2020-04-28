@@ -4,8 +4,18 @@
 ** File description:
 ** gameplay
 */
+#include "proto.h"
+#include "rpg.h"
 
-#include "../include/rpg.h"
+void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
+{
+    sfRenderWindow_clear(window, sfBlack);
+    draw_elements(window, *game);
+    sfRenderWindow_drawSprite(window, perso->spr, NULL);
+    for (int i = 0; i < 3; i++)
+        sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
+    sfRenderWindow_display(window);
+}
 
 void gameplay(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
@@ -15,17 +25,14 @@ void gameplay(sfRenderWindow *window, game_t *game, perso_t *perso)
     sfTime time;
 
     while (game->cur_scn == 1) {
-        sfRenderWindow_clear(window, sfBlack);
-        draw_elements(window, *game);
+        reset_window(window, game, perso);
         time = sfClock_getElapsedTime(clock);
         seconds = time.microseconds / 1000000.000;
-        //*game = analyse_events(window, event, *game);
         analyse_move_event(window, game, event, perso);
-        if (seconds > 0.1) {
+        if (seconds > 0.2) {
             perso_anim(perso);
+            enemy_anim_test(game->enemies);
             sfClock_restart(clock);
         }
-        sfRenderWindow_drawSprite(window, perso->spr, NULL);
-        sfRenderWindow_display(window);
     }
 }

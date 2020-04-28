@@ -4,8 +4,8 @@
 ** File description:
 ** initialize functions in different scenes
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 button_t init_button(button_t button, sfVector2f position, char *filepath)
 {
@@ -15,7 +15,7 @@ button_t init_button(button_t button, sfVector2f position, char *filepath)
     new_but.text = sfTexture_createFromFile(filepath, NULL);
     sfSprite_setTexture(new_but.spr, new_but.text, sfTrue);
     sfSprite_setPosition(new_but.spr, position);
-    return(new_but);
+    return (new_but);
 }
 
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath)
@@ -36,10 +36,14 @@ void init_menu(game_t game)
 
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], "ressources/main_menu_bg.png");
-    game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], pos_play, "ressources/BUTTONS/PlayButton.png");
-    game.scenes[0].buttons[1] = init_button(game.scenes[0].buttons[1], pos_menu, "ressources/BUTTONS/MenuButton.png");
-    game.scenes[0].buttons[2] = init_button(game.scenes[0].buttons[2], pos_exit, "ressources/BUTTONS/ExitButton.png");
+    game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
+    "ressources/main_menu_bg.png");
+    game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], \
+    pos_play, "ressources/BUTTONS/PlayButton.png");
+    game.scenes[0].buttons[1] = init_button(game.scenes[0].buttons[1], \
+    pos_menu, "ressources/BUTTONS/MenuButton.png");
+    game.scenes[0].buttons[2] = init_button(game.scenes[0].buttons[2], \
+    pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
 void init_game_scene(game_t game)
@@ -48,8 +52,10 @@ void init_game_scene(game_t game)
 
     game.scenes[1].buttons = malloc(sizeof(button_t) * 1);
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], "ressources/map_forest.jpg");
-    game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], fight_but_pos, "ressources/BUTTONS/combat_but.png");
+    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
+    "ressources/map_forest.jpg");
+    game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], \
+    fight_but_pos, "ressources/BUTTONS/combat_but.png");
 }
 
 void init_options(game_t game)
@@ -58,14 +64,16 @@ void init_options(game_t game)
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], "ressources/main_menu_bg.png");
-    game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], pos_exit, "ressources/BUTTONS/ExitButton.png");
+    game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], \
+    "ressources/main_menu_bg.png");
+    game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
+    pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
 void init_transition(game_t game)
 {
     sfVector2f size = {1920, 1080};
-    
+
     game.fade.fade_clock = sfClock_create();
     game.fade.active = 0;
     game.fade.rect = sfRectangleShape_create();

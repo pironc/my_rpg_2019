@@ -4,10 +4,11 @@
 ** File description:
 ** handles combat scene events
 */
+#include "proto.h"
+#include "rpg.h"
 
-#include "../include/rpg.h"
-
-void combat_scene_intro(sfRenderWindow *window, game_t game, sfVector2f board_pos, sfVector2f but_pos)
+void combat_scene_intro(sfRenderWindow *window, game_t game, \
+sfVector2f board_pos, sfVector2f but_pos)
 {
     sfTime time;
     sfClock *clock = sfClock_create();
@@ -19,9 +20,12 @@ void combat_scene_intro(sfRenderWindow *window, game_t game, sfVector2f board_po
         if (seconds > 0) {
             board_pos.y -= 5;
             but_pos.y -= 5;
-            sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[0].spr, NULL);
-            sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[1].spr, NULL);
-            sfRenderWindow_drawSprite(window, game.scenes[3].buttons[0].spr, NULL);
+            sfRenderWindow_drawSprite(window, \
+game.scenes[3].gm_objcts[0].spr, NULL);
+            sfRenderWindow_drawSprite(window, \
+game.scenes[3].gm_objcts[1].spr, NULL);
+            sfRenderWindow_drawSprite(window, \
+game.scenes[3].buttons[0].spr, NULL);
             sfRenderWindow_drawSprite(window, game.perso->spr, NULL);
             sfRenderWindow_display(window);
             sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
@@ -66,9 +70,12 @@ void init_combat_scene(game_t game, sfRenderWindow *window)
     game.scenes[3].enemys = malloc(sizeof(enemy_t) * 1);
     game.scenes[3].gm_objcts = malloc(sizeof(gm_obj_t) * 2);
     game.scenes[3].buttons = malloc(sizeof(button_t) * 1);
-    game.scenes[3].gm_objcts[0] = init_game_obj(game.scenes[3].gm_objcts[0], "ressources/combat_bg/grass_plain_3.jpg");
-    game.scenes[3].gm_objcts[1] = init_game_obj(game.scenes[3].gm_objcts[1], "ressources/combat_bg/combat_ui_board.png");
-    game.scenes[3].buttons[0] = init_button(game.scenes[3].buttons[0], but_pos, "ressources/combat_bg/but/base_atk_idle.png");
+    game.scenes[3].gm_objcts[0] = init_game_obj(game.scenes[3].gm_objcts[0], \
+    "ressources/combat_bg/grass_plain_3.jpg");
+    game.scenes[3].gm_objcts[1] = init_game_obj(game.scenes[3].gm_objcts[1], \
+    "ressources/combat_bg/combat_ui_board.png");
+    game.scenes[3].buttons[0] = init_button(game.scenes[3].buttons[0], \
+    but_pos, "ressources/combat_bg/but/base_atk_idle.png");
     sfSprite_setPosition(game.perso->spr, pos_char);
     sfSprite_setScale(game.perso->spr, scale_char);
     sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
@@ -89,6 +96,18 @@ game_t refresh_hp_bar_player(sfRenderWindow *window, game_t game)
     return(game);
 }
 
+enemy_t refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t enemy)
+{
+    int enemy_percent = ((enemy.max_hp - enemy.hp) * 100) / enemy.max_hp;
+    int pixels_to_hide = (enemy_percent * 672) / 100;
+    sfVector2f rect_size = {pixels_to_hide, 43};
+    sfRectangleShape_setSize(enemy.hp_bar.rect, rect_size);
+    sfRenderWindow_drawRectangleShape(window, enemy.hp_bar.rect, NULL);
+    sfRenderWindow_display(window);
+
+    return(enemy);
+}
+
 sfBool change_turn(sfBool player_turn)
 {
     if (player_turn == sfTrue) {
@@ -100,13 +119,23 @@ sfBool change_turn(sfBool player_turn)
     return (player_turn);
 }
 
+game_t enemy_attack(game_t game, enemy_t enemy)
+{
+    int total_damage = 0;
+
+    total_damage = (enemy.attack) - (game.perso->armor / 2);
+    game.perso->hp -= total_damage;
+
+    return(game);
+}
+
 game_t combat(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    enemy_t test_enemy = init_enemy(game, test_enemy);
+    enemy_t *test_enemy = init_enemy_forest();
 
     game.player_turn = sfTrue;
-    game.scenes[3].enemys[0] = test_enemy;
+    game.scenes[3].enemys[0] = *test_enemy;
     while (game.perso->hp > 0 && game.scenes[3].enemys[0].hp > 0) {
         draw_combat(window, game, game.scenes[3].enemys[0]);
         sfRenderWindow_display(window);
