@@ -21,6 +21,9 @@ typedef struct button_s {
     int state; //(idle, hover, clicked);
     sfSprite *spr;
     sfTexture *text;
+    sfFont *font;
+    sfRectangleShape *rect;
+    void (*callback)();
 } button_t;
 
 typedef struct npc_s {
