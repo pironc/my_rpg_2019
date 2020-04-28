@@ -77,12 +77,6 @@ void move_perso(perso_t *perso, int i)
 
     if (i == 1) {
         change_sprite(perso, "ressources/perso_up.png");
-        /*if (perso->pos.x < 70 && perso->pos.y > 230 && perso->pos.y < 290)
-            perso->pos.y -= 8;
-        else if (perso->pos.x > 1750 && perso->pos.y > 230 && perso->pos.y < 290)
-            perso->pos.y -= 8;
-        else if (perso->pos.x > 69 && perso->pos.x < 1760 && perso->pos.y > 100)
-            perso->pos.y -= 8;*/
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y - 1][current_x] == '*' && perso->pos.y > 70)
             perso->pos.y -= 8;
         else if (tile_forest[current_y - 1][current_x] == 'H') {
@@ -93,12 +87,6 @@ void move_perso(perso_t *perso, int i)
     }
     if (i == 2) {
         change_sprite(perso, "ressources/perso_down.png");
-        /*if (perso->pos.x < 70 && perso->pos.y > 220 && perso->pos.y < 280)
-            perso->pos.y += 8;
-        else if (perso->pos.x > 1750 && perso->pos.y > 220 && perso->pos.y < 280)
-            perso->pos.y += 8;
-        else if (perso->pos.x > 69 && perso->pos.x < 1760 && perso->pos.y < 890)
-            perso->pos.y += 8;*/
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y + 1][current_x] == '*')
             perso->pos.y += 8;
         else
@@ -106,8 +94,6 @@ void move_perso(perso_t *perso, int i)
     }
     if (i == 3) {
         change_sprite(perso, "ressources/perso_left.png");
-        /*if (perso->pos.x > 75 || (perso->pos.y > 220 && perso->pos.y < 290))
-            perso->pos.x -= 8;*/
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x - 1] == '*')
             perso->pos.x -= 8;
         else if (tile_forest[current_y][current_x - 1] == 'D') {
@@ -118,8 +104,6 @@ void move_perso(perso_t *perso, int i)
     }
     if (i == 4) {
         change_sprite(perso, "ressources/perso_right.png");
-        /*if (perso->pos.x < 1750 || (perso->pos.y > 220 && perso->pos.y < 290))
-            perso->pos.x += 8;*/
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x + 1] == '*')
             perso->pos.x += 8;
         else if (tile_forest[current_y][current_x + 1] == 'L') {
