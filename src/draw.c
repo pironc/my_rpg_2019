@@ -26,6 +26,22 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }*/
 }
 
+void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
+{
+    for (int i = 0; i != game.scenes[3].obj_nbr; i++) {
+        sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[i].spr, NULL);
+    }
+    for (int i = 0; i != game.scenes[3].but_nbr; i++) {
+        sfRenderWindow_drawSprite(window, game.scenes[3].buttons[i].spr, NULL);
+    }
+    sfRenderWindow_drawSprite(window, game.perso->spr, NULL);
+    sfRenderWindow_drawSprite(window, enemy->spr, NULL);
+    sfRenderWindow_drawSprite(window, game.perso->hp_bar.hp_bar_spr, NULL);
+    sfRenderWindow_drawSprite(window, enemy->hp_bar.hp_bar_spr, NULL);
+    sfRenderWindow_drawRectangleShape(window, game.perso->hp_bar.rect, NULL);
+    sfRenderWindow_drawRectangleShape(window, enemy->hp_bar.rect, NULL);
+}
+
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
@@ -36,10 +52,10 @@ int draw_window(sfRenderWindow *window, game_t game)
     //check_enemy(game.enemies);
     //check_perso(game.perso);
     while (sfRenderWindow_isOpen(window)) {
-        sfRenderWindow_clear(window, sfBlack);
         game = analyse_events(window, event, game);
+        sfRenderWindow_clear(window, sfBlack);
         draw_elements(window, game);
-        gameplay(window, &game, game.perso);
+        gameplay(window, game, game.perso);
         sfRenderWindow_display(window);
     }
     destroy_perso(game.perso);

@@ -36,7 +36,7 @@ game, i, sfMouse_getPosition(window));
     if (but_clicked == 1) {
         destroy_menu(game);
         game.cur_scn = 1;
-        game.scenes[1].but_nbr = 1;
+        game.scenes[1].but_nbr = 0;
         game.scenes[1].obj_nbr = 1;
     }
     if (but_clicked == 2) {
@@ -57,17 +57,11 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
 game, i, sfMouse_getPosition(window));
         }
     }
-    if (but_clicked == 1) {
-        game.cur_scn = 3;
-        game.scenes[3].but_nbr = 1;
-        game.scenes[3].obj_nbr = 2;
-        init_combat_scene(game, window);
-        //combat(window, game);
-    }
+    
     return (game);
 }
 
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game)
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
@@ -77,18 +71,17 @@ game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
-        my_putchar('a');
+        enemy->hp -= game.perso->attack;
+        game.player_turn = sfFalse;
+        enemy = refresh_hp_bar_enemy(window, enemy);
     }
     return (game);
 }
 
 game_t button_is_clicked(sfRenderWindow *window, game_t game)
 {
-    if (game.cur_scn == 3) {
-        game = button_is_clicked_combat(window, game);
-    }
     if (game.cur_scn == 1) {
-        game = button_is_clicked_game(window, game);
+        //game = button_is_clicked_game(window, game);
     }
     if (game.cur_scn == 0) {
         game = button_is_clicked_menu(window, game);
@@ -98,8 +91,8 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
 
 game_t key_is_pressed(sfRenderWindow *window, sfEvent event, game_t game)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue && game.cur_scn > 0) {
-        //open_pause_menu();
+    if (game.cur_scn == 1) {
+        analyse_move_event(window, &game, event, game.perso);
     }
     return (game);
 }
@@ -114,22 +107,21 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
             game = button_is_clicked(window, game);
         }
         if (event.type == sfEvtKeyPressed) {
-            game = key_is_pressed(window, event, game);
+            //game = key_is_pressed(window, event, game);
         }
     }
     return (game);
 }
 
-void analyse_combat_event(sfRenderWindow *window, game_t game)
+game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, enemy_t *enemy)
 {
-    sfEvent *event;
-
-    while (sfRenderWindow_pollEvent(window, event)) {
-        if (event->type == sfEvtClosed) {
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed) {
             close_window(window);
         }
-        if (event->type == sfEvtMouseButtonPressed) {
-            game = button_is_clicked(window, game);
+        if (event.type == sfEvtMouseButtonPressed) {
+            game = button_is_clicked_combat(window, game, enemy);
         }
     }
+    return (game);
 }

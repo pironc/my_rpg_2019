@@ -44,8 +44,22 @@ void init_abilites(perso_t *perso)
     perso->all_abili[2] = NULL;
 }
 
+void init_perso_hp_bar(perso_t *perso)
+{
+    sfVector2f size = {0, 43};
+    sfColor fill_color = sfColor_fromRGBA(0, 0, 0, 255);    
+
+    perso->hp_bar.rect = sfRectangleShape_create();
+    perso->hp_bar.hp_bar_spr = sfSprite_create();
+    perso->hp_bar.hp_bar_text = sfTexture_createFromFile("ressources/health_bar.png", NULL);
+    sfSprite_setTexture(perso->hp_bar.hp_bar_spr, perso->hp_bar.hp_bar_text, sfTrue);
+    sfRectangleShape_setSize(perso->hp_bar.rect, size);
+    sfRectangleShape_setFillColor(perso->hp_bar.rect, fill_color);
+}
+
 void init_perso(perso_t *perso)
 {
+    sfVector2f gm_pos = {50, 270};
     perso->name = malloc(sizeof(char) * 10);
     perso->name = "Jean-Louis";
     perso->hp = 50;
@@ -64,10 +78,13 @@ void init_perso(perso_t *perso)
     sfSprite_setTexture(perso->spr, perso->text, sfTrue);
     sfSprite_setTextureRect(perso->spr, perso->rect);
     sfSprite_setPosition(perso->spr, perso->pos);
+    init_perso_hp_bar(perso);
     perso->invent = malloc(sizeof(obj_t*) * 5);
     init_invent(perso);
     perso->all_abili = malloc(sizeof(abili_t*) * 3);
     init_abilites(perso);
+    perso->pos = gm_pos;
+    sfSprite_setPosition(perso->spr, perso->pos);
 }
 
 void check_perso(perso_t *perso)
