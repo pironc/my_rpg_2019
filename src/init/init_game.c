@@ -50,12 +50,10 @@ void init_game_scene(game_t game)
 {
     sfVector2f fight_but_pos = {100, 50};
 
-    game.scenes[1].buttons = malloc(sizeof(button_t) * 1);
+    game.scenes[1].enemy_left = 3;
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
     "ressources/map_forest.jpg");
-    game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], \
-    fight_but_pos, "ressources/BUTTONS/combat_but.png");
 }
 
 void init_options(game_t game)

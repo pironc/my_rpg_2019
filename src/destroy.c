@@ -30,3 +30,12 @@ void destroy_perso(perso_t *perso)
         free(perso->all_abili[i]);
     }
 }
+
+void destroy_enemy(enemy_t *enemy)
+{
+    sfRectangleShape_destroy(enemy->hp_bar.rect);
+    sfTexture_destroy(enemy->hp_bar.hp_bar_text);
+    sfSprite_destroy(enemy->hp_bar.hp_bar_spr);
+    sfTexture_destroy(enemy->text);
+    sfSprite_destroy(enemy->spr);
+}

@@ -98,6 +98,7 @@ typedef struct enemy_s {
 typedef struct scene_s {
     int but_nbr;
     int obj_nbr;
+    int enemy_left;
     enemy_t *enemys;
     button_t *buttons;
     gm_obj_t *gm_objcts;

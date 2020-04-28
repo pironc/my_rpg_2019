@@ -13,6 +13,7 @@ enemy_t *init_enemy_forest(void)
 
     enemy->name = "Forest Enemy";
     enemy->hp = 25;
+    enemy->max_hp = 25;
     enemy->attack = 2;
     enemy->armor = 2;
     enemy->giv_xp = 10;
@@ -34,6 +35,7 @@ enemy_t *init_enemy_desert(void)
 
     enemy->name = "Desert Enemy";
     enemy->hp = 40;
+    enemy->max_hp = 40;
     enemy->attack = 4;
     enemy->armor = 0;
     enemy->giv_xp = 15;
@@ -55,6 +57,7 @@ enemy_t *init_enemy_lac(void)
 
     enemy->name = "Lac Enemy";
     enemy->hp = 20;
+    enemy->max_hp = 20;
     enemy->attack = 5;
     enemy->armor = 0;
     enemy->giv_xp = 5;
@@ -75,7 +78,7 @@ void init_enemies(enemy_t **enemies)
     enemies[0] = init_enemy_forest();
     enemies[1] = init_enemy_desert();
     enemies[2] = init_enemy_lac();
-    enemies[3] == NULL;
+    enemies[3] = NULL;
 }
 
 void check_enemy(enemy_t **enemies)
