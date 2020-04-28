@@ -4,8 +4,8 @@
 ** File description:
 ** handle events
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void close_window(sfRenderWindow *window)
 {
@@ -14,7 +14,8 @@ void close_window(sfRenderWindow *window)
 
 int check_which_button(game_t game, int but_tested, sfVector2i c_pos)
 {
-    sfFloatRect g_bnd = sfSprite_getGlobalBounds(game.scenes[game.cur_scn].buttons[but_tested - 1].spr);
+    sfFloatRect g_bnd = sfSprite_getGlobalBounds(\
+game.scenes[game.cur_scn].buttons[but_tested - 1].spr);
     if (c_pos.x >= g_bnd.left && c_pos.x <= (g_bnd.left + g_bnd.width)) {
         if (c_pos.y <= (g_bnd.top + g_bnd.height) && c_pos.y >= g_bnd.top) {
             return (but_tested);
@@ -28,7 +29,8 @@ game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
     int but_clicked = 0;
     if (game.scenes[0].but_nbr > 0) {
         for (int i = 1; but_clicked == 0; i++) {
-            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
@@ -51,7 +53,8 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
     int but_clicked = 0;
     if (game.scenes[1].but_nbr > 0) {
         for (int i = 1; but_clicked == 0; i++) {
-            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
@@ -69,7 +72,8 @@ game_t button_is_clicked_combat(sfRenderWindow *window, game_t game)
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
         for (int i = 1; but_clicked == 0; i++) {
-            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {

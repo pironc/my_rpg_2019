@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** 
+**
 ** File description:
-** 
+**
 */
 #include <stddef.h>
 #include <SFML/System.h>

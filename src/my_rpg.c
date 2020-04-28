@@ -4,8 +4,8 @@
 ** File description:
 ** function where everything will be called in order to make the rpg work
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 int my_rpg(void)
 {

@@ -4,8 +4,8 @@
 ** File description:
 ** draw
 */
-
-#include "../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void draw_elements(sfRenderWindow *window, game_t game)
 {
@@ -14,10 +14,12 @@ void draw_elements(sfRenderWindow *window, game_t game)
         game.fade.active = 0;
     }*/
     for (int i = 0; i != game.scenes[game.cur_scn].obj_nbr; i++) {
-        sfRenderWindow_drawSprite(window, game.scenes[game.cur_scn].gm_objcts[i].spr, NULL);
+        sfRenderWindow_drawSprite(window, \
+game.scenes[game.cur_scn].gm_objcts[i].spr, NULL);
     }
     for (int i = 0; i != game.scenes[game.cur_scn].but_nbr; i++) {
-        sfRenderWindow_drawSprite(window, game.scenes[game.cur_scn].buttons[i].spr, NULL);
+        sfRenderWindow_drawSprite(window, \
+game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }
     /*if (game.fade.active = 0) {
         game.fade.transparent.a = fade_out(window, game);

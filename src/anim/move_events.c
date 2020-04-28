@@ -4,8 +4,8 @@
 ** File description:
 ** move event
 */
-
-#include "../../include/rpg.h"
+#include "proto.h"
+#include "rpg.h"
 
 void key_pressed(sfRenderWindow *window, sfEvent event, \
 perso_t *perso, game_t *game)
@@ -19,10 +19,10 @@ perso_t *perso, game_t *game)
         move_perso(perso, 2);
     }
     if (sfKeyboard_isKeyPressed(sfKeyQ) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
+        sfKeyboard_isKeyPressed(sfKeyLeft) == sfTrue)
         move_perso(perso, 3);
     if (sfKeyboard_isKeyPressed(sfKeyD) == sfTrue || \
-    sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue)
+        sfKeyboard_isKeyPressed(sfKeyRight) == sfTrue)
         move_perso(perso, 4);
 }
 
