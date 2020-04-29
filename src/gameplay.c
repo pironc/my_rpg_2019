@@ -29,6 +29,11 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
     return (0);
 }
 
+void rearrange_enemy_arr(game_t game)
+{
+    ;
+}
+
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 {
     int enemys_nbr = 0;
@@ -41,6 +46,7 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
         init_combat_scene(game, window, game.enemies[enemys_nbr - 1]);
         game = combat(window, game, game.enemies[enemys_nbr - 1]);
         game.enemies[enemys_nbr - 1] = NULL;
+        rearrange_enemy_arr(game);
     }
     return (game);
 }
