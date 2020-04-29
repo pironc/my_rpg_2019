@@ -106,7 +106,12 @@ void move_perso(game_t *game, perso_t *perso, int i)
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x - 1] == '*' &&  tile_forest[bottom_y][current_x - 1] == '*')
             perso->pos.x -= 8;
         else if (tile_forest[current_y][current_x - 1] == 'D') {
-            game->cur_scn = 5;
+            if (game->cur_scn == 4) {
+                game->cur_scn = 5;
+            }
+            if (game->cur_scn == 6) {
+                game->cur_scn = 4;
+            }
             perso->pos.y = 300;
             perso->pos.x = 1800;
         } else
@@ -117,7 +122,12 @@ void move_perso(game_t *game, perso_t *perso, int i)
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x + 1] == '*' &&  tile_forest[current_y][current_x + 1] == '*')
             perso->pos.x += 8;
         else if (tile_forest[current_y][current_x + 1] == 'L') {
-            game->cur_scn = 6;
+            if (game->cur_scn == 4) {
+                game->cur_scn = 6;
+            }
+            if (game->cur_scn == 5) {
+                game->cur_scn = 4;
+            }
             perso->pos.y = 300;
             perso->pos.x = 70;
         } else
