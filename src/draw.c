@@ -45,9 +45,7 @@ void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    game.perso = malloc(sizeof(perso_t) * 1);
     game.enemies = malloc(sizeof(enemy_t*) * 4);
-    init_perso(game.perso);
     init_enemies(game.enemies);
     //check_enemy(game.enemies);
     //check_perso(game.perso);

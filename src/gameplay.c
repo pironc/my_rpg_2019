@@ -29,9 +29,21 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
     return (0);
 }
 
-void rearrange_enemy_arr(game_t game)
+void swap_enemy_places(enemy_t *enemy_arr, int i)
 {
     ;
+}
+
+void rearrange_enemy_arr(game_t game)
+{
+    int i = 0;
+    int j = 0;
+    
+    for (; i != game.scenes[game.cur_scn].enemy_left; i++) {
+        if (game.enemies[i] == NULL) {
+            swap_enemy_places(game.enemies, i);
+        } 
+    }
 }
 
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
@@ -46,7 +58,9 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
         init_combat_scene(game, window, game.enemies[enemys_nbr - 1]);
         game = combat(window, game, game.enemies[enemys_nbr - 1]);
         game.enemies[enemys_nbr - 1] = NULL;
-        rearrange_enemy_arr(game);
+        /*if (game.scenes[game.cur_scn].enemy_left > 0) {
+            rearrange_enemy_arr(game);
+        }*/
     }
     return (game);
 }
@@ -59,12 +73,12 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfTime time;
     sfEvent event;
 
-    while (game.cur_scn >= 4) {
+    while (game.cur_scn >= 4 && sfRenderWindow_isOpen(window)) {
         reset_window(window, &game, perso);
         time = sfClock_getElapsedTime(clock2);
         seconds = time.microseconds / 1000000.000;
         check_collision_enemy(window, game);
-        if (seconds > 0.020) {
+        if (seconds > 0.020 && sfRenderWindow_isOpen(window)) {
             analyse_move_event(window, &game, event, perso);
             sfClock_restart(clock2);
         }
