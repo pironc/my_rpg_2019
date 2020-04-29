@@ -7,6 +7,15 @@
 #include "proto.h"
 #include "rpg.h"
 
+void draw_leaves(sfRenderWindow *window, game_t *game, perso_t *perso)
+{
+    sfSprite *leavesSprite = sfSprite_create();
+    sfTexture *leavesTexture = sfTexture_createFromFile("ressources/leaves.png", NULL);
+    sfSprite_setTexture(leavesSprite, leavesTexture, sfTrue);
+    if (game->cur_scn == 4)
+        sfRenderWindow_drawSprite(window, leavesSprite, NULL);
+}
+
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfRenderWindow_clear(window, sfBlack);
@@ -15,6 +24,7 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
         sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
     }
+    draw_leaves(window, game, perso);
     //if (game->cur_scn == 4)
     //    sfRenderWindow_drawSprite(window, game->scenes[4].gm_objcts[1].spr, NULL);
     sfRenderWindow_display(window);

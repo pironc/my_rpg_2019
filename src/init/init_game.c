@@ -64,7 +64,7 @@ void init_forest_map(game_t game)
     "ressources/map_forest.jpg");
     //game.scenes[4].gm_objcts[1] = init_game_obj(game.scenes[4].gm_objcts[1], \
     //"ressources/leaves.png");
-    game.scenes[4].obj_nbr = 2;
+    game.scenes[4].obj_nbr = 1;
     game.scenes[4].but_nbr = 0;
 }
 
