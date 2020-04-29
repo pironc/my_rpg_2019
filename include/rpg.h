@@ -125,7 +125,7 @@ typedef struct game_s {
     scene_t *scenes;
     perso_t *perso;
     enemy_t **enemies;
-    maps_t *all_map;
+    maps_t **all_map;
     sfBool player_turn;
 } game_t;
 

@@ -24,9 +24,7 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
         sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
     }
-    draw_leaves(window, game, perso);
-    //if (game->cur_scn == 4)
-    //    sfRenderWindow_drawSprite(window, game->scenes[4].gm_objcts[1].spr, NULL);
+    //draw_leaves(window, game, perso);
     sfRenderWindow_display(window);
 }
 
