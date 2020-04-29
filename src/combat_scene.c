@@ -180,8 +180,5 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
         //GAME_OVER;
     }
     back_to_gameplay(game);
-    if (game.scenes[game.cur_scn].enemy_left > 0) {
-        rearrange_enemy_arr(game);
-    }
     return(game);
 }
