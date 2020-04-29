@@ -40,10 +40,11 @@ game, i, sfMouse_getPosition(window));
         game.scenes[4].obj_nbr = 1;
     }
     if (but_clicked == 2) {
+        int i = 1;
         destroy_menu(game);
-        game.cur_scn = 4;
-        game.scenes[4].but_nbr = 0;
-        game.scenes[4].obj_nbr = 1;
+        game.cur_scn = 2;
+        game.scenes[2].but_nbr = 3;
+        game.scenes[2].but_nbr = 3;
     }
     if (but_clicked == 3) {
         close_window(window);
