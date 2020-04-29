@@ -141,7 +141,7 @@ game_t enemy_attack(game_t game, enemy_t *enemy)
 
 void earn_loot(game_t game, enemy_t *enemy)
 {
-    game.perso->gold += enemy->giv_xp;
+    game.perso->exp += enemy->giv_xp;
 }
 
 game_t back_to_gameplay(game_t game)
@@ -161,7 +161,7 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
     while (game.perso->hp > 0 && enemy->hp > 0) {
         draw_combat(window, game, enemy);
         sfRenderWindow_display(window);
-        while (game.player_turn == sfTrue) {
+        while (game.player_turn == sfTrue && sfRenderWindow_isOpen(window)) {
             game = analyse_combat_event(window, event, game, enemy);
         }
         if (game.player_turn == sfFalse) {
