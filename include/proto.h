@@ -17,6 +17,7 @@ void check_perso(perso_t *perso);
 void check_enemy(enemy_t **enemies);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 game_t back_to_gameplay(game_t game);
+void rearrange_enemy_arr(game_t game);
 game_t check_collision_enemy(sfRenderWindow *window, game_t game);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void change_sprite(perso_t *perso, char *filepath);

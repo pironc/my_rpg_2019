@@ -35,7 +35,7 @@ void init_menu(game_t game)
     sfVector2f pos_exit = {650, 700};
 
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
-    game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t));
+    game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
     "ressources/main_menu_bg.png");
     game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], \
