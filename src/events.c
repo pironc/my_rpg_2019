@@ -39,6 +39,15 @@ game, i, sfMouse_getPosition(window));
         game.scenes[4].but_nbr = 0;
         game.scenes[4].obj_nbr = 1;
     }
+    if (but_clicked == 2) {
+        destroy_menu(game);
+        game.cur_scn = 4;
+        game.scenes[4].but_nbr = 0;
+        game.scenes[4].obj_nbr = 1;
+    }
+    if (but_clicked == 3) {
+        close_window(window);
+    }
     return (game);
 }
 
@@ -83,9 +92,6 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked(window, game);
-        }
-        if (event.type == sfEvtKeyPressed) {
-            //game = key_is_pressed(window, event, game);
         }
     }
     return (game);

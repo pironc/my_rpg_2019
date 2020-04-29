@@ -15,6 +15,8 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
         sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
     }
+    //if (game->cur_scn == 4)
+    //    sfRenderWindow_drawSprite(window, game->scenes[4].gm_objcts[1].spr, NULL);
     sfRenderWindow_display(window);
 }
 
@@ -27,26 +29,6 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
         }
     }
     return (0);
-}
-
-void swap_enemy_places(game_t game, int i)
-{
-    if (game.enemies[i + 1] != NULL) {
-        game.enemies[i] = game.enemies[i + 1];
-        game.enemies[i + 1] = NULL;
-    }
-}
-
-void rearrange_enemy_arr(game_t game)
-{
-    int i = 0;
-    
-    for (; i != game.scenes[game.cur_scn].enemy_left; i++) {
-        if (game.enemies[i] == NULL) {
-            swap_enemy_places(game, i);
-        }
-        my_putchar('a');
-    }
 }
 
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
