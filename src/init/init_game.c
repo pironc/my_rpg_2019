@@ -65,7 +65,7 @@ void init_forest_map(game_t game)
     "ressources/map_forest.jpg");
     //game.scenes[4].gm_objcts[1] = init_game_obj(game.scenes[4].gm_objcts[1], \
     //"ressources/leaves.png");
-    game.scenes[4].obj_nbr = 2;
+    game.scenes[4].obj_nbr = 1;
     game.scenes[4].but_nbr = 0;
 }
 
@@ -109,7 +109,7 @@ void init_pause_menu(game_t game)
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f pos_play = {650, 100};
-    sfVector2f pos_menu = {720, 420};
+    sfVector2f pos_options = {710, 400};
     sfVector2f pos_exit = {650, 700};
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
@@ -120,11 +120,11 @@ void init_pause_menu(game_t game)
     game.scenes[2].buttons[0], pos_play, "ressources/BUTTONS/Play.png");
     sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
     game.scenes[2].buttons[1] = init_button(button.callback, \
-    game.scenes[2].buttons[1], pos_menu, "ressources/BUTTONS/Menu.png");
-    sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
+    game.scenes[2].buttons[1], pos_options, "ressources/BUTTONS/Menu.png");
+    sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
     game.scenes[2].buttons[2] = init_button(button.callback, \
     game.scenes[2].buttons[2], pos_exit, "ressources/BUTTONS/Exit.png");
-    sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
+    sfSprite_setScale(game.scenes[2].buttons[2].spr, scale);
 }
 
 void init_transition(game_t game)
