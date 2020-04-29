@@ -17,6 +17,7 @@ void check_perso(perso_t *perso);
 void check_enemy(enemy_t **enemies);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 game_t back_to_gameplay(game_t game);
+void rearrange_enemy_arr(game_t game);
 game_t check_collision_enemy(sfRenderWindow *window, game_t game);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void change_sprite(perso_t *perso, char *filepath);
@@ -41,7 +42,7 @@ void move_perso(game_t *game, perso_t *perso, int i);
 
 /*----------Menu RPG-------------*/
 
-void text_in_button(button_t *button);
+
 
 /*----------Init RPG-------------*/
 
@@ -50,6 +51,7 @@ void init_perso(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
+void init_pause_menu(game_t game);
 sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
