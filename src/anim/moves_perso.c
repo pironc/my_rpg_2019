@@ -77,6 +77,7 @@ void move_perso(perso_t *perso, int i)
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
     };
 
+    top_y = (perso->pos.y + 16) / 32;
     current_y = (perso->pos.y + 32) / 32;
     bottom_y = (perso->pos.y + 48) / 32;
 
@@ -113,7 +114,7 @@ void move_perso(perso_t *perso, int i)
     }
     if (i == 4) {
         change_sprite(perso, "ressources/perso_right.png");
-        if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x + 1] == '*' &&  tile_forest[current_y][current_x + 1] == '*')
+        if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x + 1] == '*' &&  tile_forest[bottom_y][current_x + 1] == '*')
             perso->pos.x += 8;
         else if (tile_forest[current_y][current_x + 1] == 'L') {
             perso->pos.y = 500;
