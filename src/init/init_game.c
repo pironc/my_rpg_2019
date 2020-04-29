@@ -56,11 +56,43 @@ void init_forest_map(game_t game)
     game.scenes[4].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[4].gm_objcts[0] = init_game_obj(game.scenes[4].gm_objcts[0], \
     "ressources/map_forest.jpg");
+    game.scenes[4].obj_nbr = 1;
+    game.scenes[4].but_nbr = 0;
+}
+
+void init_desert_map(game_t game)
+{
+    sfVector2f fight_but_pos = {100, 50};
+
+    game.scenes[5].enemy_left = 0;
+    game.scenes[5].name = malloc(sizeof(char) * 11);
+    game.scenes[5].name = "desert_map";
+    game.scenes[5].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
+    game.scenes[5].gm_objcts[0] = init_game_obj(game.scenes[5].gm_objcts[0], \
+    "ressources/map_desert.jpg");
+    game.scenes[5].obj_nbr = 1;
+    game.scenes[5].but_nbr = 0;
+}
+
+void init_lava_map(game_t game)
+{
+    sfVector2f fight_but_pos = {100, 50};
+
+    game.scenes[6].enemy_left = 0;
+    game.scenes[6].name = malloc(sizeof(char) * 9);
+    game.scenes[6].name = "lava_map";
+    game.scenes[6].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
+    game.scenes[6].gm_objcts[0] = init_game_obj(game.scenes[6].gm_objcts[0], \
+    "ressources/map_lava.jpg");
+    game.scenes[6].obj_nbr = 1;
+    game.scenes[6].but_nbr = 0;
 }
 
 void init_game_scenes(game_t game)
 {
     init_forest_map(game);
+    init_desert_map(game);
+    init_lava_map(game);
 }
 
 void init_options(game_t game)
