@@ -73,12 +73,12 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfTime time;
     sfEvent event;
 
-    while (game.cur_scn >= 4) {
+    while (game.cur_scn >= 4 && sfRenderWindow_isOpen(window)) {
         reset_window(window, &game, perso);
         time = sfClock_getElapsedTime(clock2);
         seconds = time.microseconds / 1000000.000;
         check_collision_enemy(window, game);
-        if (seconds > 0.020) {
+        if (seconds > 0.020 && sfRenderWindow_isOpen(window)) {
             analyse_move_event(window, &game, event, perso);
             sfClock_restart(clock2);
         }

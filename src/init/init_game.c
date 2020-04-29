@@ -132,7 +132,7 @@ game_t init_forest(game_t game)
     game.scenes[0].obj_nbr = 1;
     game.scenes[0].but_nbr = 3;
     init_perso(perso);
-    check_perso(perso);
+    //check_perso(perso);
     game.perso = perso;
     init_menu(game);
     init_pause_menu(game);
