@@ -42,7 +42,7 @@ void move_perso(game_t *game, perso_t *perso, int i);
 
 /*----------Menu RPG-------------*/
 
-
+void display_menu(game_t *game, sfRenderWindow *window);
 
 /*----------Init RPG-------------*/
 
