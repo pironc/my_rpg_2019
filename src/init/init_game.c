@@ -101,15 +101,15 @@ void init_pause_menu(game_t game)
     sfVector2f pos_menu = {580, 400};
     sfVector2f pos_exit = {650, 700};
 
-    game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
-    game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
+    game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
+    game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
+    game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
     "ressources/main_menu_bg.png");
-    game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], \
-    pos_play, "ressources/BUTTONS/PlayButton.png");
-    game.scenes[0].buttons[1] = init_button(game.scenes[0].buttons[1], \
-    pos_menu, "ressources/BUTTONS/MenuButton.png");
-    game.scenes[0].buttons[2] = init_button(game.scenes[0].buttons[2], \
+    game.scenes[2].buttons[0] = init_button(game.scenes[0].buttons[0], \
+    pos_play, "ressources/BUTTONS/MenuButton.png");
+    game.scenes[2].buttons[1] = init_button(game.scenes[0].buttons[1], \
+    pos_menu, "ressources/BUTTONS/PlayButton.png");
+    game.scenes[2].buttons[2] = init_button(game.scenes[0].buttons[2], \
     pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
@@ -135,7 +135,7 @@ game_t init_forest(game_t game)
     //check_perso(perso);
     game.perso = perso;
     init_menu(game);
-    //init_pause_menu(game);
+    init_pause_menu(game);
     init_game_scenes(game);
     return (game);
 }
