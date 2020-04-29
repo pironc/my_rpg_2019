@@ -47,7 +47,7 @@ void init_abilites(perso_t *perso)
 void init_perso_hp_bar(perso_t *perso)
 {
     sfVector2f size = {0, 43};
-    sfColor fill_color = sfColor_fromRGBA(0, 0, 0, 255);    
+    sfColor fill_color = sfColor_fromRGBA(0, 0, 0, 255);
 
     perso->hp_bar.rect = sfRectangleShape_create();
     perso->hp_bar.hp_bar_spr = sfSprite_create();
