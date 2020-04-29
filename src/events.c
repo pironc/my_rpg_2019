@@ -57,7 +57,6 @@ game_t button_is_clicked_game(sfRenderWindow *window, game_t game)
 game, i, sfMouse_getPosition(window));
         }
     }
-    
     return (game);
 }
 
