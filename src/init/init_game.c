@@ -51,6 +51,8 @@ void init_forest_map(game_t game)
     sfVector2f fight_but_pos = {100, 50};
 
     game.scenes[4].enemy_left = 3;
+    game.scenes[4].name = malloc(sizeof(char) * 11);
+    game.scenes[4].name = "forest_map";
     game.scenes[4].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[4].gm_objcts[0] = init_game_obj(game.scenes[4].gm_objcts[0], \
     "ressources/map_forest.jpg");
