@@ -15,6 +15,8 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
         sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
     }
+    if (game->cur_scn == 4)
+        sfRenderWindow_drawSprite(window, game->scenes[4].gm_objcts[1].spr, NULL);
     sfRenderWindow_display(window);
 }
 
@@ -38,11 +40,11 @@ void rearrange_enemy_arr(game_t game)
 {
     int i = 0;
     int j = 0;
-    
+
     for (; i != game.scenes[game.cur_scn].enemy_left; i++) {
         if (game.enemies[i] == NULL) {
             swap_enemy_places(game.enemies, i);
-        } 
+        }
     }
 }
 
