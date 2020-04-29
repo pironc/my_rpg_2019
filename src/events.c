@@ -26,6 +26,7 @@ game.scenes[game.cur_scn].buttons[but_tested - 1].spr);
 
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
 {
+    sfEvent event;
     int but_clicked = 0;
     if (game.scenes[0].but_nbr > 0) {
         for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[0].but_nbr; i++) {
@@ -40,7 +41,6 @@ game, i, sfMouse_getPosition(window));
         game.scenes[4].obj_nbr = 1;
     }
     if (but_clicked == 2) {
-        int i = 1;
         destroy_menu(game);
         game.cur_scn = 2;
         game.scenes[2].but_nbr = 3;
@@ -93,6 +93,11 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked(window, game);
+        }
+        if (event.key.code == sfKeyEscape) {
+            game.cur_scn = 2;
+            game.scenes[2].but_nbr = 3;
+            game.scenes[2].but_nbr = 3;
         }
     }
     return (game);
