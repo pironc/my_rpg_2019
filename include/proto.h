@@ -47,14 +47,17 @@ game_t initialize_game(game_t game);
 void init_perso(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
-button_t init_button(void (*function)(), button_t button, \
-sfVector2f position, char *filepath);
+button_t init_button(button_t button, sfVector2f position, char *filepath);
 void init_pause_menu(game_t game);
 sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
+void init_map(maps_t *map);
+void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
+game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+char **my_str_to_word_array_space(char *str);
 
 /*---------Destroy RPG-----------*/
 

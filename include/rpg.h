@@ -14,11 +14,6 @@
 #include <fcntl.h>
 #include <sys/types.h>
 
-#define MENU 0
-#define OPTION 1
-#define PAUSE 2
-#define HOW_TO_PLAY 9
-
 #ifndef RPG_
 #define RPG_
 
@@ -34,7 +29,6 @@ typedef struct button_s {
     sfTexture *text;
     sfFont *font;
     sfRectangleShape *rect;
-    void (*callback)();
 } button_t;
 
 typedef struct npc_s {
