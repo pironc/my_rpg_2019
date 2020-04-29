@@ -56,11 +56,8 @@ void init_forest_map(game_t game);
 void init_map(maps_t *map);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
-<<<<<<< HEAD
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
-=======
 char **my_str_to_word_array_space(char *str);
->>>>>>> 004c481ffb666005cd3eca3ffe11f80ffe96e0b4
 
 /*---------Destroy RPG-----------*/
 
