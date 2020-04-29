@@ -65,5 +65,6 @@ void destroy_enemy(enemy_t *enemy);
 /*---------Combat RPG------------*/
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
 void earn_loot(game_t game, enemy_t *enemy);

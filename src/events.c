@@ -52,7 +52,7 @@ game, i, sfMouse_getPosition(window));
     return (game);
 }
 
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy, sfEvent event)
 {
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
@@ -91,7 +91,7 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         if (event.type == sfEvtClosed) {
             close_window(window);
         }
-        if (event.type == sfEvtMouseButtonPressed) {
+        if (event.type == sfEvtMouseButtonReleased) {
             game = button_is_clicked(window, game);
         }
     }
@@ -106,7 +106,7 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, 
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
-            game = button_is_clicked_combat(window, game, enemy);
+            game = button_is_clicked_combat(window, game, enemy, event);
         }
     }
     return (game);
