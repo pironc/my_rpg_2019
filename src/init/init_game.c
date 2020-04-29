@@ -56,7 +56,9 @@ void init_forest_map(game_t game)
     game.scenes[4].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[4].gm_objcts[0] = init_game_obj(game.scenes[4].gm_objcts[0], \
     "ressources/map_forest.jpg");
-    game.scenes[4].obj_nbr = 1;
+    game.scenes[4].gm_objcts[1] = init_game_obj(game.scenes[4].gm_objcts[1], \
+    "ressources/leaves.png");
+    game.scenes[4].obj_nbr = 2;
     game.scenes[4].but_nbr = 0;
 }
 
@@ -124,7 +126,7 @@ void init_transition(game_t game)
     game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);
 }
 
-game_t init_forest(game_t game)
+game_t initialize_game(game_t game)
 {
     perso_t *perso = malloc(sizeof(perso_t) * 1);
 
@@ -137,11 +139,5 @@ game_t init_forest(game_t game)
     init_menu(game);
     init_pause_menu(game);
     init_game_scenes(game);
-    return (game);
-}
-
-game_t initialize_game(game_t game)
-{
-    game = init_forest(game);
     return (game);
 }
