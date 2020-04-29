@@ -30,7 +30,7 @@ void move_rect(sfIntRect *rect, int offset, int max_value)
     }
 }
 
-void move_perso(perso_t *perso, int i)
+void move_perso(game_t *game, perso_t *perso, int i)
 {
     int current_x = 0;
     int current_y = 0;
@@ -97,8 +97,9 @@ void move_perso(perso_t *perso, int i)
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x - 1] == '*')
             perso->pos.x -= 8;
         else if (tile_forest[current_y][current_x - 1] == 'D') {
-            perso->pos.y = 500;
-            perso->pos.x = 1000;
+            game->cur_scn = 5;
+            perso->pos.y = 300;
+            perso->pos.x = 1800;
         } else
             perso->pos.x -= 0;
     }
@@ -107,8 +108,9 @@ void move_perso(perso_t *perso, int i)
         if (tile_forest[current_y][current_x] == '*' && tile_forest[current_y][current_x + 1] == '*')
             perso->pos.x += 8;
         else if (tile_forest[current_y][current_x + 1] == 'L') {
-            perso->pos.y = 500;
-            perso->pos.x = 1000;
+            game->cur_scn = 6;
+            perso->pos.y = 300;
+            perso->pos.x = 70;
         } else
             perso->pos.x += 0;
     }
