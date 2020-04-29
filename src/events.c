@@ -118,7 +118,6 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, 
         if (event.type == sfEvtClosed) {
             game.perso->hp = -1;
             close_window(window);
-            //exit(0);
         }
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked_combat(window, game, enemy);
