@@ -79,7 +79,7 @@ void init_transition(game_t game)
     game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);
 }
 
-game_t initialize_game(game_t game)
+game_t init_forest(game_t game)
 {
     perso_t *perso = malloc(sizeof(perso_t) * 1);
 
@@ -92,5 +92,11 @@ game_t initialize_game(game_t game)
     init_menu(game);
     init_options(game);
     init_game_scenes(game);
+    return (game);
+}
+
+game_t initialize_game(game_t game)
+{
+    game = init_forest(game);
     return (game);
 }

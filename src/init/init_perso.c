@@ -47,7 +47,7 @@ void init_abilites(perso_t *perso)
 void init_perso_hp_bar(perso_t *perso)
 {
     sfVector2f size = {0, 43};
-    sfColor fill_color = sfColor_fromRGBA(0, 0, 0, 255);    
+    sfColor fill_color = sfColor_fromRGBA(0, 0, 0, 255);
 
     perso->hp_bar.rect = sfRectangleShape_create();
     perso->hp_bar.hp_bar_spr = sfSprite_create();
@@ -69,8 +69,8 @@ void init_perso(perso_t *perso)
     perso->exp = 0;
     perso->gold = 10;
     perso->spr = sfSprite_create();
-    perso->text = sfTexture_createFromFile("\
-    ressources/perso_static_down.png", NULL);
+    perso->text = sfTexture_createFromFile\
+    ("ressources/perso_static_down.png", NULL);
     perso->rect = set_rect(64, 64);
     perso->pos = set_pos(296, 576);
     //sfVector2f scale_perso = {1.5, 1.5};

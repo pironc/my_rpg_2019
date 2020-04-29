@@ -16,7 +16,7 @@ void perso_anim(perso_t *perso)
 
 void enemy_anim_test(enemy_t **enemies, game_t game)
 {
-    for (int i = 0; i < game.scenes[1].enemy_left; i++) {
+    for (int i = 0; i < game.scenes[game.cur_scn].enemy_left; i++) {
         move_rect(&enemies[i]->rect, 64, 256);
         sfSprite_setTextureRect(enemies[i]->spr, enemies[i]->rect);
     }
