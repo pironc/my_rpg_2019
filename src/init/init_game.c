@@ -137,7 +137,7 @@ game_t initialize_game(game_t game)
     //check_perso(perso);
     game.perso = perso;
     init_menu(game);
-    init_pause_menu(game);
+    //init_pause_menu(game);
     init_game_scenes(game);
     return (game);
 }
