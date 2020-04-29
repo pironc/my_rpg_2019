@@ -59,7 +59,7 @@ void init_perso_hp_bar(perso_t *perso)
 
 void init_perso(perso_t *perso)
 {
-    sfVector2f gm_pos = {50, 270};
+    sfVector2f gm_pos = {200, 270};
     perso->name = malloc(sizeof(char) * 10);
     perso->name = "Jean-Louis";
     perso->hp = 50;
