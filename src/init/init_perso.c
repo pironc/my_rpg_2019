@@ -69,8 +69,8 @@ void init_perso(perso_t *perso)
     perso->exp = 0;
     perso->gold = 10;
     perso->spr = sfSprite_create();
-    perso->text = sfTexture_createFromFile("\
-    ressources/perso_static_down.png", NULL);
+    perso->text = sfTexture_createFromFile\
+    ("ressources/perso_static_down.png", NULL);
     perso->rect = set_rect(64, 64);
     perso->pos = set_pos(296, 576);
     //sfVector2f scale_perso = {1.5, 1.5};
