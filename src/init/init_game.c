@@ -135,7 +135,7 @@ game_t init_forest(game_t game)
     check_perso(perso);
     game.perso = perso;
     init_menu(game);
-    //init_options(game);
+    init_pause_menu(game);
     init_game_scenes(game);
     return (game);
 }
