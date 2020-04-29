@@ -14,6 +14,11 @@
 #include <fcntl.h>
 #include <sys/types.h>
 
+#define MENU 0
+#define OPTION 1
+#define PAUSE 2
+#define HOW_TO_PLAY 9
+
 #ifndef RPG_
 #define RPG_
 
