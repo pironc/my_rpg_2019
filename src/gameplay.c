@@ -29,20 +29,23 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
     return (0);
 }
 
-void swap_enemy_places(enemy_t *enemy_arr, int i)
+void swap_enemy_places(game_t game, int i)
 {
-    ;
+    if (game.enemies[i + 1] != NULL) {
+        game.enemies[i] = game.enemies[i + 1];
+        game.enemies[i + 1] = NULL;
+    }
 }
 
 void rearrange_enemy_arr(game_t game)
 {
     int i = 0;
-    int j = 0;
     
     for (; i != game.scenes[game.cur_scn].enemy_left; i++) {
         if (game.enemies[i] == NULL) {
-            swap_enemy_places(game.enemies, i);
-        } 
+            swap_enemy_places(game, i);
+        }
+        my_putchar('a');
     }
 }
 
@@ -58,9 +61,6 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
         init_combat_scene(game, window, game.enemies[enemys_nbr - 1]);
         game = combat(window, game, game.enemies[enemys_nbr - 1]);
         game.enemies[enemys_nbr - 1] = NULL;
-        /*if (game.scenes[game.cur_scn].enemy_left > 0) {
-            rearrange_enemy_arr(game);
-        }*/
     }
     return (game);
 }
