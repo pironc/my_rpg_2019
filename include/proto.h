@@ -53,7 +53,7 @@ sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
-void init_map(maps_t *map);
+maps_t *init_map(void);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
@@ -64,6 +64,7 @@ char **my_str_to_word_array_space(char *str);
 void destroy_menu(game_t game);
 void destroy_perso(perso_t *perso);
 void destroy_enemy(enemy_t *enemy);
+void destroy_map(maps_t *map);
 
 /*---------Combat RPG------------*/
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
