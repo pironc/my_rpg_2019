@@ -40,6 +40,9 @@ game, i, sfMouse_getPosition(window));
         game.scenes[4].but_nbr = 0;
         game.scenes[4].obj_nbr = 1;
     }
+    if (but_clicked == 3) {
+        close_window(window);
+    }
     return (game);
 }
 
@@ -87,8 +90,8 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
             my_putchar('A');
             game = button_is_clicked(window, game);
         }
-        if (event.type == sfEvtKeyPressed) {
-            //game = key_is_pressed(window, event, game);
+        if (event.type == sfKeyEscape) {
+            draw_elements(window, game);
         }
     }
     return (game);
