@@ -52,6 +52,8 @@ gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
 sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
+void init_game_scenes(game_t game);
+void init_forest_map(game_t game);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 
 /*---------Destroy RPG-----------*/

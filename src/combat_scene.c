@@ -147,9 +147,9 @@ void earn_loot(game_t game, enemy_t *enemy)
 game_t back_to_gameplay(game_t game)
 {
     sfVector2f scale_pers = {1, 1};
-    game.cur_scn = 1;
-    game.scenes[1].but_nbr = 0;
-    game.scenes[1].obj_nbr = 1;
+    game.cur_scn = 4;
+    game.scenes[4].but_nbr = 0;
+    game.scenes[4].obj_nbr = 1;
     sfSprite_setScale(game.perso->spr, scale_pers);
 }
 
@@ -175,7 +175,7 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
     if (enemy->hp <= 0) {
         earn_loot(game, enemy);
         destroy_enemy(enemy);
-        game.scenes[1].enemy_left--;
+        game.scenes[4].enemy_left--;
     } else {
         //GAME_OVER;
     }

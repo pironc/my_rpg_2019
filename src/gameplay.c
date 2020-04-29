@@ -32,7 +32,7 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 {
     int enemys_nbr = 0;
-    for (int i = 1; enemys_nbr == 0 && (i - 1) != game.scenes[1].enemy_left; i++)
+    for (int i = 1; enemys_nbr == 0 && (i - 1) != game.scenes[game.cur_scn].enemy_left; i++)
         enemys_nbr = check_which_enemy(game, i, game.perso->pos);
     if (enemys_nbr > 0) {
         game.cur_scn = 3;
@@ -52,7 +52,7 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfEvent event;
     sfTime time;
 
-    while (game.cur_scn == 1) {
+    while (game.cur_scn >= 4) {
         reset_window(window, &game, perso);
         time = sfClock_getElapsedTime(clock);
         seconds = time.microseconds / 1000000.000;

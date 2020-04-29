@@ -46,26 +46,24 @@ void init_menu(game_t game)
     pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
-void init_game_scene(game_t game)
+void init_forest_map(game_t game)
 {
     sfVector2f fight_but_pos = {100, 50};
 
-    game.scenes[1].enemy_left = 3;
-    game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
+    game.scenes[4].enemy_left = 3;
+    game.scenes[4].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
+    game.scenes[4].gm_objcts[0] = init_game_obj(game.scenes[4].gm_objcts[0], \
     "ressources/map_forest.jpg");
+}
+
+void init_game_scenes(game_t game)
+{
+    init_forest_map(game);
 }
 
 void init_options(game_t game)
 {
-    sfVector2f pos_exit = {1800, 100};
 
-    game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
-    game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
-    game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
-    game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
-    pos_exit, "ressources/BUTTONS/ExitButton.png");
 }
 
 void init_transition(game_t game)
@@ -91,6 +89,6 @@ game_t initialize_game(game_t game)
     game.perso = perso;
     init_menu(game);
     init_options(game);
-    init_game_scene(game);
+    init_game_scenes(game);
     return (game);
 }
