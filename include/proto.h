@@ -54,7 +54,10 @@ sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
+void init_map(maps_t *map);
+void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
+char **my_str_to_word_array_space(char *str);
 
 /*---------Destroy RPG-----------*/
 
