@@ -8,9 +8,22 @@
 #include "proto.h"
 #include "rpg.h"
 
-void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy)
+void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
-    sfVector2f anim_pos = {1500, 320};
+    sfVector2f char_pos = {50, 320};
+
+    while (char_pos.x < 200) {
+        char_pos.x += 20;
+        sfSprite_setPosition(game.perso->spr, char_pos);
+        draw_combat(window, game, enemy);
+        sfRenderWindow_display(window);
+    }
+    dmg_anim(window, game, enemy, char_pos);
+}
+
+void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, sfVector2f char_pos)
+{
+    sfVector2f anim_pos = {1490, 310};
     sfSprite *spr = sfSprite_create();
     sfTexture *text = sfTexture_createFromFile\
     ("ressources/combat_bg/anim/base_atk_anim.png", NULL);
@@ -22,8 +35,13 @@ void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy)
     rect.width = 256;
     rect.height = 256;
 
-    while (rect.top != 2048 && rect.left != 2048) {
+    while (char_pos.x > 50 || rect.top != 2048 && rect.left != 2048) {
         for (int i = 0; i != 8; i++) {
+            if (char_pos.x > 50) {
+                char_pos.x -= 5;
+                sfSprite_setPosition(game.perso->spr, char_pos);
+                draw_combat(window, game, enemy);
+            }
             move_rect(&rect, 256, 2048);
             sfSprite_setTextureRect(spr, rect);
             sfRenderWindow_drawSprite(window, spr, NULL);

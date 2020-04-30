@@ -46,7 +46,7 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
         enemys_nbr = check_which_enemy(game, i, game.perso->pos);
     if (enemys_nbr > 0) {
         game.cur_scn = 3;
-        game.scenes[3].but_nbr = 1;
+        game.scenes[3].but_nbr = 2;
         game.scenes[3].obj_nbr = 2;
         init_combat_scene(game, window, game.enemies[enemys_nbr - 1]);
         game = combat(window, game, game.enemies[enemys_nbr - 1]);
@@ -69,6 +69,7 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
         seconds = time.microseconds / 1000000.000;
         check_collision_enemy(window, game);
         if (seconds > 0.020 && sfRenderWindow_isOpen(window)) {
+            analyse_events(window, event, game);
             analyse_move_event(window, &game, event, perso);
             sfClock_restart(clock2);
         }

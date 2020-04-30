@@ -24,11 +24,36 @@ game.scenes[game.cur_scn].buttons[but_tested - 1].spr);
     return (0);
 }
 
+game_t button_is_clicked_pause(sfRenderWindow *window, game_t game)
+{
+    int but_clicked = 0;
+    if (game.scenes[1].but_nbr > 0) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[1].but_nbr; i++) {
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
+        }
+    }
+    if (but_clicked == 1) {
+        game.cur_scn = 4;
+        game.scenes[4].but_nbr = 0;
+        game.scenes[4].obj_nbr = 1;
+    }
+    if (but_clicked == 2) {
+        game.cur_scn = 1;
+        game.scenes[1].obj_nbr = 1;
+        game.scenes[1].but_nbr = 2;
+    }
+    if (but_clicked == 3) {
+        close_window(window);
+    }
+    return (game);
+}
+
 game_t button_is_clicked_options(sfRenderWindow *window, game_t game)
 {
     int but_clicked = 0;
-    if (game.scenes[2].but_nbr > 0) {
-        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[2].but_nbr; i++) {
+    if (game.scenes[1].but_nbr > 0) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[1].but_nbr; i++) {
             but_clicked = check_which_button(\
 game, i, sfMouse_getPosition(window));
         }
@@ -49,8 +74,7 @@ game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
     int but_clicked = 0;
     if (game.scenes[0].but_nbr > 0) {
         for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[0].but_nbr; i++) {
-            but_clicked = check_which_button(\
-game, i, sfMouse_getPosition(window));
+            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
@@ -59,9 +83,9 @@ game, i, sfMouse_getPosition(window));
         game.scenes[4].obj_nbr = 1;
     }
     if (but_clicked == 2) {
-        game.cur_scn = 2;
-        game.scenes[2].obj_nbr = 1;
-        game.scenes[2].but_nbr = 2;
+        game.cur_scn = 1;
+        game.scenes[1].obj_nbr = 1;
+        game.scenes[1].but_nbr = 2;
     }
     if (but_clicked == 3) {
         close_window(window);
@@ -79,12 +103,23 @@ game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
+        check_hvy_atk_cd(window,game.scenes[3].buttons[1]);
         base_atk_dmg(window, game, enemy);
         sfSprite_setTexture(game.scenes[3].buttons[0].spr, \
         game.scenes[3].buttons[0].text, sfTrue);
         draw_combat(window, game, enemy);
-        base_atk_anim(window, game, enemy);
+        perso_charge_forward(window, game, enemy);
         game.player_turn = sfFalse;
+    }
+    if (but_clicked == 2) {
+        if (check_hvy_atk_cd(window, game.scenes[3].buttons[1]) == 0) {
+            heavy_atk_dmg(window, game, enemy);
+            draw_combat(window, game, enemy);
+            perso_charge_forward(window, game, enemy);
+            game.player_turn = sfFalse;
+        } else {
+            but_clicked = 0;
+        }
     }
     return (game);
 }
@@ -103,12 +138,17 @@ game, i, sfMouse_getPosition(window));
         sfRenderWindow_drawSprite(window, game.scenes[3].buttons[0].spr, NULL);
         sfRenderWindow_display(window);
     }
+    if (but_clicked == 2) {
+        heavy_atk_hover(game);
+        sfRenderWindow_drawSprite(window, game.scenes[3].buttons[1].spr, NULL);
+        sfRenderWindow_display(window);
+    }
     return (game);
 }
 
 game_t button_is_clicked(sfRenderWindow *window, game_t game)
 {
-    if (game.cur_scn == 2) {
+    if (game.cur_scn == 1) {
         game = button_is_clicked_options(window, game);
         return (game);
     }
@@ -116,13 +156,9 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
         game = button_is_clicked_menu(window, game);
         return (game);
     }
-    return (game);
-}
-
-game_t key_is_pressed(sfRenderWindow *window, sfEvent event, game_t game)
-{
-    if (game.cur_scn == 1) {
-        analyse_move_event(window, &game, event, game.perso);
+    if (game.cur_scn == 2) {
+        game = button_is_clicked_pause(window, game);
+        return (game);
     }
     return (game);
 }
@@ -135,6 +171,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked(window, game);
+        }
+        if (event.key.code == sfKeyEscape){
+            draw_menu_pause(window, game);
         }
     }
     return (game);

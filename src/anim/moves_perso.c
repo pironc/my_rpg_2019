@@ -32,6 +32,7 @@ void move_rect(sfIntRect *rect, int offset, int max_value)
 
 void move_perso(game_t *game, perso_t *perso, int i)
 {
+    sfEvent event;
     int top_y = 0;
     int current_y = 0;
     int bottom_y = 0;

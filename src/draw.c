@@ -26,6 +26,37 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }*/
 }
 
+int menu_pause_is_open(sfRenderWindow *window, game_t game, sfEvent event, int flag)
+{
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed) {
+            close_window(window);
+        }
+        if (event.key.code == sfKeyP) {
+            flag = 1;
+        }
+    }
+    return (flag);
+}
+
+void draw_menu_pause(sfRenderWindow *window, game_t game)
+{
+    int flag = 0;
+    sfEvent event;
+
+    while (1) {
+        sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
+        sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
+        sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
+        sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
+        sfRenderWindow_display(window);
+        flag = menu_pause_is_open(window, game, event, flag);
+        if (flag == 1) {
+            break;
+        }
+    }
+}
+
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     for (int i = 0; i != game.scenes[3].obj_nbr; i++) {
