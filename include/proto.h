@@ -29,11 +29,8 @@ void close_window(sfRenderWindow *window);
 
 int draw_window(sfRenderWindow* window, game_t game);
 void draw_elements(sfRenderWindow *window, game_t game);
-<<<<<<< HEAD
 void draw_menu_pause(sfRenderWindow *window, game_t game);
-=======
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
->>>>>>> f1f8f81c5577e6b272798f333398670ae23dcf4e
 
 /*---------Events RPG------------*/
 
