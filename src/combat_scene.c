@@ -33,8 +33,8 @@ game_t init_intro(game_t game, sfVector2f board_pos, sfVector2f but_pos, enemy_t
     sfVector2f nmy_pos = {1500, 320};
     sfVector2f nmy_scale = {3, 3};
 
-    game.scenes[3].buttons[0] = init_button(button.callback, \
-    game.scenes[3].buttons[0], but_pos, "ressources/combat_bg/but/base_atk_idle.png");
+    game.scenes[3].buttons[0] = init_button(game.scenes[3].buttons[0], \
+    but_pos, "ressources/combat_bg/but/base_atk_idle.png");
     sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
     sfSprite_setPosition(game.scenes[3].buttons[0].spr, but_pos);
     sfSprite_setScale(enemy->spr, nmy_scale);

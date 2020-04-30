@@ -47,6 +47,8 @@ int draw_window(sfRenderWindow *window, game_t game)
     sfEvent event;
     game.enemies = malloc(sizeof(enemy_t*) * 4);
     init_enemies(game.enemies);
+    //game.all_map = init_map();
+    //check_map(game.all_map);
     //check_enemy(game.enemies);
     //check_perso(game.perso);
     while (sfRenderWindow_isOpen(window)) {
@@ -57,5 +59,6 @@ int draw_window(sfRenderWindow *window, game_t game)
         sfRenderWindow_display(window);
     }
     destroy_perso(game.perso);
+    //destroy_map(game.all_map);
     return (0);
 }

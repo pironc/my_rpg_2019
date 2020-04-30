@@ -23,9 +23,10 @@
 #define RPG_
 
 typedef struct map_s {
-    char** forest;
-    char** desert;
-    char** lava;
+    char **forest;
+    char **desert;
+    char **lava;
+    char ***maps;
 } maps_t;
 
 typedef struct button_s {
@@ -34,7 +35,6 @@ typedef struct button_s {
     sfTexture *text;
     sfFont *font;
     sfRectangleShape *rect;
-    void (*callback)();
 } button_t;
 
 typedef struct npc_s {

@@ -25,6 +25,8 @@ SRC				=			src/main.c				\
 							src/init/init_enemy.c		\
 							src/update_buttons_spr.c	\
 							src/deal_dmg.c			\
+							src/init/init_map.c			\
+							src/my_str_to_word_array_space.c	\
 							#src/pause_menu.c
 
 OBJ				=			$(SRC:%.c=%.o)
