@@ -38,6 +38,7 @@ void analyse_move_event(sfRenderWindow *window, game_t *game, \
 sfEvent event, perso_t *perso);
 game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, \
 game_t game, enemy_t *enemy);
+game_t button_is_clicked(sfRenderWindow *window, game_t game);
 void perso_anim(perso_t *perso);
 void enemy_anim_test(enemy_t **enemies, game_t game);
 void move_rect(sfIntRect *rect, int offset, int max_value);
@@ -51,6 +52,7 @@ void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
 void init_options_menu(game_t game);
+void init_pause_menu(game_t game);
 sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
