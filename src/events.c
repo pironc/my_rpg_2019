@@ -103,12 +103,23 @@ game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
+        check_hvy_atk_cd(window,game.scenes[3].buttons[1]);
         base_atk_dmg(window, game, enemy);
         sfSprite_setTexture(game.scenes[3].buttons[0].spr, \
         game.scenes[3].buttons[0].text, sfTrue);
         draw_combat(window, game, enemy);
         perso_charge_forward(window, game, enemy);
         game.player_turn = sfFalse;
+    }
+    if (but_clicked == 2) {
+        if (check_hvy_atk_cd(window, game.scenes[3].buttons[1]) == 0) {
+            heavy_atk_dmg(window, game, enemy);
+            draw_combat(window, game, enemy);
+            perso_charge_forward(window, game, enemy);
+            game.player_turn = sfFalse;
+        } else {
+            but_clicked = 0;
+        }
     }
     return (game);
 }
@@ -125,6 +136,11 @@ game, i, sfMouse_getPosition(window));
     if (but_clicked == 1) {
         base_atk_hover(game);
         sfRenderWindow_drawSprite(window, game.scenes[3].buttons[0].spr, NULL);
+        sfRenderWindow_display(window);
+    }
+    if (but_clicked == 2) {
+        heavy_atk_hover(game);
+        sfRenderWindow_drawSprite(window, game.scenes[3].buttons[1].spr, NULL);
         sfRenderWindow_display(window);
     }
     return (game);
