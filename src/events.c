@@ -156,6 +156,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         if (event.type == sfEvtMouseButtonPressed) {
             game = button_is_clicked(window, game);
         }
+        if (event.key.code == sfKeyEscape){
+            my_putstr("av");
+        }
     }
     return (game);
 }
