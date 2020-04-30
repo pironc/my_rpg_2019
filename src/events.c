@@ -37,7 +37,7 @@ game, i, sfMouse_getPosition(window));
         destroy_menu(game);
         game.cur_scn = 0;
         game.scenes[0].but_nbr = 3;
-        game.scenes[0].obj_nbr = 3;
+        game.scenes[0].obj_nbr = 1;
     }
     if (but_clicked == 2) {
         my_putstr("eh");
