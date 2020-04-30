@@ -29,14 +29,15 @@ enemy_t *init_health_bar_combat(enemy_t *enemy)
 
 game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy)
 {
-    sfVector2f base_atk_pos = {0, 0};
+    sfVector2f base_atk_pos = {75, 800};
+    sfVector2f hvy_atk_pos = {75, 900};
     sfVector2f nmy_pos = {1500, 320};
     sfVector2f nmy_scale = {3, 3};
 
     game.scenes[3].buttons[0] = init_button(game.scenes[3].buttons[0], \
     base_atk_pos, "ressources/combat_bg/but/base_atk_idle.png");
     game.scenes[3].buttons[1] = init_button(game.scenes[3].buttons[1], \
-    base_atk_pos, "ressources/combat_bg/but/heavy_atk_idle.png");
+    hvy_atk_pos, "ressources/combat_bg/but/heavy_atk_idle.png");
     sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
     sfSprite_setScale(enemy->spr, nmy_scale);
     sfSprite_setPosition(enemy->spr, nmy_pos);
@@ -67,7 +68,6 @@ game.scenes[3].gm_objcts[1].spr, NULL);
             sfRenderWindow_drawSprite(window, enemy->spr, NULL);
             sfRenderWindow_display(window);
             sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
-            sfSprite_setPosition(game.scenes[3].buttons[0].spr, but_pos);
             sfClock_restart(clock);
         }
     }

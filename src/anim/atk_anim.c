@@ -23,7 +23,7 @@ void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 
 void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, sfVector2f char_pos)
 {
-    sfVector2f anim_pos = {1500, 320};
+    sfVector2f anim_pos = {1490, 310};
     sfSprite *spr = sfSprite_create();
     sfTexture *text = sfTexture_createFromFile\
     ("ressources/combat_bg/anim/base_atk_anim.png", NULL);

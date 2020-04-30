@@ -32,6 +32,7 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
     sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
     sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
     sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
+    sfRenderWindow_display(window);
 }
 
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
