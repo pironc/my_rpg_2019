@@ -29,6 +29,7 @@ void close_window(sfRenderWindow *window);
 
 int draw_window(sfRenderWindow* window, game_t game);
 void draw_elements(sfRenderWindow *window, game_t game);
+void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 
 /*---------Events RPG------------*/
 
@@ -73,8 +74,10 @@ game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfEvent event);
 game_t button_is_released_combat(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfEvent event);
+void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy);
 void earn_loot(game_t game, enemy_t *enemy);
 void base_atk_hover(game_t game);
 void base_atk_idle(game_t game);
 void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
-void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
+void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, \
+sfVector2f char_pos);
