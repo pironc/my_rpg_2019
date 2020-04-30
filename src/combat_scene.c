@@ -78,7 +78,6 @@ game.scenes[3].buttons[0].spr, NULL);
 
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy)
 {
-    int test = 0;
     sfVector2f pos_char = {50, 320};
     sfVector2f scale_char = {2, 2};
     sfVector2f pos_hp_char = pos_char;

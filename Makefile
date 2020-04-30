@@ -23,6 +23,8 @@ SRC				=			src/main.c				\
 							src/anim/moves_perso.c		\
 							src/anim/move_events.c		\
 							src/init/init_enemy.c		\
+							src/update_buttons_spr.c	\
+							src/deal_dmg.c			\
 							#src/pause_menu.c
 
 OBJ				=			$(SRC:%.c=%.o)

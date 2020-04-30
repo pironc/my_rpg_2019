@@ -67,4 +67,9 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfEvent event);
+game_t button_is_released_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
 void earn_loot(game_t game, enemy_t *enemy);
+void base_atk_hover(game_t game);
+void base_atk_idle(game_t game);
+void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
