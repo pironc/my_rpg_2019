@@ -34,6 +34,7 @@ game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
+        my_putchar('a');
         game.cur_scn = 0;
         game.scenes[0].but_nbr = 3;
         game.scenes[0].obj_nbr = 1;
