@@ -16,7 +16,7 @@ char **read_map(char *filepath)
     struct stat statbuf;
     char *buffer = NULL;
     char **tab = NULL;
-    
+
     tab = malloc(sizeof(char*) * 34);
     if (stat(filepath, &statbuf) == -1)
         return (NULL);

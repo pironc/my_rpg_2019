@@ -62,8 +62,6 @@ void init_forest_map(game_t game)
     game.scenes[4].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[4].gm_objcts[0] = init_game_obj(game.scenes[4].gm_objcts[0], \
     "ressources/map_forest.jpg");
-    //game.scenes[4].gm_objcts[1] = init_game_obj(game.scenes[4].gm_objcts[1], \
-    //"ressources/leaves.png");
     game.scenes[4].obj_nbr = 1;
     game.scenes[4].but_nbr = 0;
 }
