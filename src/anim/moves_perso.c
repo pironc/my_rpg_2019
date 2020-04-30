@@ -40,7 +40,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
     int current_x = 0;
     int right_x = 0;
 
-    char *tileset[] = {
+   char *tileset[] = {
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
@@ -125,8 +125,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         else if (tileset[current_y][current_x + 1] == 'L') {
             if (game->cur_scn == 4) {
                 game->cur_scn = 6;
-            }
-            if (game->cur_scn == 5) {
+            } else if (game->cur_scn == 5) {
                 game->cur_scn = 4;
             }
             perso->pos.y = 300;
@@ -135,8 +134,8 @@ void move_perso(game_t *game, perso_t *perso, int i)
             perso->pos.x += 0;
     }
     sfSprite_setPosition(perso->spr, perso->pos);
-    printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
-    printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
+    //printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
+    //printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
 }
 
 void change_sprite(perso_t *perso, char *filepath)
