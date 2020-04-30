@@ -39,3 +39,11 @@ void destroy_enemy(enemy_t *enemy)
     sfTexture_destroy(enemy->text);
     sfSprite_destroy(enemy->spr);
 }
+
+void destroy_map(maps_t *map)
+{
+    for (int i = 0; map->maps[i]; i++) {
+        for (int j = 0; map->maps[i][j]; j++)
+            free(map->maps[i][j]);
+    }
+}

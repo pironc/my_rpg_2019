@@ -15,8 +15,9 @@ char **read_map(char *filepath)
     int fd = open(filepath, O_RDONLY);
     struct stat statbuf;
     char *buffer = NULL;
-    char **tab = malloc(sizeof(char*) * 34);
-
+    char **tab = NULL;
+    
+    tab = malloc(sizeof(char*) * 34);
     if (stat(filepath, &statbuf) == -1)
         return (NULL);
     if (fd == -1)
@@ -30,19 +31,27 @@ char **read_map(char *filepath)
     return (tab);
 }
 
-void init_map(maps_t *map)
+maps_t *init_map(void)
 {
+    maps_t *map = malloc(sizeof(maps_t) * 1);
+
+    map->maps = malloc(sizeof(char**) * 4);
     // map->forest = malloc(sizeof(char**) * 1);
     // map->desert = malloc(sizeof(char**) * 1);
     // map->lava = malloc(sizeof(char**) * 1);
-    map->forest = read_map("game_maps/forest");
-    map->desert = read_map("game_maps/desert");
-    map->lava = read_map("game_maps/lava");
+    map->maps[0] = read_map("game_maps/forest");
+    map->maps[1] = read_map("game_maps/desert");
+    map->maps[2] = read_map("game_maps/lava");
+    map->maps[3] = NULL;
+    return (map);
 }
 
 void check_map(maps_t *map)
 {
-    for (int i = 0; i < 34; i++) {
-        printf("%s\n", map->forest[i]);
+    for (int j = 0; map->maps[j]; j++) {
+        for (int i = 0; i < 34; i++) {
+            printf("%s\n", map->maps[j][i]);
+        }
     }
+    printf("aled\n");
 }
