@@ -29,6 +29,7 @@ void close_window(sfRenderWindow *window);
 
 int draw_window(sfRenderWindow* window, game_t game);
 void draw_elements(sfRenderWindow *window, game_t game);
+void draw_menu_pause(sfRenderWindow *window, game_t game);
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 
 /*---------Events RPG------------*/
@@ -62,14 +63,8 @@ void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
 
-/*---------Destroy RPG-----------*/
-
-void destroy_menu(game_t game);
-void destroy_perso(perso_t *perso);
-void destroy_enemy(enemy_t *enemy);
-void destroy_map(maps_t *map);
-
 /*---------Combat RPG------------*/
+
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
@@ -82,5 +77,16 @@ void earn_loot(game_t game, enemy_t *enemy);
 void base_atk_hover(game_t game);
 void base_atk_idle(game_t game);
 void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
+<<<<<<< HEAD
+void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
+
+/*---------Destroy RPG-----------*/
+
+void destroy_menu(game_t game);
+void destroy_perso(perso_t *perso);
+void destroy_enemy(enemy_t *enemy);
+void destroy_map(maps_t *map);
+=======
 void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, \
 sfVector2f char_pos);
+>>>>>>> f1f8f81c5577e6b272798f333398670ae23dcf4e
