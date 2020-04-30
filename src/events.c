@@ -63,8 +63,8 @@ game, i, sfMouse_getPosition(window));
     if (but_clicked == 2) {
         destroy_menu(game);
         game.cur_scn = 2;
+        game.scenes[2].obj_nbr = 1;
         game.scenes[2].but_nbr = 2;
-        //game.scenes[2].obj_nbr = 2;
     }
     if (but_clicked == 3) {
         close_window(window);
@@ -72,7 +72,7 @@ game, i, sfMouse_getPosition(window));
     return (game);
 }
 
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
+game_t button_is_released_combat(sfRenderWindow *window, game_t game, enemy_t *enemy, sfEvent event)
 {
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
@@ -82,9 +82,29 @@ game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
-        enemy->hp -= game.perso->attack;
+        base_atk_dmg(window, game, enemy);
+        sfSprite_setTexture(game.scenes[3].buttons[0].spr, \
+        game.scenes[3].buttons[0].text, sfTrue);
+        draw_combat(window, game, enemy);
+        base_atk_anim(window, game, enemy);
         game.player_turn = sfFalse;
-        enemy = refresh_hp_bar_enemy(window, enemy);
+    }
+    return (game);
+}
+
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy, sfEvent event)
+{
+    int but_clicked = 0;
+    if (game.scenes[3].but_nbr > 0) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[3].but_nbr; i++) {
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
+        }
+    }
+    if (but_clicked == 1) {
+        base_atk_hover(game);
+        sfRenderWindow_drawSprite(window, game.scenes[3].buttons[0].spr, NULL);
+        sfRenderWindow_display(window);
     }
     return (game);
 }
@@ -129,7 +149,10 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, 
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
-            game = button_is_clicked_combat(window, game, enemy);
+            game = button_is_clicked_combat(window, game, enemy, event);
+        }
+        if (event.type == sfEvtMouseButtonReleased) {
+            game = button_is_released_combat(window, game, enemy, event);
         }
     }
     return (game);

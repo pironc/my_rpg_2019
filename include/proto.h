@@ -19,7 +19,7 @@ void check_enemy(enemy_t **enemies);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 game_t back_to_gameplay(game_t game);
 void rearrange_enemy_arr(game_t game);
-void swap_enemy_places(enemy_t *enemy_arr, int i);
+void swap_enemy_places(game_t game, int i);
 game_t check_collision_enemy(sfRenderWindow *window, game_t game);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void change_sprite(perso_t *perso, char *filepath);
@@ -69,5 +69,12 @@ void destroy_map(maps_t *map);
 /*---------Combat RPG------------*/
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
+game_t button_is_released_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
 void earn_loot(game_t game, enemy_t *enemy);
+void base_atk_hover(game_t game);
+void base_atk_idle(game_t game);
+void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
+void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
