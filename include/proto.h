@@ -62,6 +62,7 @@ maps_t *init_map(void);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+game_t button_is_clicked_pause(sfRenderWindow *window, game_t game);
 
 /*---------Combat RPG------------*/
 
@@ -76,8 +77,9 @@ void earn_loot(game_t game, enemy_t *enemy);
 void base_atk_hover(game_t game);
 void base_atk_idle(game_t game);
 void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
-<<<<<<< HEAD
 void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
+void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, \
+sfVector2f char_pos);
 
 /*---------Destroy RPG-----------*/
 
@@ -85,7 +87,3 @@ void destroy_menu(game_t game);
 void destroy_perso(perso_t *perso);
 void destroy_enemy(enemy_t *enemy);
 void destroy_map(maps_t *map);
-=======
-void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, \
-sfVector2f char_pos);
->>>>>>> f1f8f81c5577e6b272798f333398670ae23dcf4e
