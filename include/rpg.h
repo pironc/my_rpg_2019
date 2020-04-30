@@ -14,13 +14,19 @@
 #include <fcntl.h>
 #include <sys/types.h>
 
+#define MENU 0
+#define OPTION 1
+#define PAUSE 2
+#define HOW_TO_PLAY 9
+
 #ifndef RPG_
 #define RPG_
 
 typedef struct map_s {
-    char** forest;
-    char** desert;
-    char** lava;
+    char **forest;
+    char **desert;
+    char **lava;
+    char ***maps;
 } maps_t;
 
 typedef struct button_s {

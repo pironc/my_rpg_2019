@@ -9,6 +9,7 @@
 /*----------Basic functions-----------*/
 
 void my_putstr(char*);
+char **my_str_to_word_array_space(char *str);
 
 /*----------RPG functions-------------*/
 
@@ -18,7 +19,7 @@ void check_enemy(enemy_t **enemies);
 void gameplay(sfRenderWindow *window, game_t game, perso_t *perso);
 game_t back_to_gameplay(game_t game);
 void rearrange_enemy_arr(game_t game);
-void swap_enemy_places(enemy_t *enemy_arr, int i);
+void swap_enemy_places(game_t game, int i);
 game_t check_collision_enemy(sfRenderWindow *window, game_t game);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void change_sprite(perso_t *perso, char *filepath);
@@ -48,25 +49,31 @@ void init_perso(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
-void init_pause_menu(game_t game);
+void init_options_menu(game_t game);
 sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
-void init_map(maps_t *map);
+maps_t *init_map(void);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
-char **my_str_to_word_array_space(char *str);
 
 /*---------Destroy RPG-----------*/
 
 void destroy_menu(game_t game);
 void destroy_perso(perso_t *perso);
 void destroy_enemy(enemy_t *enemy);
+void destroy_map(maps_t *map);
 
 /*---------Combat RPG------------*/
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
+game_t button_is_released_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event);
 void earn_loot(game_t game, enemy_t *enemy);
+void base_atk_hover(game_t game);
+void base_atk_idle(game_t game);
+void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
