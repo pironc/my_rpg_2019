@@ -86,7 +86,7 @@ game, i, sfMouse_getPosition(window));
         sfSprite_setTexture(game.scenes[3].buttons[0].spr, \
         game.scenes[3].buttons[0].text, sfTrue);
         draw_combat(window, game, enemy);
-        sfRenderWindow_display(window);
+        base_atk_anim(window, game, enemy);
         game.player_turn = sfFalse;
     }
     return (game);

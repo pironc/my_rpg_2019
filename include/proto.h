@@ -77,3 +77,4 @@ void earn_loot(game_t game, enemy_t *enemy);
 void base_atk_hover(game_t game);
 void base_atk_idle(game_t game);
 void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
+void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
