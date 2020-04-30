@@ -27,16 +27,17 @@ enemy_t *init_health_bar_combat(enemy_t *enemy)
     return(enemy);
 }
 
-game_t init_intro(game_t game, sfVector2f board_pos, sfVector2f but_pos, enemy_t *enemy)
+game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy)
 {
-    button_t button;
+    sfVector2f base_atk_pos = {0, 0};
     sfVector2f nmy_pos = {1500, 320};
     sfVector2f nmy_scale = {3, 3};
 
     game.scenes[3].buttons[0] = init_button(game.scenes[3].buttons[0], \
-    but_pos, "ressources/combat_bg/but/base_atk_idle.png");
+    base_atk_pos, "ressources/combat_bg/but/base_atk_idle.png");
+    game.scenes[3].buttons[1] = init_button(game.scenes[3].buttons[1], \
+    base_atk_pos, "ressources/combat_bg/but/heavy_atk_idle.png");
     sfSprite_setPosition(game.scenes[3].gm_objcts[1].spr, board_pos);
-    sfSprite_setPosition(game.scenes[3].buttons[0].spr, but_pos);
     sfSprite_setScale(enemy->spr, nmy_scale);
     sfSprite_setPosition(enemy->spr, nmy_pos);
     enemy = init_health_bar_combat(enemy);
@@ -52,19 +53,16 @@ game_t combat_scene_intro(sfRenderWindow *window, game_t game, enemy_t *enemy)
     sfClock *clock = sfClock_create();
     float seconds;
 
-    game = init_intro(game, board_pos, but_pos, enemy);
+    game = init_intro(game, board_pos, enemy);
     while (board_pos.y != 0) {
         time = sfClock_getElapsedTime(clock);
         seconds = time.microseconds / 1000000.0;
         if (seconds > 0) {
             board_pos.y -= 5;
-            but_pos.y -= 5;
             sfRenderWindow_drawSprite(window, \
 game.scenes[3].gm_objcts[0].spr, NULL);
             sfRenderWindow_drawSprite(window, \
 game.scenes[3].gm_objcts[1].spr, NULL);
-            sfRenderWindow_drawSprite(window, \
-game.scenes[3].buttons[0].spr, NULL);
             sfRenderWindow_drawSprite(window, game.perso->spr, NULL);
             sfRenderWindow_drawSprite(window, enemy->spr, NULL);
             sfRenderWindow_display(window);
@@ -84,7 +82,7 @@ void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy)
 
     pos_hp_char.y += 150;
     game.scenes[3].gm_objcts = malloc(sizeof(gm_obj_t) * 2);
-    game.scenes[3].buttons = malloc(sizeof(button_t) * 1);
+    game.scenes[3].buttons = malloc(sizeof(button_t) * 2);
     game.scenes[3].gm_objcts[0] = init_game_obj(game.scenes[3].gm_objcts[0], \
     "ressources/combat_bg/grass_plain_3.jpg");
     game.scenes[3].gm_objcts[1] = init_game_obj(game.scenes[3].gm_objcts[1], \

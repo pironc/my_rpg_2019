@@ -71,6 +71,7 @@ void destroy_map(maps_t *map);
 
 /*---------Combat RPG------------*/
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfEvent event);
