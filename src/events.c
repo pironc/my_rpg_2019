@@ -63,7 +63,7 @@ game, i, sfMouse_getPosition(window));
     if (but_clicked == 2) {
         destroy_menu(game);
         game.cur_scn = 2;
-        game.scenes[2].but_nbr = 2;
+        game.scenes[2].obj_nbr = 1;
         game.scenes[2].but_nbr = 2;
     }
     if (but_clicked == 3) {
