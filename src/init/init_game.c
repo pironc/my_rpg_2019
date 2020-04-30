@@ -101,7 +101,7 @@ void init_game_scenes(game_t game)
     init_lava_map(game);
 }
 
-void init_options_menu(game_t game)
+void init_pause_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
@@ -116,9 +116,32 @@ void init_options_menu(game_t game)
     game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
-    game.scenes[2].buttons[1] = init_button(game.scenes[2].buttons[1], \
-    pos_options, "ressources/BUTTONS/Sound.png");
+    game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
+    pos_options, "ressources/BUTTONS/Options.png");
     sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
+    game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
+    pos_exit, "ressources/BUTTONS/Exit.png");
+    sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
+}
+
+void init_options_menu(game_t game)
+{
+    button_t button;
+    sfVector2f scale = {0.7, 0.7};
+    sfVector2f pos_play = {650, 100};
+    sfVector2f pos_options = {710, 400};
+    sfVector2f pos_exit = {650, 700};
+
+    game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
+    game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
+    game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
+    "ressources/main_menu_bg.png");
+    game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], \
+    pos_play, "ressources/BUTTONS/Return.png");
+    sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
+    game.scenes[1].buttons[1] = init_button(game.scenes[1].buttons[1], \
+    pos_options, "ressources/BUTTONS/Sound.png");
+    sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
 }
 
 void init_transition(game_t game)
@@ -144,6 +167,7 @@ game_t initialize_game(game_t game)
     game.perso = perso;
     init_menu(game);
     init_options_menu(game);
+    init_pause_menu(game);
     init_game_scenes(game);
     return (game);
 }
