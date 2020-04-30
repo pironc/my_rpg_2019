@@ -119,9 +119,9 @@ void init_pause_menu(game_t game)
     game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
     pos_options, "ressources/BUTTONS/Options.png");
     sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
-    game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
+    game.scenes[2].buttons[2] = init_button(game.scenes[1].buttons[2], \
     pos_exit, "ressources/BUTTONS/Exit.png");
-    sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
+    sfSprite_setScale(game.scenes[2].buttons[2].spr, scale);
 }
 
 void init_options_menu(game_t game)

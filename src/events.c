@@ -157,7 +157,7 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
             game = button_is_clicked(window, game);
         }
         if (event.key.code == sfKeyEscape){
-            my_putstr("av");
+            draw_menu_pause(window, game);
         }
     }
     return (game);
