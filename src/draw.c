@@ -28,7 +28,6 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
 
 void draw_menu_pause(sfRenderWindow *window, game_t game)
 {
-<<<<<<< HEAD
     while (1) {
         sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
@@ -39,13 +38,6 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
             break;
         }
     }
-=======
-    sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
-    sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
-    sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
-    sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
-    sfRenderWindow_display(window);
->>>>>>> e8d205e0711982247a65b5c4a97f9130e97c8727
 }
 
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
