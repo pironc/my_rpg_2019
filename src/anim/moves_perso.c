@@ -41,7 +41,8 @@ void move_perso(game_t *game, perso_t *perso, int i)
     int current_x = 0;
     int right_x = 0;
 
-    /*FILE *fd = open("game_maps/forest", O_RDONLY);
+    /*
+    FILE *fd = open("game_maps/forest", O_RDONLY);
     char *buff = malloc(sizeof(char) * 2041);
     read(fd, buff, 2040);
     buff[2040] = '\0';
@@ -70,7 +71,8 @@ void move_perso(game_t *game, perso_t *perso, int i)
     for (int tabi = 0; tabi < 35; tabi++) {
         my_putstr(forest[tabi]);
         my_putstr("\n");
-    }*/
+    }
+    */
 
     char *tileset[] = {
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
