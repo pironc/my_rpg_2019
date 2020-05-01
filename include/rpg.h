@@ -35,6 +35,9 @@ typedef struct button_s {
     sfTexture *text;
     sfFont *font;
     sfRectangleShape *rect;
+    sfVector2f pos_play;
+    sfVector2f pos_options;
+    sfVector2f pos_exit;
 } button_t;
 
 typedef struct npc_s {
