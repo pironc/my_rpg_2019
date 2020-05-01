@@ -41,6 +41,39 @@ void move_perso(game_t *game, perso_t *perso, int i)
     int current_x = 0;
     int right_x = 0;
 
+    /*
+    FILE *fd = open("game_maps/forest", O_RDONLY);
+    char *buff = malloc(sizeof(char) * 2041);
+    read(fd, buff, 2040);
+    buff[2040] = '\0';
+
+    char **forest = malloc(sizeof(char*) * (35));
+    for (int mindex = 0; mindex < 35; mindex++) {
+        forest[mindex] = malloc(sizeof(char) * 61);
+    }
+
+    int buffi = 0;
+    int fori = 0;
+    int c = 0;
+
+    while (buff[buffi] != '\0' && fori < 35) {
+        while (c < 60) {
+            forest[fori][c] = buff[buffi];
+            buffi++;
+            c++;
+        }
+        forest[fori][c] = '\0';
+        fori++;
+        c = 0;
+    }
+    forest[fori + 1] = NULL;
+
+    for (int tabi = 0; tabi < 35; tabi++) {
+        my_putstr(forest[tabi]);
+        my_putstr("\n");
+    }
+    */
+
     char *tileset[] = {
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
@@ -60,7 +93,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         "WWW*********************WWWWWWWWW***************W*****W**WWW",
         "WWW*********************WWWWW****************************WWW",
         "WWW*******************WWWWWWW****************************WWW",
-        "WWW*******************WWWWWWW****************************WWW",
+        "WWW******************************************************WWW",
         "WWW*W**********W*****************************************WWW",
         "WWW*********W********WWWWWWW*****************************WWW",
         "WWW******************WWWWWWW*****************************WWW",
@@ -126,8 +159,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         else if (tileset[current_y][current_x + 1] == 'L') {
             if (game->cur_scn == 4) {
                 game->cur_scn = 6;
-            }
-            if (game->cur_scn == 5) {
+            } else if (game->cur_scn == 5) {
                 game->cur_scn = 4;
             }
             perso->pos.y = 300;
@@ -136,8 +168,8 @@ void move_perso(game_t *game, perso_t *perso, int i)
             perso->pos.x += 0;
     }
     sfSprite_setPosition(perso->spr, perso->pos);
-    printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
-    printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
+    //printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
+    //printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
 }
 
 void change_sprite(perso_t *perso, char *filepath)

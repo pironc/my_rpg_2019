@@ -40,7 +40,7 @@ void init_menu(game_t game)
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], \
     pos_play, "ressources/BUTTONS/Play.png");
     sfSprite_setScale(game.scenes[0].buttons[0].spr, scale);
@@ -115,7 +115,7 @@ void init_pause_menu(game_t game)
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
     button.pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
@@ -138,7 +138,7 @@ void init_options_menu(game_t game)
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], \
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
