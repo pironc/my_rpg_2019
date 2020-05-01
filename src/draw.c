@@ -26,30 +26,15 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }*/
 }
 
-int position_of_mouse(sfRenderWindow *window, game_t game)
-{
-    button_t button;
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
-    button.pos_play = sfSprite_getPosition(game.scenes[2].buttons[0].spr);
-    int verif_height = 0;
-    int verif_width = 0;
-    if (mouse.x >= button.pos_play.x && mouse.x <= (button.pos_play.x + 110))
-        verif_width = 1;
-    if (mouse.y >= button.pos_play.y && mouse.y <= (button.pos_play.y + 100))
-        verif_height = 1;
-    return (verif_height * verif_width);
-}
-
 int pause_menu_ing(sfRenderWindow *window, sfEvent event, game_t game, int flag)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
-        /*if (position_of_mouse(window, game) && sfMouse_isButtonPressed(sfMouseLeft)) {
+        if (position_of_back(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
             flag = 1;
-        }*/
-        if (sfMouse_isButtonPressed(sfMouseLeft))
-            flag = 1;
-        if (event.key.code == sfKeyQ)
+        if (position_of_options(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
             flag = 2;
+        if (position_of_exit(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
+            flag = 3;
     }
     return (flag);
 }
@@ -68,12 +53,10 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
         flag = pause_menu_ing(window, event, game, flag);
         if (flag == 1)
             break;
-        /*if (but_clicked == 2) {
-            game.cur_scn = 1;
-            game.scenes[1].obj_nbr = 1;
-            game.scenes[1].but_nbr = 2;
-        }*/
         if (flag == 2) {
+            my_putstr("eh");
+        }
+        if (flag == 3) {
             close_window(window);
         }
     }

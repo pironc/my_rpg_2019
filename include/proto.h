@@ -31,6 +31,9 @@ int draw_window(sfRenderWindow* window, game_t game);
 void draw_elements(sfRenderWindow *window, game_t game);
 void draw_menu_pause(sfRenderWindow *window, game_t game);
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+int position_of_back(sfRenderWindow *window, game_t game);
+int position_of_options(sfRenderWindow *window, game_t game);
+int position_of_exit(sfRenderWindow *window, game_t game);
 
 /*---------Events RPG------------*/
 
