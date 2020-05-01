@@ -7,35 +7,29 @@
 #include "proto.h"
 #include "rpg.h"
 
-/*sfUint8 fade_in(sfRenderWindow *window, game_t game)
+void fade_in(sfRenderWindow *window, filter_t *transition)
 {
-    game.fade.active = 0;
-    game.fade.timer = sfClock_getElapsedTime(game.fade.fade_clock);
-    game.fade.seconds = game.fade.timer.microseconds / 1000000.000;
-    if (game.fade.seconds > 0.8){
-        if (game.fade.transparent.a < 255) {
-            game.fade.transparent.a += 0.1;
-            sfRectangleShape_setFillColor(game.fade.rect, game.fade.transparent);
-            sfRenderWindow_drawRectangleShape(window, game.fade.rect, NULL);
-            sfRenderWindow_display(window);
-        }
-        sfClock_restart(game.fade.fade_clock);
+    sfColor color = sfColor_fromRGBA(0, 0, 0, 150);
+    while (color.a < 255) {
+        my_putchar('b');
+        color.a++;
+        my_putchar('c');
+        sfRectangleShape_setFillColor(transition->rect, color);
+        my_putchar('d');
+        sfRenderWindow_drawRectangleShape(window, transition->rect, NULL);
+        my_putchar('d');
+        sfRenderWindow_display(window);
+        my_putchar('e');
     }
-    return(game.fade.transparent.a);
-}*/
+    my_put_nbr(color.a);
+}
 
-/*sfUint8 fade_out(sfRenderWindow *window, game_t game)
+void fade_out(sfRenderWindow *window, filter_t *transition)
 {
-    game.fade.timer = sfClock_getElapsedTime(game.fade.fade_clock);
-    game.fade.seconds = game.fade.timer.microseconds / 1000000.000;
-    if (game.fade.seconds > 0.8) {
-        if (game.fade.transparent.r > 0) {
-            game.fade.transparent.a -= 0.1;
-            sfRectangleShape_setFillColor(game.fade.rect, game.fade.transparent);
-            sfRenderWindow_drawRectangleShape(window, game.fade.rect, NULL);
-            sfRenderWindow_display(window);
-        }
-        sfClock_restart(game.fade.fade_clock);
+    while (transition->transparent.a != 0) {
+        transition->transparent.a--;
+        sfRectangleShape_setFillColor(transition->rect, transition->transparent);
+        sfRenderWindow_drawRectangleShape(window, transition->rect, NULL);
+        sfRenderWindow_display(window);
     }
-    return(game.fade.transparent.a);
-}*/
+}

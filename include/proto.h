@@ -30,6 +30,8 @@ void close_window(sfRenderWindow *window);
 int draw_window(sfRenderWindow* window, game_t game);
 void draw_elements(sfRenderWindow *window, game_t game);
 void draw_menu_pause(sfRenderWindow *window, game_t game);
+void fade_in(sfRenderWindow *window, filter_t *transition);
+void fade_out(sfRenderWindow *window, filter_t *transition);
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
 
 /*---------Events RPG------------*/
@@ -48,6 +50,7 @@ void move_perso(game_t *game, perso_t *perso, int i);
 /*----------Init RPG-------------*/
 
 game_t initialize_game(game_t game);
+void init_transition(game_t game);
 void init_perso(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);

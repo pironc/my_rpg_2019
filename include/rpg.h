@@ -121,7 +121,7 @@ typedef struct scene_s {
 
 typedef struct game_s {
     int cur_scn;
-    filter_t fade;
+    filter_t *fade;
     scene_t *scenes;
     perso_t *perso;
     enemy_t **enemies;

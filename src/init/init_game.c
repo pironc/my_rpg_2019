@@ -148,11 +148,12 @@ void init_transition(game_t game)
 {
     sfVector2f size = {1920, 1080};
 
-    game.fade.fade_clock = sfClock_create();
-    game.fade.active = 0;
-    game.fade.rect = sfRectangleShape_create();
-    sfRectangleShape_setSize(game.fade.rect, size);
-    game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);
+    game.fade = malloc(sizeof(filter_t) * 1);
+    game.fade->fade_clock = sfClock_create();
+    game.fade->active = 0;
+    game.fade->rect = sfRectangleShape_create();
+    sfRectangleShape_setSize(game.fade->rect, size);
+    game.fade->transparent = sfColor_fromRGBA(0, 0, 0, 0);
 }
 
 game_t initialize_game(game_t game)
@@ -165,6 +166,7 @@ game_t initialize_game(game_t game)
     init_perso(perso);
     //check_perso(perso);
     game.perso = perso;
+    init_transition(game);
     init_menu(game);
     init_options_menu(game);
     init_pause_menu(game);
