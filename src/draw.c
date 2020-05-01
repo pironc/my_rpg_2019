@@ -26,14 +26,12 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }*/
 }
 
-int menu_pause_is_open(sfRenderWindow *window, game_t game, sfEvent event, int flag)
+int menu_pause_is_open(sfRenderWindow *window, game_t game, int flag)
 {
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed) {
-            close_window(window);
-        }
-        if (event.key.code == sfKeyP) {
-            flag = 1;
+    if (game.scenes[2].but_nbr > 0) {
+        for (int i = 1; flag == 0 && (i - 1) != game.scenes[2].but_nbr; i++) {
+            flag = check_which_button(\
+game, i, sfMouse_getPosition(window));
         }
     }
     return (flag);
@@ -42,17 +40,23 @@ int menu_pause_is_open(sfRenderWindow *window, game_t game, sfEvent event, int f
 void draw_menu_pause(sfRenderWindow *window, game_t game)
 {
     int flag = 0;
-    sfEvent event;
-
     while (1) {
         sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
         sfRenderWindow_display(window);
-        flag = menu_pause_is_open(window, game, event, flag);
+        flag = menu_pause_is_open(window, game, flag);
         if (flag == 1) {
             break;
+        }
+        if (flag == 2) {
+            game.cur_scn = 1;
+            game.scenes[1].obj_nbr = 1;
+            game.scenes[1].but_nbr = 2;
+        }
+        if (flag == 3) {
+            close_window(window);
         }
     }
 }
