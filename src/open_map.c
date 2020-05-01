@@ -13,11 +13,11 @@ char **open_map(char **tileset)
     int c = 0;
     int fori = 0;
     int buffi = 0;
-    tileset = malloc(sizeof(char*) * (35));
-    char *buff = malloc(sizeof(char) * (2040) + 1);
     FILE *fd = open("game_maps/forest", O_RDONLY);
+    tileset = malloc(sizeof(char*) * (35));
+    char *buff = malloc(sizeof(char) * 2041);
 
-    read(fd, buff, 2040);
+    read(fd, buff, 2041);
     buff[2040] = '\0';
 
     for (int mindex = 0; mindex < 35; mindex++) {

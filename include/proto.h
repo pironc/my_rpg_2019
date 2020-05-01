@@ -65,6 +65,7 @@ maps_t *init_map(void);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+char **open_map(char **tileset);
 
 /*---------Combat RPG------------*/
 
