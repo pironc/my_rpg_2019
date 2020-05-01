@@ -41,7 +41,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
     int current_x = 0;
     int right_x = 0;
 
-    FILE *fd = open("game_maps/forest", O_RDONLY);
+    /*FILE *fd = open("game_maps/forest", O_RDONLY);
     char *buff = malloc(sizeof(char) * 2041);
     read(fd, buff, 2040);
     buff[2040] = '\0';
@@ -51,7 +51,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         forest[mindex] = malloc(sizeof(char) * 61);
     }
 
-    /*int buffi = 0;
+    int buffi = 0;
     int fori = 0;
     int c = 0;
 
