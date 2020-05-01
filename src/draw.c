@@ -26,34 +26,41 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }*/
 }
 
-int menu_pause_is_open(sfRenderWindow *window, game_t game, sfEvent event, int flag)
+int position_of_mouse(sfRenderWindow *window, game_t game)
 {
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed) {
-            close_window(window);
-        }
-        if (event.key.code == sfKeyP) {
-            flag = 1;
-        }
-    }
-    return (flag);
+    button_t button;
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
+    button.pos_play = sfSprite_getPosition(button.spr);
+    int verif_height = 0;
+    int verif_width = 0;
+    if (mouse.x >= button.pos_play.x && mouse.x <= (button.pos_play.x + 110))
+        verif_width = 1;
+    if (mouse.y >= button.pos_play.y && mouse.y <= (button.pos_play.y + 100))
+        verif_height = 1;
+    return (verif_height * verif_width);
 }
 
 void draw_menu_pause(sfRenderWindow *window, game_t game)
 {
-    int flag = 0;
-    sfEvent event;
-
+    int but_clicked = 0;
     while (1) {
         sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
         sfRenderWindow_display(window);
-        flag = menu_pause_is_open(window, game, event, flag);
-        if (flag == 1) {
+        if (position_of_mouse(window, game) \
+&& sfMouse_isButtonPressed(sfMouseLeft)) {
             break;
         }
+        /*if (but_clicked == 2) {
+            game.cur_scn = 1;
+            game.scenes[1].obj_nbr = 1;
+            game.scenes[1].but_nbr = 2;
+        }
+        if (but_clicked == 3) {
+            close_window(window);
+        }*/
     }
 }
 

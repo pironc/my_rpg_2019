@@ -105,22 +105,22 @@ void init_pause_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
-    sfVector2f pos_play = {650, 100};
-    sfVector2f pos_options = {710, 400};
-    sfVector2f pos_exit = {650, 700};
+    button.pos_play = {650, 100};
+    button.pos_options = {710, 400};
+    button.pos_exit = {650, 700};
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], \
     "ressources/main_menu_bg.png");
     game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
-    pos_play, "ressources/BUTTONS/Return.png");
+    button.pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
     game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    pos_options, "ressources/BUTTONS/Options.png");
+    button.pos_options, "ressources/BUTTONS/Options.png");
     sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
     game.scenes[2].buttons[2] = init_button(game.scenes[1].buttons[2], \
-    pos_exit, "ressources/BUTTONS/Exit.png");
+    button.pos_exit, "ressources/BUTTONS/Exit.png");
     sfSprite_setScale(game.scenes[2].buttons[2].spr, scale);
 }
 
