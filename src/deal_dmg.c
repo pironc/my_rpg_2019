@@ -8,11 +8,6 @@
 #include "proto.h"
 #include "rpg.h"
 
-void hvy_atk_unavailable(game_t game)
-{
-    ;
-}
-
 int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but)
 {
     sfTexture *text = sfTexture_createFromFile("ressources/combat_bg/but/unavailable_hvy_atk.png", NULL);

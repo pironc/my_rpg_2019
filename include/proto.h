@@ -52,6 +52,7 @@ void move_perso(game_t *game, perso_t *perso, int i);
 game_t initialize_game(game_t game);
 void init_transition(game_t game);
 void init_perso(perso_t *perso);
+void init_invent(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);
 button_t init_button(button_t button, sfVector2f position, char *filepath);
@@ -88,6 +89,9 @@ void heavy_atk_hover(game_t game);
 void heavy_atk_idle(game_t game);
 int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but);
 void heavy_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
+
+/*---------Inventory RPG---------*/
+void open_inventory(sfRenderWindow *window, game_t game);
 
 /*---------Destroy RPG-----------*/
 

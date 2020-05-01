@@ -78,7 +78,6 @@ game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
         }
     }
     if (but_clicked == 1) {
-        game.fade->active = 1;
         game.cur_scn = 4;
         game.scenes[4].but_nbr = 0;
         game.scenes[4].obj_nbr = 1;
@@ -175,6 +174,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.key.code == sfKeyEscape){
             draw_menu_pause(window, game);
+        }
+        if (event.key.code == sfKeyI) {
+            open_inventory(window, game);
         }
     }
     return (game);

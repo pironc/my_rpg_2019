@@ -85,7 +85,10 @@ typedef struct perso_s {
     int level;
     int exp;
     int gold;
+    int item_nbr;
     obj_t **invent;
+    sfSprite *invent_spr;
+    sfTexture *invent_text;
     sfSprite *spr;
     sfTexture *text;
     abili_t **all_abili;

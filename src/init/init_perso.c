@@ -22,6 +22,9 @@ obj_t *init_obj(char *name, int quantity, char *filepath)
 
 void init_invent(perso_t *perso)
 {
+    perso->invent_spr = sfSprite_create();
+    perso->invent_text = sfTexture_createFromFile("ressources/invtry.png", NULL);
+    sfSprite_setTexture(perso->invent_spr, perso->invent_text, sfTrue);
     perso->invent[0] = init_obj("objet1", 0, "ressources/objet1.png");
     perso->invent[1] = init_obj("objet2", 0, "ressources/objet2.png");
     perso->invent[2] = init_obj("objet3", 0, "ressources/objet3.png");
@@ -62,7 +65,9 @@ void init_perso(perso_t *perso)
     sfVector2f gm_pos = {200, 270};
     perso->name = malloc(sizeof(char) * 10);
     perso->name = "Jean-Louis";
+    perso->max_hp = 50;
     perso->hp = 50;
+    perso->item_nbr = 0;
     perso->attack = 4;
     perso->armor = 0;
     perso->level = 1;
