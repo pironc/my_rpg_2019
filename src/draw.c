@@ -32,7 +32,7 @@ int pause_menu_ing(sfRenderWindow *window, sfEvent event, game_t game, int flag)
         if (position_of_back(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
             flag = 1;
         if (position_of_exit(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
-            flag = 3;
+            flag = 2;
     }
     return (flag);
 }
@@ -45,13 +45,12 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
     while (1) {
         sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
-        //sfRenderWindow_drawSprite(window, game.scenes[2].buttons[1].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
         sfRenderWindow_display(window);
         flag = pause_menu_ing(window, event, game, flag);
         if (flag == 1)
             break;
-        if (flag == 3)
+        if (flag == 2)
             close_window(window);
     }
 }

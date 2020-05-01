@@ -21,20 +21,6 @@ int position_of_back(sfRenderWindow *window, game_t game)
     return (verif_height * verif_width);
 }
 
-int position_of_options(sfRenderWindow *window, game_t game)
-{
-    button_t button;
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
-    button.pos_options = sfSprite_getPosition(game.scenes[2].buttons[1].spr);
-    int verif_height = 0;
-    int verif_width = 0;
-    if (mouse.x >= button.pos_options.x && mouse.x <= (button.pos_options.x + 305))
-        verif_width = 1;
-    if (mouse.y >= button.pos_options.y && mouse.y <= (button.pos_options.y + 602))
-        verif_height = 1;
-    return (verif_height * verif_width);
-}
-
 int position_of_exit(sfRenderWindow *window, game_t game)
 {
     button_t button;
