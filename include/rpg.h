@@ -81,6 +81,7 @@ typedef struct abilities_s {
 
 typedef struct inventory_s {
     obj_t **objcts;
+    sfText **stats;
     sfSprite *perso_spr;
     sfTexture *perso_text;
     sfSprite *invent_spr;

@@ -22,13 +22,26 @@ void draw_inventory(sfRenderWindow *window, perso_t *perso)
     sfRenderWindow_display(window);
 }
 
+void set_inventory_text(perso_t *perso)
+{
+    sfText *hp = sfText_create();
+    sfText *max_hp = sfText_create();
+    sfText *atk = sfText_create();
+    sfText *armor = sfText_create();
+    sfText *exp = sfText_create();
+
+    sfText_setString(hp, nbr_str(perso->hp));
+    sfText_setString(max_hp, nbr_str(perso->max_hp));
+    sfText_setString(atk, nbr_str(perso->attack));
+    sfText_setString(armor, nbr_str(perso->armor));
+    sfText_setString(exp, nbr_str(perso->exp));
+}
+
 void set_inventory(perso_t *perso)
 {
     sfVector2f hp_bar_pos = {580, 160};
     sfVector2f hp_bar_scale = {0.5, 0.8};
     float angle = 90;
-    sfText *hp = sfText_create();
-    sfText_setString(hp, nbr_str(perso->hp));
 
     sfSprite_setPosition(perso->hp_bar.hp_bar_spr, hp_bar_pos);
     sfRectangleShape_setPosition(perso->hp_bar.rect, hp_bar_pos);

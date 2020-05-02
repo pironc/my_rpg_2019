@@ -25,6 +25,7 @@ void init_invent(perso_t *perso)
     sfVector2f perso_pos = {600, 180};
     sfVector2f perso_scale = {5, 5};
 
+    perso->invent.stats = malloc(sizeof(sfText*) * 5);
     perso->invent.perso_spr = sfSprite_create();
     perso->invent.perso_text = sfTexture_createFromFile("ressources/perso_invtry.png", NULL);
     sfSprite_setTexture(perso->invent.perso_spr, perso->invent.perso_text, sfTrue);
