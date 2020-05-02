@@ -107,7 +107,7 @@ void init_pause_menu(game_t game)
     sfVector2f scale = {0.7, 0.7};
     sfVector2f play_pos = {650, 100};
     button.pos_play = play_pos;
-    sfVector2f pos_exit = {650, 700};
+    sfVector2f pos_exit = {650, 550};
     button.pos_exit = pos_exit;
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
