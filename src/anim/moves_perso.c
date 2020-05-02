@@ -79,7 +79,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
 
     */
 
-   char *tileset[] = {
+    char *tileset[] = {
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
@@ -146,7 +146,9 @@ void move_perso(game_t *game, perso_t *perso, int i)
 
     if (i == 1) {
         change_sprite(perso, "ressources/perso_up.png");
-        if (tileset[current_y][current_x] == '*' && tileset[bottom_y - 1][current_x] == '*' && tileset[bottom_y - 1][left_x] == '*' && tileset[bottom_y - 1][right_x] == '*')
+        if (tileset[current_y][current_x] == '*' && \
+tileset[bottom_y - 1][current_x] == '*' && \
+tileset[bottom_y - 1][left_x] == '*' && tileset[bottom_y - 1][right_x] == '*')
             perso->pos.y -= 8;
         else if (tileset[current_y - 1][current_x] == 'H') {
             perso->pos.y = 500;
@@ -156,14 +158,18 @@ void move_perso(game_t *game, perso_t *perso, int i)
     }
     if (i == 2) {
         change_sprite(perso, "ressources/perso_down.png");
-        if (tileset[current_y][current_x] == '*' && tileset[current_y + 1][current_x] == '*' && tileset[current_y + 1][left_x] == '*' && tileset[current_y + 1][right_x] == '*')
+        if (tileset[current_y][current_x] == '*' && \
+tileset[current_y + 1][current_x] == '*' && \
+tileset[current_y + 1][left_x] == '*' && tileset[current_y + 1][right_x] == '*')
             perso->pos.y += 8;
         else
             perso->pos.y += 0;
     }
     if (i == 3) {
         change_sprite(perso, "ressources/perso_left.png");
-        if (tileset[current_y][current_x] == '*' && tileset[current_y][current_x - 1] == '*' &&  tileset[bottom_y][current_x - 1] == '*')
+        if (tileset[current_y][current_x] == '*' && \
+tileset[current_y][current_x - 1] == '*' && \
+tileset[bottom_y][current_x - 1] == '*')
             perso->pos.x -= 8;
         else if (tileset[current_y][current_x - 1] == 'D') {
             if (game->cur_scn == 4) {
@@ -179,7 +185,9 @@ void move_perso(game_t *game, perso_t *perso, int i)
     }
     if (i == 4) {
         change_sprite(perso, "ressources/perso_right.png");
-        if (tileset[current_y][current_x] == '*' && tileset[current_y][current_x + 1] == '*' &&  tileset[bottom_y][current_x + 1] == '*')
+        if (tileset[current_y][current_x] == '*' && \
+tileset[current_y][current_x + 1] == '*' && \
+tileset[bottom_y][current_x + 1] == '*')
             perso->pos.x += 8;
         else if (tileset[current_y][current_x + 1] == 'L') {
             if (game->cur_scn == 4) {
