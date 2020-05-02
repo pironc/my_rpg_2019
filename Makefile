@@ -29,7 +29,6 @@ SRC				=			src/main.c							\
 							src/init/init_map.c					\
 							src/inventory.c						\
 							src/my_str_to_word_array_space.c	\
-							src/open_map.c						\
 							src/nbr_str.c						\
 							src/my_nbrlen.c						\
 							src/game_over.c						\
