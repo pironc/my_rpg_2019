@@ -78,7 +78,9 @@ void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy)
 {
     sfVector2f pos_char = {50, 320};
     sfVector2f scale_char = {2, 2};
+    sfVector2f scale_hp_bar = {1, 1};
     sfVector2f pos_hp_char = pos_char;
+    float angle = 0;
 
     pos_hp_char.y += 150;
     game.scenes[3].gm_objcts = malloc(sizeof(gm_obj_t) * 2);
@@ -91,6 +93,11 @@ void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy)
     sfSprite_setPosition(game.perso->spr, pos_char);
     sfSprite_setScale(game.perso->spr, scale_char);
     sfSprite_setPosition(game.perso->hp_bar.hp_bar_spr, pos_hp_char);
+    sfRectangleShape_setPosition(game.perso->hp_bar.rect, pos_hp_char);
+    sfSprite_setRotation(game.perso->hp_bar.hp_bar_spr, angle);
+    sfRectangleShape_setRotation(game.perso->hp_bar.rect, angle);
+    sfSprite_setScale(game.perso->hp_bar.hp_bar_spr, scale_hp_bar);
+    sfRectangleShape_setScale(game.perso->hp_bar.rect, scale_hp_bar);
     sfRectangleShape_setPosition(game.perso->hp_bar.rect, pos_hp_char);
     game = combat_scene_intro(window, game, enemy);
 }

@@ -79,8 +79,10 @@ typedef struct abilities_s {
     char *name;
 } abili_t;
 
-typedef struct invnt_s {
+typedef struct inventory_s {
     obj_t **objcts;
+    sfSprite *perso_spr;
+    sfTexture *perso_text;
     sfSprite *invent_spr;
     sfTexture *invent_text;
 } invnt_t;

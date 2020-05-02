@@ -22,6 +22,14 @@ obj_t *init_obj(char *name, int quantity, char *filepath)
 
 void init_invent(perso_t *perso)
 {
+    sfVector2f perso_pos = {600, 180};
+    sfVector2f perso_scale = {5, 5};
+
+    perso->invent.perso_spr = sfSprite_create();
+    perso->invent.perso_text = sfTexture_createFromFile("ressources/perso_invtry.png", NULL);
+    sfSprite_setTexture(perso->invent.perso_spr, perso->invent.perso_text, sfTrue);
+    sfSprite_setPosition(perso->invent.perso_spr, perso_pos);
+    sfSprite_setScale(perso->invent.perso_spr, perso_scale);
     perso->invent.invent_spr = sfSprite_create();
     perso->invent.invent_text = sfTexture_createFromFile("ressources/invtry.png", NULL);
     sfSprite_setTexture(perso->invent.invent_spr, perso->invent.invent_text, sfTrue);
