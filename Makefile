@@ -32,6 +32,7 @@ SRC				=			src/main.c				\
 							src/open_map.c						\
 							src/nbr_str.c			\
 							src/my_nbrlen.c			\
+							src/game_over.c			\
 							src/position_of_mouse.c				\
 							#src/pause_menu.c
 

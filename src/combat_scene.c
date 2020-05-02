@@ -134,12 +134,16 @@ sfBool change_turn(sfBool player_turn)
     return (player_turn);
 }
 
-game_t enemy_attack(game_t game, enemy_t *enemy)
+game_t enemy_attack(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     int total_damage = 0;
 
+    enemy_charge_forward(window, game, enemy);
     total_damage = (enemy->attack) - (game.perso->armor / 2);
     game.perso->hp -= total_damage;
+    if (game.perso->hp < 50) {
+        game = refresh_hp_bar_player(window, game);
+    }
 
     return(game);
 }
@@ -170,19 +174,16 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
             game = analyse_combat_event(window, event, game, enemy);
         }
         if (game.player_turn == sfFalse) {
-            enemy_attack(game, enemy);
+            enemy_attack(window, game, enemy);
         }
         game.player_turn = change_turn(game.player_turn);
-        if (game.perso->hp < 50) {
-            game = refresh_hp_bar_player(window, game);
-        }
     }
     if (enemy->hp <= 0) {
         earn_loot(game, enemy);
         destroy_enemy(enemy);
         game.scenes[4].enemy_left--;
     } else {
-        //GAME_OVER;
+        game_over(window, game.perso, game, enemy);
     }
     back_to_gameplay(game);
     return(game);

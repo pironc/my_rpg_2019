@@ -20,12 +20,25 @@ obj_t *init_obj(char *name, int quantity, char *filepath)
     return (obj);
 }
 
+void init_stats_text(perso_t *perso)
+{
+    perso->invent.stats[0] = sfText_create();
+    perso->invent.stats[1] = sfText_create();
+    perso->invent.stats[2] = sfText_create();
+    perso->invent.stats[3] = sfText_create();
+    perso->invent.stats[4] = sfText_create();
+    perso->invent.stats[5] = sfText_create();
+    perso->invent.stats[6] = sfText_create();
+    perso->invent.stats[7] = NULL;
+}
+
 void init_invent(perso_t *perso)
 {
     sfVector2f perso_pos = {600, 180};
     sfVector2f perso_scale = {5, 5};
 
-    perso->invent.stats = malloc(sizeof(sfText*) * 5);
+    perso->invent.stats = malloc(sizeof(sfText*) * 8);
+    init_stats_text(perso);
     perso->invent.perso_spr = sfSprite_create();
     perso->invent.perso_text = sfTexture_createFromFile("ressources/perso_invtry.png", NULL);
     sfSprite_setTexture(perso->invent.perso_spr, perso->invent.perso_text, sfTrue);
@@ -78,9 +91,10 @@ void init_perso(perso_t *perso)
     perso->hp = 50;
     perso->item_nbr = 0;
     perso->attack = 4;
-    perso->armor = 0;
+    perso->armor = 1;
     perso->level = 1;
     perso->exp = 0;
+    perso->max_exp = 10;
     perso->gold = 10;
     perso->spr = sfSprite_create();
     perso->text = sfTexture_createFromFile\

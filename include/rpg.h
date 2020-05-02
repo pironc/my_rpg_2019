@@ -96,6 +96,7 @@ typedef struct perso_s {
     int armor;
     int level;
     int exp;
+    int max_exp;
     int gold;
     int item_nbr;
     invnt_t invent;
