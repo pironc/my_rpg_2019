@@ -134,25 +134,6 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
     return (game);
 }
 
-game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
-{
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed) {
-            close_window(window);
-        }
-        if (event.type == sfEvtMouseButtonPressed) {
-            game = button_is_clicked(window, game);
-        }
-        if (event.key.code == sfKeyEscape){
-            draw_menu_pause(window, game);
-        }
-        if (event.key.code == sfKeyI) {
-            open_inventory(window, game);
-        }
-    }
-    return (game);
-}
-
 game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, enemy_t *enemy)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
@@ -165,6 +146,35 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, 
         }
         if (event.type == sfEvtMouseButtonReleased) {
             game = button_is_released_combat(window, game, enemy, event);
+        }
+    }
+    return (game);
+}
+
+int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag)
+{
+    while(sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI) {
+            flag = 1;
+        }
+    }
+    return (flag);
+}
+
+game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
+{
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed) {
+            close_window(window);
+        }
+        if (event.type == sfEvtMouseButtonPressed) {
+            game = button_is_clicked(window, game);
+        }
+        if (event.key.code == sfKeyEscape){
+            draw_menu_pause(window, game);
+        }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI) {
+            open_inventory(window, game);
         }
     }
     return (game);

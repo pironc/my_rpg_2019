@@ -21,8 +21,14 @@ void draw_inventory(sfRenderWindow *window, perso_t *perso)
 
 void open_inventory(sfRenderWindow *window, game_t game)
 {
-    sfEvent event;
+    int flag = 0;
+    sfEvent close_event;
+
     while (1) {
         draw_inventory(window, game.perso);
+        flag = analyse_inventory_events(window, close_event, flag);
+        if (flag == 1) {
+            break;
+        }
     }
 }

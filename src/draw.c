@@ -43,8 +43,10 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
         flag = pause_menu_ing(window, event, game, flag);
         if (flag == 1)
             break;
-        if (flag == 2)
+        if (flag == 2) {
             close_window(window);
+            break;
+        }
     }
 }
 

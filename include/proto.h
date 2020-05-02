@@ -95,6 +95,7 @@ void heavy_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
 
 /*---------Inventory RPG---------*/
 void open_inventory(sfRenderWindow *window, game_t game);
+int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag);
 
 /*---------Destroy RPG-----------*/
 
