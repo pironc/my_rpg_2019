@@ -98,6 +98,8 @@ void base_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
 void base_atk_anim(sfRenderWindow *window, game_t game, enemy_t *enemy);
 void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, \
 sfVector2f char_pos);
+void animation_atk(sfRenderWindow *window, game_t game, enemy_t *enemy, \
+sfSprite *spr);
 void heavy_atk_hover(game_t game);
 void heavy_atk_idle(game_t game);
 int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but);

@@ -134,6 +134,9 @@ typedef struct game_s {
     perso_t *perso;
     enemy_t **enemies;
     sfBool player_turn;
+    sfMusic *am_music;
+    sfMusic *menu_music;
+    sfMusic *cbt_music;
 } game_t;
 
 #endif /* RPG_ */

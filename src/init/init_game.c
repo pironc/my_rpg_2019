@@ -7,28 +7,6 @@
 #include "proto.h"
 #include "rpg.h"
 
-button_t init_button(button_t button, \
-sfVector2f position, char *filepath)
-{
-    button_t new_but;
-
-    new_but.spr = sfSprite_create();
-    new_but.text = sfTexture_createFromFile(filepath, NULL);
-    sfSprite_setTexture(new_but.spr, new_but.text, sfTrue);
-    sfSprite_setPosition(new_but.spr, position);
-    return (new_but);
-}
-
-gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath)
-{
-    gm_obj_t new_gm_obj;
-
-    new_gm_obj.spr = sfSprite_create();
-    new_gm_obj.text = sfTexture_createFromFile(filepath, NULL);
-    sfSprite_setTexture(new_gm_obj.spr, new_gm_obj.text, sfTrue);
-    return (new_gm_obj);
-}
-
 void init_menu(game_t game)
 {
     button_t button;
@@ -155,6 +133,9 @@ game_t initialize_game(game_t game)
     game.cur_scn = 0;
     game.scenes[0].obj_nbr = 1;
     game.scenes[0].but_nbr = 3;
+    game.menu_music = sfMusic_createFromFile("ressources/Audio/menu.ogg");
+    game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
+    game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
     init_perso(perso);
     //check_perso(perso);
     game.perso = perso;
