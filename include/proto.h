@@ -9,6 +9,8 @@
 /*----------Basic functions-----------*/
 
 void my_putstr(char*);
+char *nbr_str(int nb);
+int my_nbrlen(int nb);
 char **my_str_to_word_array_space(char *str);
 int my_put_nbr(int nb);
 char my_putchar(char c);
@@ -26,6 +28,10 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game);
 void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso);
 void change_sprite(perso_t *perso, char *filepath);
 void close_window(sfRenderWindow *window);
+void game_over(sfRenderWindow *window, perso_t *perso, game_t game, \
+enemy_t *enemy);
+void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, \
+sfRectangleShape *bg, sfColor color);
 
 /*---------Draw RPG--------------*/
 
@@ -56,6 +62,7 @@ void move_perso(game_t *game, perso_t *perso, int i);
 
 game_t initialize_game(game_t game);
 void init_transition(game_t game);
+void init_stats_text(perso_t *perso);
 void init_perso(perso_t *perso);
 void init_invent(perso_t *perso);
 void init_enemies(enemy_t **enemies);
@@ -93,9 +100,13 @@ void heavy_atk_hover(game_t game);
 void heavy_atk_idle(game_t game);
 int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but);
 void heavy_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t enemy_attack(sfRenderWindow *window, game_t game, enemy_t *enemy);
+void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy);
 
 /*---------Inventory RPG---------*/
 void open_inventory(sfRenderWindow *window, game_t game);
+void set_inventory_text(perso_t *perso);
+void set_inventory(perso_t *perso);
 int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag);
 
 /*---------Destroy RPG-----------*/

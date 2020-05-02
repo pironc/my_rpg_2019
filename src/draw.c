@@ -19,12 +19,15 @@ game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }
 }
 
-int pause_menu_ing(sfRenderWindow *window, sfEvent event, game_t game, int flag)
+int pause_menu_ing(sfRenderWindow *window, sfEvent event, game_t game, \
+int flag)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
-        if (position_of_back(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
+        if (position_of_back(window, game) && \
+sfMouse_isButtonPressed(sfMouseLeft))
             flag = 1;
-        if (position_of_exit(window, game) && sfMouse_isButtonPressed(sfMouseLeft))
+        if (position_of_exit(window, game) && \
+sfMouse_isButtonPressed(sfMouseLeft))
             flag = 2;
     }
     return (flag);
@@ -36,7 +39,8 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
     int flag = 0;
 
     while (1) {
-        sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, NULL);
+        sfRenderWindow_drawSprite(window, game.scenes[2].gm_objcts[0].spr, \
+NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
         sfRenderWindow_display(window);
@@ -53,7 +57,8 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     for (int i = 0; i != game.scenes[3].obj_nbr; i++) {
-        sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[i].spr, NULL);
+        sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[i].spr, \
+NULL);
     }
     for (int i = 0; i != game.scenes[3].but_nbr; i++) {
         sfRenderWindow_drawSprite(window, game.scenes[3].buttons[i].spr, NULL);

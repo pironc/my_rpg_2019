@@ -50,7 +50,7 @@ char **my_str_to_word_array_space(char *str)
 int is_itchar_space(char a)
 {
     if ((a >= '0' && a <= '9') || a == '*') {
-        return (1); 
+        return (1);
     }
     if ((a >= 'A' && a <= 'Z') || (a >= 'a' && a <= 'z')) {
         return (1);

@@ -8,6 +8,24 @@
 #include "proto.h"
 #include "rpg.h"
 
+void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
+{
+    sfVector2f enemy_pos = {1500, 320};
+
+    while (enemy_pos.x > 1350) {
+        enemy_pos.x -= 20;
+        sfSprite_setPosition(enemy->spr, enemy_pos);
+        draw_combat(window, game, enemy);
+        sfRenderWindow_display(window);
+    }
+    while (enemy_pos.x < 1500) {
+        enemy_pos.x += 5;
+        sfSprite_setPosition(enemy->spr, enemy_pos);
+        draw_combat(window, game, enemy);
+        sfRenderWindow_display(window);
+    }
+}
+
 void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     sfVector2f char_pos = {50, 320};
@@ -21,7 +39,8 @@ void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
     dmg_anim(window, game, enemy, char_pos);
 }
 
-void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, sfVector2f char_pos)
+void dmg_anim(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfVector2f char_pos)
 {
     sfVector2f anim_pos = {1490, 310};
     sfSprite *spr = sfSprite_create();

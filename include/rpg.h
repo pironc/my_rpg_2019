@@ -78,6 +78,7 @@ typedef struct abilities_s {
 
 typedef struct inventory_s {
     obj_t **objcts;
+    sfText **stats;
     sfSprite *perso_spr;
     sfTexture *perso_text;
     sfSprite *invent_spr;
@@ -92,6 +93,7 @@ typedef struct perso_s {
     int armor;
     int level;
     int exp;
+    int max_exp;
     int gold;
     int item_nbr;
     invnt_t invent;

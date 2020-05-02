@@ -10,7 +10,8 @@
 void draw_leaves(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfSprite *leavesSprite = sfSprite_create();
-    sfTexture *leavesTexture = sfTexture_createFromFile("ressources/leaves.png", NULL);
+    sfTexture *leavesTexture = sfTexture_createFromFile("\
+    ressources/leaves.png", NULL);
     sfSprite_setTexture(leavesSprite, leavesTexture, sfTrue);
     if (game->cur_scn == 4)
         sfRenderWindow_drawSprite(window, leavesSprite, NULL);
@@ -30,9 +31,12 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 
 int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
 {
-    sfFloatRect g_bnd = sfSprite_getGlobalBounds(game.enemies[nmy_tested - 1]->spr);
-    if (perso_pos.x >= g_bnd.left && perso_pos.x <= (g_bnd.left + g_bnd.width)) {
-        if (perso_pos.y <= (g_bnd.top + g_bnd.height) && perso_pos.y >= g_bnd.top) {
+    sfFloatRect g_bnd = \
+    sfSprite_getGlobalBounds(game.enemies[nmy_tested - 1]->spr);
+    if (perso_pos.x >= g_bnd.left && perso_pos.x <= \
+    (g_bnd.left + g_bnd.width)) {
+        if (perso_pos.y <= (g_bnd.top + g_bnd.height) && \
+perso_pos.y >= g_bnd.top) {
             return (nmy_tested);
         }
     }
@@ -42,7 +46,8 @@ int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 {
     int enemys_nbr = 0;
-    for (int i = 1; enemys_nbr == 0 && (i - 1) != game.scenes[game.cur_scn].enemy_left; i++)
+    for (int i = 1; enemys_nbr == 0 && (i - 1) != \
+game.scenes[game.cur_scn].enemy_left; i++)
         enemys_nbr = check_which_enemy(game, i, game.perso->pos);
     if (enemys_nbr > 0) {
         game.cur_scn = 3;
