@@ -149,6 +149,9 @@ game_t initialize_game(game_t game)
     game.cur_scn = 0;
     game.scenes[0].obj_nbr = 1;
     game.scenes[0].but_nbr = 3;
+    game.menu_music = sfMusic_createFromFile("ressources/Audio/menu.ogg");
+    game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
+    game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
     init_perso(perso);
     //check_perso(perso);
     game.perso = perso;
