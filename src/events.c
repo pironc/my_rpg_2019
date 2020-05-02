@@ -9,17 +9,7 @@
 
 void close_window(sfRenderWindow *window)
 {
-    enemy_t *enemy;
-    maps_t *map;
-    game_t game;
-    perso_t *perso;
-
     sfRenderWindow_close(window);
-    destroy_enemy(enemy);
-    destroy_map(map);
-    destroy_menu(game);
-    destroy_perso(perso);
-    sfRenderWindow_destroy(window);
 }
 
 int check_which_button(game_t game, int but_tested, sfVector2i c_pos)
