@@ -12,9 +12,9 @@ void draw_inventory(sfRenderWindow *window, perso_t *perso)
 {
     int i = 0;
 
-    sfRenderWindow_drawSprite(window, perso->invent_spr, NULL);
+    sfRenderWindow_drawSprite(window, perso->invent.invent_spr, NULL);
     for (; i != perso->item_nbr; i++) {
-        sfRenderWindow_drawSprite(window, perso->invent[i]->spr, NULL);
+        sfRenderWindow_drawSprite(window, perso->invent.objcts[i]->spr, NULL);
     }
     sfRenderWindow_display(window);
 }

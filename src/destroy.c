@@ -21,10 +21,10 @@ void destroy_perso(perso_t *perso)
 {
     sfSprite_destroy(perso->spr);
     sfTexture_destroy(perso->text);
-    for (int i = 0; perso->invent[i]; i++) {
-        sfSprite_destroy(perso->invent[i]->spr);
-        sfTexture_destroy(perso->invent[i]->text);
-        free(perso->invent[i]);
+    for (int i = 0; perso->invent.objcts[i]; i++) {
+        sfSprite_destroy(perso->invent.objcts[i]->spr);
+        sfTexture_destroy(perso->invent.objcts[i]->text);
+        free(perso->invent.objcts[i]);
     }
     for (int i = 0; perso->all_abili[i]; i++) {
         free(perso->all_abili[i]);

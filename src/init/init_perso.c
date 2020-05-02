@@ -22,14 +22,14 @@ obj_t *init_obj(char *name, int quantity, char *filepath)
 
 void init_invent(perso_t *perso)
 {
-    perso->invent_spr = sfSprite_create();
-    perso->invent_text = sfTexture_createFromFile("ressources/invtry.png", NULL);
-    sfSprite_setTexture(perso->invent_spr, perso->invent_text, sfTrue);
-    perso->invent[0] = init_obj("objet1", 0, "ressources/objet1.png");
-    perso->invent[1] = init_obj("objet2", 0, "ressources/objet2.png");
-    perso->invent[2] = init_obj("objet3", 0, "ressources/objet3.png");
-    perso->invent[3] = init_obj("objet4", 0, "ressources/objet4.png");
-    perso->invent[4] = NULL;
+    perso->invent.invent_spr = sfSprite_create();
+    perso->invent.invent_text = sfTexture_createFromFile("ressources/invtry.png", NULL);
+    sfSprite_setTexture(perso->invent.invent_spr, perso->invent.invent_text, sfTrue);
+    perso->invent.objcts[0] = init_obj("objet1", 0, "ressources/objet1.png");
+    perso->invent.objcts[1] = init_obj("objet2", 0, "ressources/objet2.png");
+    perso->invent.objcts[2] = init_obj("objet3", 0, "ressources/objet3.png");
+    perso->invent.objcts[3] = init_obj("objet4", 0, "ressources/objet4.png");
+    perso->invent.objcts[4] = NULL;
 }
 
 abili_t *init_abi(float ratio, char *name)
@@ -84,7 +84,7 @@ void init_perso(perso_t *perso)
     sfSprite_setTextureRect(perso->spr, perso->rect);
     sfSprite_setPosition(perso->spr, perso->pos);
     init_perso_hp_bar(perso);
-    perso->invent = malloc(sizeof(obj_t*) * 5);
+    perso->invent.objcts = malloc(sizeof(obj_t*) * 5);
     init_invent(perso);
     perso->all_abili = malloc(sizeof(abili_t*) * 3);
     init_abilites(perso);
@@ -99,8 +99,8 @@ void check_perso(perso_t *perso)
     printf("EXP : %d\nHP: %d\nGold : %d\nArmor : %d\n", \
     perso->exp, perso->hp, perso->gold, perso->armor, perso->level);
     printf("INVENT :\nName : %s\nQuantity: %d\nName : %s\nQuantity : %d\n", \
-    perso->invent[0]->name, perso->invent[0]->quantity, \
-    perso->invent[1]->name, perso->invent[0]->quantity);
+    perso->invent.objcts[0]->name, perso->invent.objcts[0]->quantity, \
+    perso->invent.objcts[1]->name, perso->invent.objcts[0]->quantity);
     printf("ABILITIES :\nName : %s\nRatio: %.2f\nName : %s\nRatio : %.2f", \
     perso->all_abili[0]->name, perso->all_abili[0]->ratio, \
     perso->all_abili[1]->name, perso->all_abili[1]->ratio);
