@@ -9,6 +9,7 @@
 /*----------Basic functions-----------*/
 
 void my_putstr(char*);
+char *nbr_str(int nb);
 char **my_str_to_word_array_space(char *str);
 
 /*----------RPG functions-------------*/
