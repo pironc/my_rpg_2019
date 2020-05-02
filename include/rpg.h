@@ -79,6 +79,14 @@ typedef struct abilities_s {
     char *name;
 } abili_t;
 
+typedef struct inventory_s {
+    obj_t **objcts;
+    sfSprite *perso_spr;
+    sfTexture *perso_text;
+    sfSprite *invent_spr;
+    sfTexture *invent_text;
+} invnt_t;
+
 typedef struct perso_s {
     char *name;
     int hp;
@@ -88,7 +96,8 @@ typedef struct perso_s {
     int level;
     int exp;
     int gold;
-    obj_t **invent;
+    int item_nbr;
+    invnt_t invent;
     sfSprite *spr;
     sfTexture *text;
     abili_t **all_abili;
@@ -124,7 +133,7 @@ typedef struct scene_s {
 
 typedef struct game_s {
     int cur_scn;
-    filter_t fade;
+    filter_t *fade;
     scene_t *scenes;
     perso_t *perso;
     enemy_t **enemies;

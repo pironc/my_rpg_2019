@@ -142,17 +142,6 @@ void init_options_menu(game_t game)
     sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
 }
 
-void init_transition(game_t game)
-{
-    sfVector2f size = {1920, 1080};
-
-    game.fade.fade_clock = sfClock_create();
-    game.fade.active = 0;
-    game.fade.rect = sfRectangleShape_create();
-    sfRectangleShape_setSize(game.fade.rect, size);
-    game.fade.transparent = sfColor_fromRGBA(0, 0, 0, 0);
-}
-
 game_t initialize_game(game_t game)
 {
     perso_t *perso = malloc(sizeof(perso_t) * 1);

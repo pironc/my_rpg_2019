@@ -9,10 +9,6 @@
 
 void draw_elements(sfRenderWindow *window, game_t game)
 {
-    /*if (game.fade.active == 1) {
-        game.fade.transparent.a = fade_in(window, game);
-        game.fade.active = 0;
-    }*/
     for (int i = 0; i != game.scenes[game.cur_scn].obj_nbr; i++) {
         sfRenderWindow_drawSprite(window, \
 game.scenes[game.cur_scn].gm_objcts[i].spr, NULL);
@@ -21,9 +17,6 @@ game.scenes[game.cur_scn].gm_objcts[i].spr, NULL);
         sfRenderWindow_drawSprite(window, \
 game.scenes[game.cur_scn].buttons[i].spr, NULL);
     }
-    /*if (game.fade.active = 0) {
-        game.fade.transparent.a = fade_out(window, game);
-    }*/
 }
 
 int pause_menu_ing(sfRenderWindow *window, sfEvent event, game_t game, int flag)
@@ -50,8 +43,10 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
         flag = pause_menu_ing(window, event, game, flag);
         if (flag == 1)
             break;
-        if (flag == 2)
+        if (flag == 2) {
             close_window(window);
+            break;
+        }
     }
 }
 
