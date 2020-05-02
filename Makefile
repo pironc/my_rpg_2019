@@ -17,7 +17,9 @@ SRC				=			src/main.c				\
 							src/transition.c		\
 							src/my_rpg.c			\
 							src/init/init_perso.c		\
-							src/combat_scene.c		\
+							src/combat/combat_scene.c		\
+							src/combat/combat_events.c		\
+							src/combat/intro_combat.c		\
 							src/gameplay.c			\
 							src/anim/set_rect_pos.c		\
 							src/anim/moves_perso.c		\
