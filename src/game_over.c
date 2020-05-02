@@ -14,7 +14,7 @@ void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, sfRectangleSha
     sfTime time;
     float seconds;
 
-    for (int i = 0; i != 500; i++) {
+    for (int i = 0; i != 750; i++) {
         if (i >= 200)
             sfRenderWindow_drawSprite(window, gm_ovr_spr, NULL);
     }
