@@ -23,8 +23,12 @@ game->scenes[scene].map[btm_y - 1][left_x] == '*' && game->scenes[scene].map\
 [btm_y - 1][right_x] == '*')
         perso->pos.y -= 8;
     else if (game->scenes[scene].map[cur_y - 1][cur_x] == 'H') {
-        perso->pos.y = 500;
-        perso->pos.x = 1000;
+        if (game->cur_scn == 5) {
+            game->cur_scn = 7;
+        } else {
+            perso->pos.x = 500;
+            perso->pos.y = 500;
+        }
     } else
         perso->pos.y -= 0;
 }
