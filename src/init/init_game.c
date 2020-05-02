@@ -54,6 +54,7 @@ void init_menu(game_t game)
 
 void init_forest_map(game_t game)
 {
+    maps_t maps;
     sfVector2f fight_but_pos = {100, 50};
 
     game.scenes[4].enemy_left = 3;
@@ -64,6 +65,7 @@ void init_forest_map(game_t game)
     "ressources/map_forest.jpg");
     game.scenes[4].obj_nbr = 1;
     game.scenes[4].but_nbr = 0;
+    maps.forest = init_map(maps, "game_maps/forest");
 }
 
 void init_desert_map(game_t game)

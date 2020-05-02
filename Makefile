@@ -29,7 +29,6 @@ SRC				=			src/main.c				\
 							src/init/init_map.c			\
 							src/inventory.c			\
 							src/my_str_to_word_array_space.c	\
-							src/open_map.c						\
 							src/position_of_mouse.c				\
 							#src/pause_menu.c
 

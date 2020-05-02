@@ -40,10 +40,10 @@ void destroy_enemy(enemy_t *enemy)
     sfSprite_destroy(enemy->spr);
 }
 
-void destroy_map(maps_t *map)
+void destroy_map(maps_t *maps)
 {
-    for (int i = 0; map->maps[i]; i++) {
-        for (int j = 0; map->maps[i][j]; j++)
-            free(map->maps[i][j]);
+    for (int i = 0; maps->forest[i]; i++) {
+        for (int j = 0; maps->forest[i][j]; j++)
+            free(maps->forest[i][j]);
     }
 }

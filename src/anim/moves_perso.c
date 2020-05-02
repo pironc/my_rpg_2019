@@ -49,14 +49,12 @@ void move_perso(game_t *game, perso_t *perso, int i)
     static int desert_loaded = 0;
     static int lava_loaded = 0;
 
-    /*
     if (scene == 4 && forest_loaded != 1) {
-        maps.forest = open_map("forest");
-        my_putchar('a');
         forest_loaded = 1;
         desert_loaded = 0;
         lava_loaded = 0;
-    } else if (scene == 5 && desert_loaded != 1) {
+    }
+    /* else if (scene == 5 && desert_loaded != 1) {
         maps.desert = open_map("desert");
         my_putchar('b');
         desert_loaded = 1;
@@ -70,13 +68,13 @@ void move_perso(game_t *game, perso_t *perso, int i)
         desert_loaded = 0;
     }*/
 
-    /* DEBUG to print the map output to terminal
-
+    /*
+    my_putchar('M');
     for (int d = 0; d < 34; d++) {
-        my_putstr(tileset[d]);
+        my_putstr(maps.forest[d]);
         my_putchar('\n');
     }
-
+    my_putchar('E');
     */
 
    char *tileset[] = {
@@ -195,6 +193,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
     sfSprite_setPosition(perso->spr, perso->pos);
     //printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
     //printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
+    my_putchar('h');
 }
 
 void change_sprite(perso_t *perso, char *filepath)

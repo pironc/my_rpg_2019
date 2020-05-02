@@ -29,8 +29,7 @@ perso_t *perso, game_t *game)
 void analyse_move_event(sfRenderWindow *window, game_t *game, \
 sfEvent event, perso_t *perso)
 {
-    //if (event.type == sfEvtKeyPressed)
-        key_pressed(window, event, perso, game);
+    key_pressed(window, event, perso, game);
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
             game->cur_scn = 0;

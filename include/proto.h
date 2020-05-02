@@ -10,6 +10,8 @@
 
 void my_putstr(char*);
 char **my_str_to_word_array_space(char *str);
+int my_put_nbr(int nb);
+char my_putchar(char c);
 
 /*----------RPG functions-------------*/
 
@@ -65,11 +67,10 @@ sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
-maps_t *init_map(void);
+maps_t *init_map(maps_t maps, char *filepath);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
-char **open_map(char **tileset);
 
 /*---------Combat RPG------------*/
 

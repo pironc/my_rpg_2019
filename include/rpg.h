@@ -22,11 +22,8 @@
 #ifndef RPG_
 #define RPG_
 
-typedef struct map_s {
+typedef struct maps_s {
     char **forest;
-    char **desert;
-    char **lava;
-    char ***maps;
 } maps_t;
 
 typedef struct button_s {
