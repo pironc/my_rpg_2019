@@ -40,13 +40,17 @@ void init_invent(perso_t *perso)
     perso->invent.stats = malloc(sizeof(sfText*) * 8);
     init_stats_text(perso);
     perso->invent.perso_spr = sfSprite_create();
-    perso->invent.perso_text = sfTexture_createFromFile("ressources/perso_invtry.png", NULL);
-    sfSprite_setTexture(perso->invent.perso_spr, perso->invent.perso_text, sfTrue);
+    perso->invent.perso_text = sfTexture_createFromFile("\
+    ressources/perso_invtry.png", NULL);
+    sfSprite_setTexture(perso->invent.perso_spr, \
+    perso->invent.perso_text, sfTrue);
     sfSprite_setPosition(perso->invent.perso_spr, perso_pos);
     sfSprite_setScale(perso->invent.perso_spr, perso_scale);
     perso->invent.invent_spr = sfSprite_create();
-    perso->invent.invent_text = sfTexture_createFromFile("ressources/invtry.png", NULL);
-    sfSprite_setTexture(perso->invent.invent_spr, perso->invent.invent_text, sfTrue);
+    perso->invent.invent_text = sfTexture_createFromFile("\
+    ressources/invtry.png", NULL);
+    sfSprite_setTexture(perso->invent.invent_spr, \
+    perso->invent.invent_text, sfTrue);
     perso->invent.objcts[0] = init_obj("objet1", 0, "ressources/objet1.png");
     perso->invent.objcts[1] = init_obj("objet2", 0, "ressources/objet2.png");
     perso->invent.objcts[2] = init_obj("objet3", 0, "ressources/objet3.png");
@@ -76,8 +80,10 @@ void init_perso_hp_bar(perso_t *perso)
 
     perso->hp_bar.rect = sfRectangleShape_create();
     perso->hp_bar.hp_bar_spr = sfSprite_create();
-    perso->hp_bar.hp_bar_text = sfTexture_createFromFile("ressources/health_bar.png", NULL);
-    sfSprite_setTexture(perso->hp_bar.hp_bar_spr, perso->hp_bar.hp_bar_text, sfTrue);
+    perso->hp_bar.hp_bar_text = sfTexture_createFromFile("\
+    ressources/health_bar.png", NULL);
+    sfSprite_setTexture(perso->hp_bar.hp_bar_spr, \
+    perso->hp_bar.hp_bar_text, sfTrue);
     sfRectangleShape_setSize(perso->hp_bar.rect, size);
     sfRectangleShape_setFillColor(perso->hp_bar.rect, fill_color);
 }

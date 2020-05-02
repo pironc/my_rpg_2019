@@ -39,7 +39,8 @@ void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
     dmg_anim(window, game, enemy, char_pos);
 }
 
-void dmg_anim(sfRenderWindow *window, game_t game, enemy_t *enemy, sfVector2f char_pos)
+void dmg_anim(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfVector2f char_pos)
 {
     sfVector2f anim_pos = {1490, 310};
     sfSprite *spr = sfSprite_create();

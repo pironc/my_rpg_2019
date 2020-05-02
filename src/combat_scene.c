@@ -17,14 +17,15 @@ enemy_t *init_health_bar_combat(enemy_t *enemy)
     hp_bar_pos.y += 175;
     enemy->hp_bar.rect = sfRectangleShape_create();
     enemy->hp_bar.hp_bar_spr = sfSprite_create();
-    enemy->hp_bar.hp_bar_text = sfTexture_createFromFile("ressources/health_bar.png", NULL);
-    sfSprite_setTexture(enemy->hp_bar.hp_bar_spr, enemy->hp_bar.hp_bar_text, sfTrue);
+    enemy->hp_bar.hp_bar_text = sfTexture_createFromFile("\
+    ressources/health_bar.png", NULL);
+    sfSprite_setTexture(enemy->hp_bar.hp_bar_spr, \
+    enemy->hp_bar.hp_bar_text, sfTrue);
     sfSprite_setPosition(enemy->hp_bar.hp_bar_spr, hp_bar_pos);
     sfRectangleShape_setSize(enemy->hp_bar.rect, size);
     sfRectangleShape_setPosition(enemy->hp_bar.rect, hp_bar_pos);
     sfRectangleShape_setFillColor(enemy->hp_bar.rect, fill_color);
-
-    return(enemy);
+    return (enemy);
 }
 
 game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy)
@@ -42,8 +43,7 @@ game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy)
     sfSprite_setScale(enemy->spr, nmy_scale);
     sfSprite_setPosition(enemy->spr, nmy_pos);
     enemy = init_health_bar_combat(enemy);
-
-    return(game);
+    return (game);
 }
 
 game_t combat_scene_intro(sfRenderWindow *window, game_t game, enemy_t *enemy)
@@ -108,8 +108,7 @@ game_t refresh_hp_bar_player(sfRenderWindow *window, game_t game)
     int pixels_to_hide = (player_percent * 672) / 100;
     sfVector2f rect_size = {pixels_to_hide, 43};
     sfRectangleShape_setSize(game.perso->hp_bar.rect, rect_size);
-
-    return(game);
+    return (game);
 }
 
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy)
@@ -120,8 +119,7 @@ enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy)
     sfRectangleShape_setSize(enemy->hp_bar.rect, rect_size);
     sfRenderWindow_drawRectangleShape(window, enemy->hp_bar.rect, NULL);
     sfRenderWindow_display(window);
-
-    return(enemy);
+    return (enemy);
 }
 
 sfBool change_turn(sfBool player_turn)
@@ -186,5 +184,5 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
         game_over(window, game.perso, game, enemy);
     }
     back_to_gameplay(game);
-    return(game);
+    return (game);
 }

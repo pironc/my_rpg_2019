@@ -28,7 +28,8 @@ void fade_out(sfRenderWindow *window, filter_t *transition)
 {
     while (transition->transparent.a != 0) {
         transition->transparent.a--;
-        sfRectangleShape_setFillColor(transition->rect, transition->transparent);
+        sfRectangleShape_setFillColor(transition->rect, \
+transition->transparent);
         sfRenderWindow_drawRectangleShape(window, transition->rect, NULL);
         sfRenderWindow_display(window);
     }

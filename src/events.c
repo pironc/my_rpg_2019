@@ -28,7 +28,8 @@ game_t button_is_clicked_options(sfRenderWindow *window, game_t game)
 {
     int but_clicked = 0;
     if (game.scenes[1].but_nbr > 0) {
-        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[1].but_nbr; i++) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != \
+game.scenes[1].but_nbr; i++) {
             but_clicked = check_which_button(\
 game, i, sfMouse_getPosition(window));
         }
@@ -48,8 +49,10 @@ game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
 {
     int but_clicked = 0;
     if (game.scenes[0].but_nbr > 0) {
-        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[0].but_nbr; i++) {
-            but_clicked = check_which_button(game, i, sfMouse_getPosition(window));
+        for (int i = 1; but_clicked == 0 && (i - 1) != \
+game.scenes[0].but_nbr; i++) {
+            but_clicked = check_which_button(game, i, \
+sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
@@ -68,17 +71,19 @@ game_t button_is_clicked_menu(sfRenderWindow *window, game_t game)
     return (game);
 }
 
-game_t button_is_released_combat(sfRenderWindow *window, game_t game, enemy_t *enemy, sfEvent event)
+game_t button_is_released_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event)
 {
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
-        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[3].but_nbr; i++) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != \
+game.scenes[3].but_nbr; i++) {
             but_clicked = check_which_button(\
 game, i, sfMouse_getPosition(window));
         }
     }
     if (but_clicked == 1) {
-        check_hvy_atk_cd(window,game.scenes[3].buttons[1]);
+        check_hvy_atk_cd(window, game.scenes[3].buttons[1]);
         base_atk_dmg(window, game, enemy);
         sfSprite_setTexture(game.scenes[3].buttons[0].spr, \
         game.scenes[3].buttons[0].text, sfTrue);
@@ -99,11 +104,13 @@ game, i, sfMouse_getPosition(window));
     return (game);
 }
 
-game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, enemy_t *enemy, sfEvent event)
+game_t button_is_clicked_combat(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfEvent event)
 {
     int but_clicked = 0;
     if (game.scenes[3].but_nbr > 0) {
-        for (int i = 1; but_clicked == 0 && (i - 1) != game.scenes[3].but_nbr; i++) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != \
+game.scenes[3].but_nbr; i++) {
             but_clicked = check_which_button(\
 game, i, sfMouse_getPosition(window));
         }
@@ -134,7 +141,8 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
     return (game);
 }
 
-game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, enemy_t *enemy)
+game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, \
+game_t game, enemy_t *enemy)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
@@ -153,7 +161,7 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, game_t game, 
 
 int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag)
 {
-    while(sfRenderWindow_pollEvent(window, &event)) {
+    while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI) {
             flag = 1;
         }
