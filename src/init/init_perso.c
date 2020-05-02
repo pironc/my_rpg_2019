@@ -51,10 +51,10 @@ void init_invent(perso_t *perso)
     ("ressources/invtry.png", NULL);
     sfSprite_setTexture(perso->invent.invent_spr, \
     perso->invent.invent_text, sfTrue);
-    perso->invent.objcts[0] = init_obj("objet1", 0, "ressources/objet1.png");
-    perso->invent.objcts[1] = init_obj("objet2", 0, "ressources/objet2.png");
-    perso->invent.objcts[2] = init_obj("objet3", 0, "ressources/objet3.png");
-    perso->invent.objcts[3] = init_obj("objet4", 0, "ressources/objet4.png");
+    perso->invent.objcts[0] = init_obj("object1", 0, "ressources/objet1.png");
+    perso->invent.objcts[1] = init_obj("object2", 0, "ressources/objet2.png");
+    perso->invent.objcts[2] = init_obj("object3", 0, "ressources/objet3.png");
+    perso->invent.objcts[3] = init_obj("object4", 0, "ressources/objet4.png");
     perso->invent.objcts[4] = NULL;
 }
 

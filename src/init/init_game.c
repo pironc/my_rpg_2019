@@ -54,7 +54,7 @@ void init_menu(game_t game)
 
 void init_forest_map(game_t game)
 {
-    maps_t maps;
+    int scene_nb = 4;
     sfVector2f fight_but_pos = {100, 50};
 
     game.scenes[4].enemy_left = 3;
@@ -65,11 +65,12 @@ void init_forest_map(game_t game)
     "ressources/map_forest.jpg");
     game.scenes[4].obj_nbr = 1;
     game.scenes[4].but_nbr = 0;
-    maps.forest = init_map(maps, "game_maps/forest");
+    game.scenes[4].map = init_map(game, "game_maps/forest", scene_nb);
 }
 
 void init_desert_map(game_t game)
 {
+    int scene_nb = 5;
     sfVector2f fight_but_pos = {100, 50};
 
     game.scenes[5].enemy_left = 0;
@@ -80,10 +81,12 @@ void init_desert_map(game_t game)
     "ressources/map_desert.jpg");
     game.scenes[5].obj_nbr = 1;
     game.scenes[5].but_nbr = 0;
+    game.scenes[5].map = init_map(game, "game_maps/desert", scene_nb);
 }
 
 void init_lava_map(game_t game)
 {
+    int scene_nb = 6;
     sfVector2f fight_but_pos = {100, 50};
 
     game.scenes[6].enemy_left = 0;
@@ -94,6 +97,7 @@ void init_lava_map(game_t game)
     "ressources/map_lava.jpg");
     game.scenes[6].obj_nbr = 1;
     game.scenes[6].but_nbr = 0;
+    game.scenes[6].map = init_map(game, "game_maps/lava", scene_nb);
 }
 
 void init_game_scenes(game_t game)

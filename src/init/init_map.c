@@ -7,10 +7,8 @@
 
 #include "../../include/rpg.h"
 #include "../../include/proto.h"
-#include <sys/types.h>
-#include <sys/stat.h>
 
-char **read_map(maps_t maps, char *filepath)
+char **read_map(game_t game, char *filepath, int scene_nb)
 {
     int c = 0;
     int fori = 0;
@@ -23,33 +21,32 @@ char **read_map(maps_t maps, char *filepath)
 
     while (buff[buffi] != '\0' && fori < 35) {
         while (c < 60) {
-            maps.forest[fori][c] = buff[buffi];
+            game.scenes[scene_nb].map[fori][c] = buff[buffi];
             buffi++;
             c++;
         }
-        maps.forest[fori][c] = '\0';
+        game.scenes[scene_nb].map[fori][c] = '\0';
         fori++;
         c = 0;
     }
-    maps.forest[fori] = NULL;
-    return (maps.forest);
+    game.scenes[scene_nb].map[fori] = NULL;
+    return (game.scenes[scene_nb].map);
 }
 
-maps_t *init_map(maps_t maps, char *filepath)
+char **init_map(game_t game, char *filepath, int scene_nb)
 {
-    maps.forest = malloc(sizeof(char*) * 35);
+    game.scenes[scene_nb].map = malloc(sizeof(char*) * 35);
     for (int i = 0; i < 35; i++)
-        maps.forest[i] = malloc(sizeof(char) * 61);
-    maps.forest[60] = '\0';
-    read_map(maps, filepath);
-    return (maps.forest);
+        game.scenes[scene_nb].map[i] = malloc(sizeof(char) * 61);
+    game.scenes[scene_nb].map = read_map(game, filepath, scene_nb);
+    return (game.scenes[scene_nb].map);
 }
 
-void check_map(maps_t *map)
+void check_map(game_t game)
 {
-    for (int j = 0; map->forest[j]; j++) {
+    for (int j = 0; game.scenes[4].map[j]; j++) {
         for (int i = 0; i < 34; i++) {
-            printf("%s\n", map->forest[j][i]);
+            printf("%s\n", game.scenes[4].map[j][i]);
         }
     }
     printf("aled\n");
