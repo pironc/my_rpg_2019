@@ -45,7 +45,6 @@ void draw_menu_pause(sfRenderWindow *window, game_t game)
             break;
         if (flag == 2) {
             close_window(window);
-            break;
         }
     }
 }
