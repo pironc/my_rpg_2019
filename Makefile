@@ -13,6 +13,7 @@ SRC				=			src/main.c				\
 							src/events.c			\
 							src/draw.c				\
 							src/init/init_game.c			\
+							src/init/init_game_2.c			\
 							src/destroy.c			\
 							src/transition.c		\
 							src/my_rpg.c			\

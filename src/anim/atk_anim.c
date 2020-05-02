@@ -39,15 +39,9 @@ void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
     dmg_anim(window, game, enemy, char_pos);
 }
 
-void dmg_anim(sfRenderWindow *window, game_t game, \
-enemy_t *enemy, sfVector2f char_pos)
+void animation_atk(sfRenderWindow *window, game_t game, enemy_t *enemy, sfSprite *spr)
 {
-    sfVector2f anim_pos = {1490, 310};
-    sfSprite *spr = sfSprite_create();
-    sfTexture *text = sfTexture_createFromFile\
-    ("ressources/combat_bg/anim/base_atk_anim.png", NULL);
-    sfSprite_setTexture(spr, text, sfTrue);
-    sfSprite_setPosition(spr, anim_pos);
+    sfVector2f char_pos = {200, 320};
     sfIntRect rect;
     rect.top = 0;
     rect.left = 0;
@@ -68,4 +62,17 @@ enemy_t *enemy, sfVector2f char_pos)
         }
         rect.top += 256;
     }
+}
+
+void dmg_anim(sfRenderWindow *window, game_t game, \
+enemy_t *enemy, sfVector2f char_pos)
+{
+    sfVector2f anim_pos = {1490, 310};
+    sfSprite *spr = sfSprite_create();
+    sfTexture *text = sfTexture_createFromFile\
+    ("ressources/combat_bg/anim/base_atk_anim.png", NULL);
+    sfSprite_setTexture(spr, text, sfTrue);
+    sfSprite_setPosition(spr, anim_pos);
+
+    animation_atk(window, game, enemy, spr);
 }
