@@ -22,10 +22,8 @@ void draw_inventory(sfRenderWindow *window, perso_t *perso)
     sfRenderWindow_display(window);
 }
 
-void open_inventory(sfRenderWindow *window, game_t game)
+void set_inventory(game_t game)
 {
-    int flag = 0;
-    sfEvent close_event;
     sfVector2f hp_bar_pos = {580, 160};
     sfVector2f hp_bar_scale = {0.5, 0.8};
     float angle = 90;
@@ -36,6 +34,13 @@ void open_inventory(sfRenderWindow *window, game_t game)
     sfRectangleShape_setRotation(game.perso->hp_bar.rect, angle);
     sfSprite_setScale(game.perso->hp_bar.hp_bar_spr, hp_bar_scale);
     sfRectangleShape_setScale(game.perso->hp_bar.rect, hp_bar_scale);
+}
+
+void open_inventory(sfRenderWindow *window, game_t game)
+{
+    int flag = 0;
+    sfEvent close_event;
+    set_inventory(game);
     while (1) {
         draw_inventory(window, game.perso);
         flag = analyse_inventory_events(window, close_event, flag);
