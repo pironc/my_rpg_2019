@@ -40,7 +40,7 @@ void init_menu(game_t game)
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
     game.scenes[0].gm_objcts[0] = init_game_obj(game.scenes[0].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[0].buttons[0] = init_button(game.scenes[0].buttons[0], \
     pos_play, "ressources/BUTTONS/Play.png");
     sfSprite_setScale(game.scenes[0].buttons[0].spr, scale);
@@ -105,20 +105,18 @@ void init_pause_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
-    button.pos_play = {650, 100};
-    button.pos_options = {710, 400};
-    button.pos_exit = {650, 700};
+    sfVector2f play_pos = {650, 100};
+    button.pos_play = play_pos;
+    sfVector2f pos_exit = {650, 700};
+    button.pos_exit = pos_exit;
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[2].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[2].gm_objcts[0] = init_game_obj(game.scenes[2].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[2].buttons[0] = init_button(game.scenes[2].buttons[0], \
     button.pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[2].buttons[0].spr, scale);
-    game.scenes[2].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    button.pos_options, "ressources/BUTTONS/Options.png");
-    sfSprite_setScale(game.scenes[2].buttons[1].spr, scale);
     game.scenes[2].buttons[2] = init_button(game.scenes[1].buttons[2], \
     button.pos_exit, "ressources/BUTTONS/Exit.png");
     sfSprite_setScale(game.scenes[2].buttons[2].spr, scale);
@@ -135,7 +133,7 @@ void init_options_menu(game_t game)
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[1].gm_objcts = malloc(sizeof(gm_obj_t));
     game.scenes[1].gm_objcts[0] = init_game_obj(game.scenes[1].gm_objcts[0], \
-    "ressources/main_menu_bg.png");
+    "ressources/menu_background.jpg");
     game.scenes[1].buttons[0] = init_button(game.scenes[1].buttons[0], \
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);

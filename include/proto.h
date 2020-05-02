@@ -33,6 +33,9 @@ void draw_menu_pause(sfRenderWindow *window, game_t game);
 void fade_in(sfRenderWindow *window, filter_t *transition);
 void fade_out(sfRenderWindow *window, filter_t *transition);
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy);
+int position_of_back(sfRenderWindow *window, game_t game);
+int position_of_options(sfRenderWindow *window, game_t game);
+int position_of_exit(sfRenderWindow *window, game_t game);
 
 /*---------Events RPG------------*/
 
@@ -66,6 +69,7 @@ maps_t *init_map(void);
 void check_map(maps_t *map);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+char **open_map(char **tileset);
 
 /*---------Combat RPG------------*/
 

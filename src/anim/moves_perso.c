@@ -32,6 +32,8 @@ void move_rect(sfIntRect *rect, int offset, int max_value)
 
 void move_perso(game_t *game, perso_t *perso, int i)
 {
+    maps_t maps;
+
     sfEvent event;
     int top_y = 0;
     int current_y = 0;
@@ -41,7 +43,43 @@ void move_perso(game_t *game, perso_t *perso, int i)
     int current_x = 0;
     int right_x = 0;
 
-    char *tileset[] = {
+    //char **tileset = NULL;
+    int scene = game->cur_scn;
+    static int forest_loaded = 0;
+    static int desert_loaded = 0;
+    static int lava_loaded = 0;
+
+    /*
+    if (scene == 4 && forest_loaded != 1) {
+        maps.forest = open_map("forest");
+        my_putchar('a');
+        forest_loaded = 1;
+        desert_loaded = 0;
+        lava_loaded = 0;
+    } else if (scene == 5 && desert_loaded != 1) {
+        maps.desert = open_map("desert");
+        my_putchar('b');
+        desert_loaded = 1;
+        forest_loaded = 0;
+        lava_loaded = 0;
+    } else if (scene == 6 && lava_loaded != 1) {
+        maps.lava = open_map("lava");
+        my_putchar('c');
+        lava_loaded = 1;
+        forest_loaded = 0;
+        desert_loaded = 0;
+    }*/
+
+    /* DEBUG to print the map output to terminal
+
+    for (int d = 0; d < 34; d++) {
+        my_putstr(tileset[d]);
+        my_putchar('\n');
+    }
+
+    */
+
+   char *tileset[] = {
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
@@ -60,7 +98,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         "WWW*********************WWWWWWWWW***************W*****W**WWW",
         "WWW*********************WWWWW****************************WWW",
         "WWW*******************WWWWWWW****************************WWW",
-        "WWW*******************WWWWWWW****************************WWW",
+        "WWW******************************************************WWW",
         "WWW*W**********W*****************************************WWW",
         "WWW*********W********WWWWWWW*****************************WWW",
         "WWW******************WWWWWWW*****************************WWW",
@@ -77,6 +115,26 @@ void move_perso(game_t *game, perso_t *perso, int i)
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
         "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
     };
+
+    /*
+    switch (game->cur_scn) {
+        case 4:
+            my_putchar('a');
+            tileset = open_map("forest");
+            break;
+        case 5:
+            my_putchar('b');
+            tileset = open_map("desert");
+            break;
+        case 6:
+            my_putchar('c');
+            tileset = open_map("lava");
+            break;
+        default:
+            printf("default statement\n");
+            break;
+    }
+    */
 
     top_y = (perso->pos.y + 16) / 32;
     current_y = (perso->pos.y + 32) / 32;
@@ -126,8 +184,7 @@ void move_perso(game_t *game, perso_t *perso, int i)
         else if (tileset[current_y][current_x + 1] == 'L') {
             if (game->cur_scn == 4) {
                 game->cur_scn = 6;
-            }
-            if (game->cur_scn == 5) {
+            } else if (game->cur_scn == 5) {
                 game->cur_scn = 4;
             }
             perso->pos.y = 300;
@@ -136,8 +193,8 @@ void move_perso(game_t *game, perso_t *perso, int i)
             perso->pos.x += 0;
     }
     sfSprite_setPosition(perso->spr, perso->pos);
-    printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
-    printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
+    //printf(" %c \n%c%c%c\n %c\n", tileset[current_y - 1][current_x], tileset[current_y][current_x - 1], tileset[current_y][current_x], tileset[current_y][current_x + 1], tileset[current_y + 1][current_x]);
+    //printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
 }
 
 void change_sprite(perso_t *perso, char *filepath)

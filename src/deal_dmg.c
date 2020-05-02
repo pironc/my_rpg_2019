@@ -24,7 +24,6 @@ int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but)
             sfSprite_setTexture(hvy_atk_but.spr, hvy_atk_but.text, sfTrue);
             sfRenderWindow_drawSprite(window, hvy_atk_but.spr, NULL);
         }
-        
         return (turn_before_available + 1);
     }
 }
