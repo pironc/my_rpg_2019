@@ -59,7 +59,7 @@ game.scenes[game.cur_scn].enemy_left; i++)
         game.scenes[3].but_nbr = 2;
         game.scenes[3].obj_nbr = 2;
         init_combat_scene(game, window, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
-        game = combat(window, game, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
+        game = combat(window, game, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1], gameplay_scene);
         game.scenes[game.cur_scn].enemy = NULL;
     }
     return (game);
