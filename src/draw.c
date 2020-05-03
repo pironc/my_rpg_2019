@@ -88,6 +88,7 @@ int draw_window(sfRenderWindow *window, game_t game)
     //check_perso(game.perso);
     sfMusic_setLoop(game.menu_music, sfTrue);
     sfMusic_play(game.menu_music);
+
     while (sfRenderWindow_isOpen(window)) {
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);
