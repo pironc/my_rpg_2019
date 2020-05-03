@@ -55,7 +55,12 @@ game.scenes[0].but_nbr; i++) {
 sfMouse_getPosition(window));
         }
     }
-    if (but_clicked == 1) {
+    if (but_clicked == 1 ) {
+        sfMusic_stop(game.menu_music);
+        sfMusic_destroy(game.menu_music);
+        sfMusic_setVolume(game.am_music, 2.5);
+        sfMusic_setLoop(game.am_music, sfTrue);
+        sfMusic_play(game.am_music);
         game.cur_scn = 4;
         game.scenes[4].but_nbr = 0;
         game.scenes[4].obj_nbr = 1;
@@ -66,6 +71,8 @@ sfMouse_getPosition(window));
         game.scenes[1].but_nbr = 2;
     }
     if (but_clicked == 3) {
+        sfMusic_destroy(game.cbt_music);
+        sfMusic_destroy(game.am_music);
         sfMusic_stop(game.menu_music);
         sfMusic_destroy(game.menu_music);
         close_window(window);

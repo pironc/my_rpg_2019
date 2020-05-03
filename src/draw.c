@@ -51,6 +51,7 @@ NULL);
             break;
         }
         if (flag == 2) {
+            sfMusic_destroy(game.cbt_music);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
             close_window(window);

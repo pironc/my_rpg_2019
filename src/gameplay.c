@@ -50,6 +50,10 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 game.scenes[game.cur_scn].enemy_left; i++)
         enemys_nbr = check_which_enemy(game, i, game.perso->pos);
     if (enemys_nbr > 0) {
+        sfMusic_pause(game.am_music);
+        sfMusic_setVolume(game.cbt_music, 3.5);
+        sfMusic_setLoop(game.cbt_music, sfTrue);
+        sfMusic_play(game.cbt_music);
         game.cur_scn = 3;
         game.scenes[3].but_nbr = 2;
         game.scenes[3].obj_nbr = 2;
@@ -68,9 +72,6 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfTime time;
     sfEvent event;
 
-    sfMusic_setVolume(game.am_music, 2.5);
-    sfMusic_setLoop(game.am_music, sfTrue);
-    sfMusic_play(game.am_music);
     while (game.cur_scn >= 4 && sfRenderWindow_isOpen(window)) {
         reset_window(window, &game, perso);
         time = sfClock_getElapsedTime(clock2);
