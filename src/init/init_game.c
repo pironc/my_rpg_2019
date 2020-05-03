@@ -109,7 +109,6 @@ game_t initialize_game(game_t game)
     game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
     game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
     game.cave_music = sfMusic_createFromFile("ressources/Audio/cave.ogg");
-    game.door_sound = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
     game.door = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
     game.door_sound = sfSound_create();
     init_perso(perso);

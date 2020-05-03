@@ -59,6 +59,8 @@ NULL);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
             sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
             close_window(window);
             break;
         }
@@ -68,6 +70,8 @@ NULL);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
             sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
             close_window(window);
             break;
         }
