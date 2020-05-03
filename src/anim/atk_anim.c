@@ -33,7 +33,7 @@ void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 
 void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
-    sfSoundBuffer *slash = sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/Socapex - Swordsmall.ogg");
+    sfSoundBuffer *slash = sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/hit.ogg");
     sfSound *slash_sound = sfSound_create();
     sfVector2f char_pos = {50, 320};
 
