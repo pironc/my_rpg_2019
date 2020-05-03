@@ -66,7 +66,7 @@ game.scenes[0].but_nbr; i++) {
 sfMouse_getPosition(window));
         }
     }
-    if (but_clicked == 1 ) {
+    if (but_clicked == 1) {
         sfMusic_stop(game.menu_music);
         sfMusic_setVolume(game.am_music, 2.5);
         sfMusic_setLoop(game.am_music, sfTrue);
