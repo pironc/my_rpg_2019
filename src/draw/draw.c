@@ -97,16 +97,16 @@ NULL);
 
 void draw_vertex(window)
 {
-    sfVertex a;
-    sfVector2f apos = {200, 100};
-    a.color = sfRed;
-    a.position = apos;
-
     sfVertexArray *array = sfVertexArray_create();
+    sfVertex vertex;
+    sfVector2f apos = {1, 1};
+    vertex.color = sfRed;
+    vertex.position = apos;
     sfVertexArray_setPrimitiveType(array, sfPoints);
-    sfVertexArray_append(array, a);
+    sfRenderTexture_drawVertexArray(window, array, NULL);
+    //sfVertexArray_append(array, a);
 
-    sfRenderWindow_drawVertexArray(window, array, 0);
+    //sfRenderWindow_drawVertexArray(window, array, 0);
 }
 
 int draw_window(sfRenderWindow *window, game_t game)
