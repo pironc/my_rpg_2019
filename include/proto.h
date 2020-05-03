@@ -71,6 +71,7 @@ game_t initialize_game(game_t game);
 void init_transition(game_t game);
 void init_stats_text(perso_t *perso);
 void init_perso(perso_t *perso);
+npc_t init_professor(game_t game);
 void init_invent(perso_t *perso);
 void init_enemies(enemy_t **enemies);
 gm_obj_t init_game_obj(gm_obj_t game_obj, char *filepath);

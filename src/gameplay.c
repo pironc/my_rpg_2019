@@ -21,7 +21,13 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_elements(window, *game);
+    if (game->cur_scn == 8 && (perso->pos.y > sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
+        sfRenderWindow_drawSprite(window, game->scenes[8].npc[0].spr, NULL);
+    }
     sfRenderWindow_drawSprite(window, perso->spr, NULL);
+    if (game->cur_scn == 8 && (perso->pos.y <= sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
+        sfRenderWindow_drawSprite(window, game->scenes[8].npc[0].spr, NULL);
+    }
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
         sfRenderWindow_drawSprite(window, game->scenes[game->cur_scn].enemy[i].spr, NULL);
     }

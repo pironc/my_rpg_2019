@@ -4,8 +4,25 @@
 ** File description:
 ** init enemy
 */
+
 #include "proto.h"
 #include "rpg.h"
+
+npc_t init_professor(game_t game)
+{
+    sfVector2f pr_pos = {950, 290};
+    sfVector2f pr_scale = {1.5, 1.5};
+
+    game.scenes[8].npc[0].name = malloc(sizeof(char) * 10);
+    game.scenes[8].npc[0].name = "Professor";
+    game.scenes[8].npc[0].spr = sfSprite_create();
+    game.scenes[8].npc[0].text = sfTexture_createFromFile("ressources/professor.png", NULL);
+    sfSprite_setTexture(game.scenes[8].npc[0].spr, game.scenes[8].npc[0].text, sfTrue);
+    sfSprite_setPosition(game.scenes[8].npc[0].spr, pr_pos);
+    sfSprite_setScale(game.scenes[8].npc[0].spr, pr_scale);
+
+    return (game.scenes[8].npc[0]);
+}
 
 enemy_t init_enemy_forest(void)
 {
