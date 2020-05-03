@@ -24,6 +24,17 @@ game.scenes[game.cur_scn].buttons[but_tested - 1].spr);
     return (0);
 }
 
+void state_music(game_t game)
+{
+    int music_state = sfMusic_getStatus(game.menu_music);
+
+    if (music_state == 2) {
+        sfMusic_pause(game.menu_music);
+    } else {
+        sfMusic_play(game.menu_music);
+    }
+}
+
 game_t button_is_clicked_options(sfRenderWindow *window, game_t game)
 {
     int but_clicked = 0;
@@ -40,7 +51,7 @@ game, i, sfMouse_getPosition(window));
         game.scenes[0].obj_nbr = 1;
     }
     if (but_clicked == 2) {
-        my_putstr("eh");
+        state_music(game);
     }
     return (game);
 }
