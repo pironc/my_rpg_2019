@@ -51,7 +51,7 @@ sfSoundBuffer_createFromFile("ressources/Audio/attacks/sword.ogg");
     dmg_anim(window, game, enemy, char_pos);
 }
 
-void animation_atk(sfRenderWindow *window, game_t game,\
+void animation_atk(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfSprite *spr)
 {
     sfVector2f char_pos = {200, 320};

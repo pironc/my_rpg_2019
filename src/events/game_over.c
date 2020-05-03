@@ -8,7 +8,8 @@
 #include "proto.h"
 #include "rpg.h"
 
-void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, sfRectangleShape *bg, sfColor color)
+void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, \
+sfRectangleShape *bg, sfColor color)
 {
     sfClock *clock = sfClock_create();
     sfTime time;
@@ -25,19 +26,21 @@ void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, sfRectangleSha
         seconds = time.microseconds / 1000000.000;
         if (seconds > 1) {
             color.a += 1;
-            sfRectangleShape_setFillColor(bg ,color);
+            sfRectangleShape_setFillColor(bg, color);
             sfRenderWindow_drawRectangleShape(window, bg, NULL);
         }
     }
 }
 
-void game_over(sfRenderWindow *window, perso_t *perso, game_t game, enemy_t *enemy)
+void game_over(sfRenderWindow *window, perso_t *perso, game_t game, \
+enemy_t *enemy)
 {
     sfVector2f bg_size = {1920, 1080};
     sfVector2f gm_ovr_pos = {350, 400};
     sfVector2f perso_pos = {210, 335};
     sfSprite *gm_ovr_spr = sfSprite_create();
-    sfTexture *gm_ovr_text = sfTexture_createFromFile("ressources/game_over.png", NULL);
+    sfTexture *gm_ovr_text = \
+    sfTexture_createFromFile("ressources/game_over.png", NULL);
     sfColor color = sfColor_fromRGBA(0, 0, 0, 0);
     sfRectangleShape *bg = sfRectangleShape_create();
 
