@@ -11,15 +11,10 @@ void fade_in(sfRenderWindow *window, filter_t *transition)
 {
     sfColor color = sfColor_fromRGBA(0, 0, 0, 150);
     while (color.a < 255) {
-        my_putchar('b');
         color.a++;
-        my_putchar('c');
         sfRectangleShape_setFillColor(transition->rect, color);
-        my_putchar('d');
         sfRenderWindow_drawRectangleShape(window, transition->rect, NULL);
-        my_putchar('d');
         sfRenderWindow_display(window);
-        my_putchar('e');
     }
     my_put_nbr(color.a);
 }

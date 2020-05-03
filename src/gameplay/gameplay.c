@@ -50,7 +50,7 @@ game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 game.scenes[game.cur_scn].enemy_left; i++)
         enemys_nbr = check_which_enemy(game, i, game.perso->pos);
     if (enemys_nbr > 0) {
-        sfMusic_pause(game.am_music);
+        sfMusic_setVolume(game.am_music, 0);
         sfMusic_setVolume(game.cbt_music, 3.5);
         sfMusic_setLoop(game.cbt_music, sfTrue);
         sfMusic_play(game.cbt_music);

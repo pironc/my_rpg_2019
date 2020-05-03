@@ -39,3 +39,22 @@ void destroy_enemy(enemy_t *enemy)
     sfTexture_destroy(enemy->text);
     sfSprite_destroy(enemy->spr);
 }
+
+void destroy_all(game_t game)
+{
+    sfMusic_destroy(game.cave_music);
+    sfMusic_destroy(game.cbt_music);
+    sfMusic_stop(game.am_music);
+    sfMusic_destroy(game.am_music);
+    sfMusic_destroy(game.menu_music);
+    sfSound_destroy(game.door_sound);
+    sfSoundBuffer_destroy(game.door);
+}
+
+void destroy_in_game(game_t game)
+{
+    sfSound_destroy(game.oof_sound);
+    sfSoundBuffer_destroy(game.oof);
+    sfSound_destroy(game.slash_sound);
+    sfSoundBuffer_destroy(game.slash);
+}

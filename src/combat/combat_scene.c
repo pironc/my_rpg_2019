@@ -47,6 +47,7 @@ void game_loop(sfRenderWindow *window, game_t game, enemy_t *enemy)
 game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy, \
 int gameplay_scene)
 {
+    sfEvent event;
     game.player_turn = sfTrue;
     game_loop(window, game, enemy);
     if (enemy->hp <= 0) {

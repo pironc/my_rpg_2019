@@ -87,13 +87,7 @@ sfMouse_getPosition(window));
         game.scenes[1].but_nbr = 3;
     }
     if (but_clicked == 3) {
-        sfMusic_destroy(game.cave_music);
-        sfMusic_destroy(game.cbt_music);
-        sfMusic_destroy(game.am_music);
-        sfMusic_stop(game.menu_music);
-        sfMusic_destroy(game.menu_music);
-        sfSound_destroy(game.door_sound);
-        sfSoundBuffer_destroy(game.door);
+        destroy_all(game);
         close_window(window);
     }
     return (game);

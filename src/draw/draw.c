@@ -55,24 +55,12 @@ NULL);
             break;
         }
         if (flag == 2) {
-            sfMusic_destroy(game.cave_music);
-            sfMusic_destroy(game.cbt_music);
-            sfMusic_stop(game.am_music);
-            sfMusic_destroy(game.am_music);
-            sfMusic_destroy(game.menu_music);
-            sfSound_destroy(game.door_sound);
-            sfSoundBuffer_destroy(game.door);
+            destroy_all(game);
             close_window(window);
             break;
         }
         if (flag == 3) {
-            sfMusic_destroy(game.cave_music);
-            sfMusic_destroy(game.cbt_music);
-            sfMusic_stop(game.am_music);
-            sfMusic_destroy(game.am_music);
-            sfMusic_destroy(game.menu_music);
-            sfSound_destroy(game.door_sound);
-            sfSoundBuffer_destroy(game.door);
+            destroy_all(game);
             close_window(window);
             break;
         }
@@ -81,6 +69,7 @@ NULL);
 
 void draw_combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
+    sfEvent event;
     for (int i = 0; i != game.scenes[3].obj_nbr; i++) {
         sfRenderWindow_drawSprite(window, game.scenes[3].gm_objcts[i].spr, \
 NULL);
