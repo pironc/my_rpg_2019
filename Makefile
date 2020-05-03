@@ -37,7 +37,7 @@ SRC				=			src/main.c											\
 							src/gameplay/gameplay.c								\
 							src/gameplay/inventory.c							\
 							src/gameplay/my_rpg.c								\
-							src/init/check_ennemy.c									\
+							src/init/check_ennemy.c								\
 							src/init/init_button.c								\
 							src/init/init_enemy.c								\
 							src/init/init_game_2.c								\

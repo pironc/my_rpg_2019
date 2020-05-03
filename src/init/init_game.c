@@ -56,7 +56,7 @@ void init_options_menu(game_t game)
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f pos_play = {650, 50};
-    sfVector2f pos_sound = {700, 350};
+    sfVector2f pos_mute = {700, 350};
     sfVector2f pos_htp = {650, 650};
 
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
@@ -67,7 +67,7 @@ void init_options_menu(game_t game)
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
     game.scenes[1].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    pos_sound, "ressources/BUTTONS/Sound.png");
+    pos_mute, "ressources/BUTTONS/Mute.png");
     sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
     game.scenes[1].buttons[2] = init_button(game.scenes[1].buttons[2], \
     pos_htp, "ressources/BUTTONS/howtoplay.png");

@@ -120,9 +120,9 @@ int draw_window(sfRenderWindow *window, game_t game)
     sfMusic_play(game.menu_music);
 
     while (sfRenderWindow_isOpen(window)) {
+        draw_vertex(window);
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);
-        draw_vertex(window);
         draw_elements(window, game);
         gameplay(window, game, game.perso);
         sfRenderWindow_display(window);
