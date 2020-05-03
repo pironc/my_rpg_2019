@@ -79,6 +79,20 @@ NULL);
     sfRenderWindow_drawRectangleShape(window, enemy->hp_bar.rect, NULL);
 }
 
+void draw_vertex(window)
+{
+    sfVertex a;
+    sfVector2f apos = {200, 100};
+    a.color = sfRed;
+    a.position = apos;
+
+    sfVertexArray *array = sfVertexArray_create();
+    sfVertexArray_setPrimitiveType(array, sfPoints);
+    sfVertexArray_append(array, a);
+
+    sfRenderWindow_drawVertexArray(window, array, 0);
+}
+
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
@@ -92,6 +106,7 @@ int draw_window(sfRenderWindow *window, game_t game)
     while (sfRenderWindow_isOpen(window)) {
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);
+        draw_vertex(window);
         draw_elements(window, game);
         gameplay(window, game, game.perso);
         sfRenderWindow_display(window);
