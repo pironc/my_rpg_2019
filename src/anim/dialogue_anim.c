@@ -30,7 +30,8 @@ void zoom(sfView *view, sfRenderWindow *window, game_t game)
     }
 }
 
-void dezoom(sfView *view, sfRenderWindow *window, game_t game, sfVector2f last_center)
+void dezoom(sfView *view, sfRenderWindow *window, game_t game, \
+sfVector2f last_center)
 {
     sfVector2f view_size = {1920, 1080};
     sfVector2f view_center = {960, 540};

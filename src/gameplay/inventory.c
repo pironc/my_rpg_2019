@@ -25,6 +25,17 @@ void draw_inventory(sfRenderWindow *window, perso_t *perso)
     sfRenderWindow_display(window);
 }
 
+void set_inventory_extra(perso_t *perso)
+{
+    sfText_setString(perso->invent.stats[0], nbr_str(perso->hp));
+    sfText_setString(perso->invent.stats[1], nbr_str(perso->max_hp));
+    sfText_setString(perso->invent.stats[2], nbr_str(perso->attack));
+    sfText_setString(perso->invent.stats[3], nbr_str(perso->armor));
+    sfText_setString(perso->invent.stats[4], nbr_str(perso->exp));
+    sfText_setString(perso->invent.stats[5], nbr_str(perso->max_exp));
+    sfText_setString(perso->invent.stats[6], nbr_str(perso->level));
+}
+
 void set_inventory_text(perso_t *perso)
 {
     sfFont *font = sfFont_createFromFile("ressources/Minecraft.ttf");
@@ -36,13 +47,8 @@ void set_inventory_text(perso_t *perso)
     sfVector2f max_exp_pos = {1220, 375};
     sfVector2f lvl_pos = {1100, 455};
 
-    sfText_setString(perso->invent.stats[0], nbr_str(perso->hp));
-    sfText_setString(perso->invent.stats[1], nbr_str(perso->max_hp));
-    sfText_setString(perso->invent.stats[2], nbr_str(perso->attack));
-    sfText_setString(perso->invent.stats[3], nbr_str(perso->armor));
-    sfText_setString(perso->invent.stats[4], nbr_str(perso->exp));
-    sfText_setString(perso->invent.stats[5], nbr_str(perso->max_exp));
-    sfText_setString(perso->invent.stats[6], nbr_str(perso->level));
+    set_inventory_extra(perso);
+
     sfText_setPosition(perso->invent.stats[0], hp_pos);
     sfText_setPosition(perso->invent.stats[1], max_hp_pos);
     sfText_setPosition(perso->invent.stats[2], atk_pos);
@@ -50,6 +56,7 @@ void set_inventory_text(perso_t *perso)
     sfText_setPosition(perso->invent.stats[4], exp_pos);
     sfText_setPosition(perso->invent.stats[5], max_exp_pos);
     sfText_setPosition(perso->invent.stats[6], lvl_pos);
+
     for (int i = 0; i != 7; i++) {
         sfText_setFont(perso->invent.stats[i], font);
         sfText_setCharacterSize(perso->invent.stats[i], 40);

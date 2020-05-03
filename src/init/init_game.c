@@ -103,7 +103,6 @@ game_t initialize_game(game_t game)
     game.door = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
     game.door_sound = sfSound_create();
     init_perso(perso);
-    //check_perso(perso);
     game.perso = perso;
     init_menu(game);
     init_options_menu(game);

@@ -105,7 +105,7 @@ enemy_t init_enemy_lava(void)
     enemy.giv_xp = 10;
     enemy.spr = sfSprite_create();
     enemy.text = sfTexture_createFromFile("ressources/monster.png", NULL);
-    enemy.rect = set_rect(128, 128);
+    enemy.rect = set_rect(64, 64);
     enemy.pos = set_pos(753, 503);
     sfSprite_setScale(enemy.spr, scale_enemy);
     sfSprite_setTexture(enemy.spr, enemy.text, sfTrue);

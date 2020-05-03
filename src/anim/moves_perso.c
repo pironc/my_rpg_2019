@@ -50,8 +50,6 @@ void move_perso(game_t *game, perso_t *perso, int i)
         move_right(game, perso, cur_x, cur_y);
 
     sfSprite_setPosition(perso->spr, perso->pos);
-    //printf(" %c \n%c%c%c\n %c\n", game->scenes[scene].map[cur_y - 1][cur_x],game->scenes[scene].map[cur_y][cur_x - 1], game->scenes[scene].map[cur_y][cur_x], game->scenes[scene].map[cur_y][cur_x + 1], game->scenes[scene].map[cur_y + 1][cur_x]);
-    //printf("pos.x : %f ; pos.y : %f\n", perso->pos.x, perso->pos.y);
 }
 
 void change_sprite(perso_t *perso, char *filepath)

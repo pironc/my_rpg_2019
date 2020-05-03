@@ -63,6 +63,8 @@ sfBool change_turn(sfBool player_turn);
 void move_up(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_up_condition(game_t *game, perso_t *perso);
 void move_down(game_t *game, perso_t *perso, int cur_x, int cur_y);
+void move_down_condition1(game_t *game, perso_t *perso);
+void move_down_condition2(game_t *game, perso_t *perso);
 void move_left(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_right(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void trigger_dialogue(sfRenderWindow *window, game_t game);

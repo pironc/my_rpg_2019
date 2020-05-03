@@ -53,8 +53,5 @@ game_t back_to_gameplay(game_t game)
     sfVector2f scale_pers = {1, 1};
     sfMusic_stop(game.cbt_music);
     sfMusic_play(game.am_music);
-    game.cur_scn = 4;
-    game.scenes[4].but_nbr = 0;
-    game.scenes[4].obj_nbr = 1;
     sfSprite_setScale(game.perso->spr, scale_pers);
 }
