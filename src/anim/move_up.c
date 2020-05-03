@@ -24,10 +24,16 @@ game->scenes[scene].map[btm_y - 1][left_x] == '*' && game->scenes[scene].map\
         perso->pos.y -= 8;
     else if (game->scenes[scene].map[cur_y - 1][cur_x] == 'H') {
         if (game->cur_scn == 5) {
+            sfMusic_setVolume(game->cave_music, 4.5);
+            sfMusic_pause(game->am_music);
+            sfMusic_play(game->cave_music);
             game->cur_scn = 7;
             perso->pos.x = 928;
             perso->pos.y = 812;
         } else if (game->cur_scn == 4) {
+            sfSound_setBuffer(game->door_sound, game->door);
+            sfSound_setVolume(game->door_sound, 40);
+            sfSound_play(game->door_sound);
             game->cur_scn = 8;
             perso->pos.x = 926;
             perso->pos.y = 632;

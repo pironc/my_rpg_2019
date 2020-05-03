@@ -65,7 +65,7 @@ void init_options_menu(game_t game)
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f pos_play = {650, 100};
-    sfVector2f pos_options = {710, 400};
+    sfVector2f pos_options = {650, 480};
     sfVector2f pos_exit = {650, 700};
 
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
@@ -76,7 +76,7 @@ void init_options_menu(game_t game)
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
     game.scenes[1].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    pos_options, "ressources/BUTTONS/Sound.png");
+    pos_options, "ressources/BUTTONS/howtoplay.png");
     sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
 }
 
@@ -90,6 +90,10 @@ game_t initialize_game(game_t game)
     game.menu_music = sfMusic_createFromFile("ressources/Audio/menu.ogg");
     game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
     game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
+    game.cave_music = sfMusic_createFromFile("ressources/Audio/cave.ogg");
+    game.door_sound = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
+    game.door = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
+    game.door_sound = sfSound_create();
     init_perso(perso);
     //check_perso(perso);
     game.perso = perso;

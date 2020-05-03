@@ -136,7 +136,9 @@ typedef struct game_s {
     sfMusic *am_music;
     sfMusic *menu_music;
     sfMusic *cbt_music;
-    sfSound *door;
+    sfMusic *cave_music;
+    sfSound *door_sound;
+    sfSoundBuffer *door;
 } game_t;
 
 #endif /* RPG_ */

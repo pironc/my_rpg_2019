@@ -21,11 +21,16 @@ game->scenes[scene].map[cy + 1][lx] == '*' && game->scenes[scene].map\
 [cy + 1][rx] == '*')
         perso->pos.y += 8;
     else if (game->scenes[scene].map[cy + 1][lx] == 'D'&& game->cur_scn == 7) {
+        sfMusic_stop(game->cave_music);
+        sfMusic_play(game->am_music);
         game->cur_scn = 5;
         perso->pos.x = 960;
         perso->pos.y = 420;
     } else if (game->scenes[scene].map[cy + 1][lx] == 'F'\
 && game->cur_scn == 8) {
+        sfSound_setBuffer(game->door_sound, game->door);
+        sfSound_setVolume(game->door_sound, 40);
+        sfSound_play(game->door_sound);
         game->cur_scn = 4;
         perso->pos.x = 512;
         perso->pos.y = 386;
