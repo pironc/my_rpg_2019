@@ -11,9 +11,9 @@ void init_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
-    sfVector2f pos_play = {650, 100};
-    sfVector2f pos_menu = {720, 420};
-    sfVector2f pos_exit = {650, 700};
+    sfVector2f pos_play = {650, 50};
+    sfVector2f pos_menu = {720, 350};
+    sfVector2f pos_exit = {650, 650};
 
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
@@ -45,7 +45,7 @@ void init_pause_menu(game_t game)
     sfVector2f scale = {0.7, 0.7};
     sfVector2f play_pos = {650, 100};
     button.pos_play = play_pos;
-    sfVector2f pos_exit = {650, 550};
+    sfVector2f pos_exit = {650, 450};
     button.pos_exit = pos_exit;
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
@@ -86,8 +86,8 @@ void init_options_menu(game_t game)
 void init_how_to_play(game_t game)
 {
     button_t button;
-    sfVector2f scale = {0.7, 0.7};
-    sfVector2f pos_back = {650, 100};
+    sfVector2f scale = {0.3, 0.3};
+    sfVector2f pos_back = {780, 840};
 
     game.scenes[9].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[9].gm_objcts = malloc(sizeof(gm_obj_t));
