@@ -11,9 +11,9 @@ void init_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
-    sfVector2f pos_play = {650, 100};
-    sfVector2f pos_menu = {720, 420};
-    sfVector2f pos_exit = {650, 700};
+    sfVector2f pos_play = {650, 50};
+    sfVector2f pos_menu = {720, 350};
+    sfVector2f pos_exit = {650, 650};
 
     game.scenes[0].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[0].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
@@ -30,22 +30,13 @@ void init_menu(game_t game)
     sfSprite_setScale(game.scenes[0].buttons[2].spr, scale);
 }
 
-void init_game_scenes(game_t game)
-{
-    init_forest_map(game);
-    init_desert_map(game);
-    init_lava_map(game);
-    init_desert_house(game);
-    init_forest_house(game);
-}
-
 void init_pause_menu(game_t game)
 {
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f play_pos = {650, 100};
     button.pos_play = play_pos;
-    sfVector2f pos_exit = {650, 550};
+    sfVector2f pos_exit = {650, 450};
     button.pos_exit = pos_exit;
 
     game.scenes[2].buttons = malloc(sizeof(button_t) * 3);
@@ -65,7 +56,7 @@ void init_options_menu(game_t game)
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f pos_play = {650, 50};
-    sfVector2f pos_sound = {700, 350};
+    sfVector2f pos_mute = {700, 350};
     sfVector2f pos_htp = {650, 650};
 
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
@@ -76,7 +67,7 @@ void init_options_menu(game_t game)
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
     game.scenes[1].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    pos_sound, "ressources/BUTTONS/Sound.png");
+    pos_mute, "ressources/BUTTONS/Mute.png");
     sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
     game.scenes[1].buttons[2] = init_button(game.scenes[1].buttons[2], \
     pos_htp, "ressources/BUTTONS/howtoplay.png");
@@ -86,8 +77,8 @@ void init_options_menu(game_t game)
 void init_how_to_play(game_t game)
 {
     button_t button;
-    sfVector2f scale = {0.7, 0.7};
-    sfVector2f pos_back = {650, 100};
+    sfVector2f scale = {0.3, 0.3};
+    sfVector2f pos_back = {780, 840};
 
     game.scenes[9].buttons = malloc(sizeof(button_t) * 3);
     game.scenes[9].gm_objcts = malloc(sizeof(gm_obj_t));
@@ -109,7 +100,6 @@ game_t initialize_game(game_t game)
     game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
     game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
     game.cave_music = sfMusic_createFromFile("ressources/Audio/cave.ogg");
-    game.door_sound = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
     game.door = sfSoundBuffer_createFromFile("ressources/Audio/door.ogg");
     game.door_sound = sfSound_create();
     init_perso(perso);

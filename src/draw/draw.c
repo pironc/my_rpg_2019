@@ -29,6 +29,9 @@ sfMouse_isButtonPressed(sfMouseLeft))
         if (position_of_exit(window, game) && \
 sfMouse_isButtonPressed(sfMouseLeft))
             flag = 2;
+        if (event.type == sfEvtClosed) {
+            flag = 3;
+        }
     }
     return (flag);
 }
@@ -56,6 +59,19 @@ NULL);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
             sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
+            close_window(window);
+            break;
+        }
+        if (flag == 3) {
+            sfMusic_destroy(game.cave_music);
+            sfMusic_destroy(game.cbt_music);
+            sfMusic_stop(game.am_music);
+            sfMusic_destroy(game.am_music);
+            sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
             close_window(window);
             break;
         }
@@ -79,6 +95,20 @@ NULL);
     sfRenderWindow_drawRectangleShape(window, enemy->hp_bar.rect, NULL);
 }
 
+void draw_vertex(window)
+{
+    sfVertex a;
+    sfVector2f apos = {200, 100};
+    a.color = sfRed;
+    a.position = apos;
+
+    sfVertexArray *array = sfVertexArray_create();
+    sfVertexArray_setPrimitiveType(array, sfPoints);
+    sfVertexArray_append(array, a);
+
+    sfRenderWindow_drawVertexArray(window, array, 0);
+}
+
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
@@ -90,6 +120,7 @@ int draw_window(sfRenderWindow *window, game_t game)
     sfMusic_play(game.menu_music);
 
     while (sfRenderWindow_isOpen(window)) {
+        draw_vertex(window);
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);
         draw_elements(window, game);

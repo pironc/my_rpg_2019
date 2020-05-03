@@ -11,7 +11,7 @@
 void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     sfSoundBuffer *oof =\
-sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/Roblox.wav");
+sfSoundBuffer_createFromFile("ressources/Audio/attacks/Roblox.wav");
     sfSound *oof_sound = sfSound_create();
     sfVector2f enemy_pos = {1500, 320};
 
@@ -35,7 +35,7 @@ sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/Roblox.wav");
 void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
     sfSoundBuffer *slash =\
-sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/hit.ogg");
+sfSoundBuffer_createFromFile("ressources/Audio/attacks/sword.ogg");
     sfSound *slash_sound = sfSound_create();
     sfVector2f char_pos = {50, 320};
 
@@ -51,7 +51,7 @@ sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/hit.ogg");
     dmg_anim(window, game, enemy, char_pos);
 }
 
-void animation_atk(sfRenderWindow *window, game_t game,\
+void animation_atk(sfRenderWindow *window, game_t game, \
 enemy_t *enemy, sfSprite *spr)
 {
     sfVector2f char_pos = {200, 320};

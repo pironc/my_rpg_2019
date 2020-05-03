@@ -94,6 +94,8 @@ char **init_map(game_t game, char *filepath, int scene_nb);
 void check_map(game_t game);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+game_t button_is_clicked_options(sfRenderWindow *window, game_t game);
+game_t button_is_clicked_htp(sfRenderWindow *window, game_t game);
 
 /*---------Combat RPG------------*/
 
@@ -128,6 +130,7 @@ enemy_t *init_health_bar_combat(enemy_t *enemy);
 enemy_t init_enemy_desert(void);
 enemy_t init_enemy_forest(void);
 enemy_t init_enemy_lac(void);
+enemy_t init_enemy_lava(void);
 
 /*---------Inventory RPG---------*/
 void open_inventory(sfRenderWindow *window, game_t game);
