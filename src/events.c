@@ -157,6 +157,10 @@ game_t game, enemy_t *enemy)
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
             game.perso->hp = -1;
+            sfMusic_destroy(game.cave_music);
+            sfMusic_destroy(game.cbt_music);
+            sfMusic_destroy(game.am_music);
+            sfMusic_destroy(game.menu_music);
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
@@ -183,6 +187,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
+            sfMusic_destroy(game.cave_music);
+            sfMusic_destroy(game.cbt_music);
+            sfMusic_destroy(game.am_music);
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
