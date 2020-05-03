@@ -35,6 +35,24 @@ void state_music(game_t game)
     }
 }
 
+game_t button_is_clicked_htp(sfRenderWindow *window, game_t game)
+{
+    int but_clicked = 0;
+    if (game.scenes[9].but_nbr > 0) {
+        for (int i = 1; but_clicked == 0 && (i - 1) != \
+game.scenes[9].but_nbr; i++) {
+            but_clicked = check_which_button(\
+game, i, sfMouse_getPosition(window));
+        }
+    }
+    if (but_clicked == 1) {
+        game.cur_scn = 1;
+        game.scenes[1].but_nbr = 3;
+        game.scenes[1].obj_nbr = 1;
+    }
+    return (game);
+}
+
 game_t button_is_clicked_options(sfRenderWindow *window, game_t game)
 {
     int but_clicked = 0;
@@ -50,8 +68,12 @@ game, i, sfMouse_getPosition(window));
         game.scenes[0].but_nbr = 3;
         game.scenes[0].obj_nbr = 1;
     }
-    if (but_clicked == 2) {
+    if (but_clicked == 2)
         state_music(game);
+    if (but_clicked == 3) {
+        game.cur_scn = 9;
+        game.scenes[9].but_nbr = 1;
+        game.scenes[9].obj_nbr = 1;
     }
     return (game);
 }
@@ -78,7 +100,7 @@ sfMouse_getPosition(window));
     if (but_clicked == 2) {
         game.cur_scn = 1;
         game.scenes[1].obj_nbr = 1;
-        game.scenes[1].but_nbr = 2;
+        game.scenes[1].but_nbr = 3;
     }
     if (but_clicked == 3) {
         sfMusic_destroy(game.cave_music);
@@ -156,6 +178,10 @@ game_t button_is_clicked(sfRenderWindow *window, game_t game)
     }
     if (game.cur_scn == 0) {
         game = button_is_clicked_menu(window, game);
+        return (game);
+    }
+    if (game.cur_scn == 9) {
+        game = button_is_clicked_htp(window, game);
         return (game);
     }
     return (game);
