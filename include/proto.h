@@ -65,6 +65,7 @@ void move_down(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_left(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_right(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void trigger_dialogue(sfRenderWindow *window, game_t game);
+void dialogue_cutscene(sfRenderWindow *window, game_t game, sfText *dilg);
 int check_collision_prf(game_t game);
 char *read_txt_file(void);
 

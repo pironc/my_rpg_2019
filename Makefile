@@ -11,6 +11,7 @@ NAME			=			my_rpg
 
 SRC				=			src/main.c											\
 							src/anim/atk_anim.c									\
+							src/anim/dialogue_anim.c							\
 							src/anim/move_down.c								\
 							src/anim/move_events.c								\
 							src/anim/move_left.c								\

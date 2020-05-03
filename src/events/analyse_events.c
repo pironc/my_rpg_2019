@@ -44,9 +44,10 @@ int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag)
 
 void analyse_house_events(sfRenderWindow *window, sfEvent event, game_t game)
 {
-    int dialogues = 0;
-    if (check_collision_prf(game) == 1) {
+    static int dialogues;
+    if (check_collision_prf(game) == 1 && dialogues == 0) {
         trigger_dialogue(window, game);
+        dialogues = 1;
     }
 }
 

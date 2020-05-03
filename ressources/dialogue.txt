@@ -1,0 +1,4 @@
+Bienvenue jeune aventurier, afin de trouver l'objet legendaire que tu recherches,
+il te faudra vaincre les ennemis qui se trouveront sur ton chemin.
+Tu peux te deplacer avec les fleches du clavier ou Z, Q, S, D.
+Bonne chance aventurier !
