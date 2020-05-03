@@ -193,6 +193,14 @@ int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag)
     return (flag);
 }
 
+void analyse_house_events(sfRenderWindow *window, sfEvent event, game_t game)
+{
+    int dialogues = 0;
+    if (check_collision_prf(game) == 1) {
+        trigger_dialogue(window, game);
+    }
+}
+
 game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
@@ -211,6 +219,9 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
         }
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyI) {
             open_inventory(window, game);
+        }
+        if (game.cur_scn == 8) {
+            analyse_house_events(window, event, game);
         }
     }
     return (game);
