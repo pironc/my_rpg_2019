@@ -38,7 +38,6 @@ void game_over(sfRenderWindow *window, perso_t *perso, game_t game, enemy_t *ene
     sfVector2f perso_pos = {210, 335};
     sfSprite *gm_ovr_spr = sfSprite_create();
     sfTexture *gm_ovr_text = sfTexture_createFromFile("ressources/game_over.png", NULL);
-    sfTexture *perso_text = sfTexture_createFromFile("ressources/perso_dead.png", NULL);
     sfColor color = sfColor_fromRGBA(0, 0, 0, 0);
     sfRectangleShape *bg = sfRectangleShape_create();
 

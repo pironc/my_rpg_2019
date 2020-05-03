@@ -10,6 +10,8 @@
 
 void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
+    sfSoundBuffer *oof = sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/Roblox.wav");
+    sfSound *oof_sound = sfSound_create();
     sfVector2f enemy_pos = {1500, 320};
 
     while (enemy_pos.x > 1350) {
@@ -18,6 +20,9 @@ void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
         draw_combat(window, game, enemy);
         sfRenderWindow_display(window);
     }
+    sfSound_setBuffer(oof_sound, oof);
+    sfSound_setVolume(oof_sound, 5);
+    sfSound_play(oof_sound);
     while (enemy_pos.x < 1500) {
         enemy_pos.x += 5;
         sfSprite_setPosition(enemy->spr, enemy_pos);
@@ -28,6 +33,8 @@ void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 
 void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
 {
+    sfSoundBuffer *slash = sfSoundBuffer_createFromFile("ressources/Audio/attacks/sound/Socapex - Swordsmall.ogg");
+    sfSound *slash_sound = sfSound_create();
     sfVector2f char_pos = {50, 320};
 
     while (char_pos.x < 200) {
@@ -36,6 +43,9 @@ void perso_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy)
         draw_combat(window, game, enemy);
         sfRenderWindow_display(window);
     }
+    sfSound_setBuffer(slash_sound, slash);
+    sfSound_setVolume(slash_sound, 40);
+    sfSound_play(slash_sound);
     dmg_anim(window, game, enemy, char_pos);
 }
 
