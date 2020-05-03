@@ -17,7 +17,7 @@ int my_rpg(void)
     sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "My_RPG", \
     sfResize | sfClose, NULL);
-    game.scenes = malloc(sizeof(scene_t) * 7);
+    game.scenes = malloc(sizeof(scene_t) * 10);
     sfRenderWindow_setFramerateLimit(window, 60);
     if (!window) {
         return (EXIT_FAILURE);

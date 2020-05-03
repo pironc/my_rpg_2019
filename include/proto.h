@@ -4,6 +4,7 @@
 ** File description:
 ** proto.h
 */
+
 #include "rpg.h"
 
 /*----------Basic functions-----------*/
@@ -81,6 +82,8 @@ void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
 void init_desert_map(game_t game);
 void init_lava_map(game_t game);
+void init_desert_house(game_t game);
+void init_forest_house(game_t game);
 char **init_map(game_t game, char *filepath, int scene_nb);
 void check_map(game_t game);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
