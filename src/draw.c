@@ -44,10 +44,15 @@ NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[0].spr, NULL);
         sfRenderWindow_drawSprite(window, game.scenes[2].buttons[2].spr, NULL);
         sfRenderWindow_display(window);
+        sfMusic_pause(game.am_music);
         flag = pause_menu_ing(window, event, game, flag);
-        if (flag == 1)
+        if (flag == 1) {
+            sfMusic_play(game.am_music);
             break;
+        }
         if (flag == 2) {
+            sfMusic_stop(game.am_music);
+            sfMusic_destroy(game.am_music);
             close_window(window);
             break;
         }
@@ -80,6 +85,8 @@ int draw_window(sfRenderWindow *window, game_t game)
     //check_map(game.all_map);
     //check_enemy(game.enemies);
     //check_perso(game.perso);
+    sfMusic_setLoop(game.menu_music, sfTrue);
+    sfMusic_play(game.menu_music);
     while (sfRenderWindow_isOpen(window)) {
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);

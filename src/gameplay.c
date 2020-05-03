@@ -68,7 +68,6 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfTime time;
     sfEvent event;
 
-
     sfMusic_setLoop(game.am_music, sfTrue);
     sfMusic_play(game.am_music);
     while (game.cur_scn >= 4 && sfRenderWindow_isOpen(window)) {

@@ -30,6 +30,7 @@ void game_over(sfRenderWindow *window, perso_t *perso, game_t game, \
 enemy_t *enemy);
 void anim_game_over(sfRenderWindow *window, sfSprite *gm_ovr_spr, \
 sfRectangleShape *bg, sfColor color);
+void state_music(game_t game);
 
 /*---------Draw RPG--------------*/
 
