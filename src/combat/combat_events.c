@@ -29,7 +29,7 @@ game_t enemy_attack(sfRenderWindow *window, game_t game, enemy_t *enemy)
         game = refresh_hp_bar_player(window, game);
     }
 
-    return(game);
+    return (game);
 }
 
 void earn_loot(game_t game, enemy_t *enemy)

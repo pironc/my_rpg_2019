@@ -24,7 +24,6 @@ void init_desert_house(game_t game)
     game.scenes[7].map = init_map(game, "game_maps/desert_house", scene_nb);
 }
 
-
 void init_forest_house(game_t game)
 {
     int scene_nb = 8;

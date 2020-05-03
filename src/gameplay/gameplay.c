@@ -21,15 +21,18 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_elements(window, *game);
-    if (game->cur_scn == 8 && (perso->pos.y > sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
+    if (game->cur_scn == 8 && (perso->pos.y > \
+sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
         sfRenderWindow_drawSprite(window, game->scenes[8].npc[0].spr, NULL);
     }
     sfRenderWindow_drawSprite(window, perso->spr, NULL);
-    if (game->cur_scn == 8 && (perso->pos.y <= sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
+    if (game->cur_scn == 8 && (perso->pos.y <= \
+sfSprite_getPosition(game->scenes[8].npc[0].spr).y)) {
         sfRenderWindow_drawSprite(window, game->scenes[8].npc[0].spr, NULL);
     }
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
-        sfRenderWindow_drawSprite(window, game->scenes[game->cur_scn].enemy[i].spr, NULL);
+        sfRenderWindow_drawSprite(window, \
+game->scenes[game->cur_scn].enemy[i].spr, NULL);
     }
     //draw_leaves(window, game, perso);
     sfRenderWindow_display(window);
@@ -38,7 +41,8 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
 {
     sfFloatRect g_bnd = \
-    sfSprite_getGlobalBounds(game.scenes[game.cur_scn].enemy[nmy_tested - 1].spr);
+    sfSprite_getGlobalBounds(game.scenes[game.cur_scn].\
+enemy[nmy_tested - 1].spr);
     if (perso_pos.x >= g_bnd.left && perso_pos.x <= \
     (g_bnd.left + g_bnd.width)) {
         if (perso_pos.y <= (g_bnd.top + g_bnd.height) && \
@@ -64,8 +68,10 @@ game.scenes[game.cur_scn].enemy_left; i++)
         game.cur_scn = 3;
         game.scenes[3].but_nbr = 2;
         game.scenes[3].obj_nbr = 2;
-        init_combat_scene(game, window, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
-        game = combat(window, game, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1], gameplay_scene);
+        init_combat_scene(game, window, \
+&game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
+        game = combat(window, game, \
+&game.scenes[gameplay_scene].enemy[enemys_nbr - 1], gameplay_scene);
         game.scenes[game.cur_scn].enemy = NULL;
     }
     return (game);
