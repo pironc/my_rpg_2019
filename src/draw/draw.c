@@ -95,32 +95,13 @@ NULL);
     sfRenderWindow_drawRectangleShape(window, enemy->hp_bar.rect, NULL);
 }
 
-void draw_vertex(window)
-{
-    sfVertexArray *array = sfVertexArray_create();
-    sfVertex vertex;
-    sfVector2f apos = {1, 1};
-    vertex.color = sfRed;
-    vertex.position = apos;
-    sfVertexArray_setPrimitiveType(array, sfPoints);
-    sfRenderTexture_drawVertexArray(window, array, NULL);
-    //sfVertexArray_append(array, a);
-
-    //sfRenderWindow_drawVertexArray(window, array, 0);
-}
-
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    //game.all_map = init_map();
-    //check_map(game.all_map);
-    //check_enemy(game.enemies);
-    //check_perso(game.perso);
     sfMusic_setLoop(game.menu_music, sfTrue);
     sfMusic_play(game.menu_music);
 
     while (sfRenderWindow_isOpen(window)) {
-        draw_vertex(window);
         game = analyse_events(window, event, game);
         sfRenderWindow_clear(window, sfBlack);
         draw_elements(window, game);
