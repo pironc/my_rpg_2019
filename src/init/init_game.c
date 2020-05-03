@@ -65,7 +65,7 @@ void init_options_menu(game_t game)
     button_t button;
     sfVector2f scale = {0.7, 0.7};
     sfVector2f pos_play = {650, 100};
-    sfVector2f pos_options = {710, 400};
+    sfVector2f pos_options = {650, 480};
     sfVector2f pos_exit = {650, 700};
 
     game.scenes[1].buttons = malloc(sizeof(button_t) * 3);
