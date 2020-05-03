@@ -18,6 +18,7 @@ SRC				=			src/main.c							\
 							src/transition.c					\
 							src/my_rpg.c						\
 							src/dialogues.c						\
+							src/dialogue_anim.c					\
 							src/init/init_perso.c				\
 							src/combat/combat_scene.c			\
 							src/combat/combat_events.c			\
