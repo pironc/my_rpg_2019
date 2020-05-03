@@ -29,6 +29,9 @@ sfMouse_isButtonPressed(sfMouseLeft))
         if (position_of_exit(window, game) && \
 sfMouse_isButtonPressed(sfMouseLeft))
             flag = 2;
+        if (event.type == sfEvtClosed) {
+            flag = 3;
+        }
     }
     return (flag);
 }
@@ -56,6 +59,19 @@ NULL);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
             sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
+            close_window(window);
+            break;
+        }
+        if (flag == 3) {
+            sfMusic_destroy(game.cave_music);
+            sfMusic_destroy(game.cbt_music);
+            sfMusic_stop(game.am_music);
+            sfMusic_destroy(game.am_music);
+            sfMusic_destroy(game.menu_music);
+            sfSound_destroy(game.door_sound);
+            sfSoundBuffer_destroy(game.door);
             close_window(window);
             break;
         }

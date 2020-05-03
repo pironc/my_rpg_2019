@@ -138,6 +138,7 @@ typedef struct game_s {
     sfMusic *menu_music;
     sfMusic *cbt_music;
     sfMusic *cave_music;
+    sfMusic *lava;
     sfSound *door_sound;
     sfSoundBuffer *door;
 } game_t;
