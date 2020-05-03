@@ -21,7 +21,7 @@ game->scenes[scene].map[btm_y][cur_x + 1] == '*')
     else if (game->scenes[scene].map[cur_y][cur_x + 1] == 'L' ||\
 game->scenes[scene].map[cur_y][cur_x + 1] == 'F') {
         if (game->cur_scn == 4 && game->scenes[4].enemy_left == 0 && \
-        game->scenes[5].enemy_left == 0 && game->scenes[6].enemy_left == 0) {
+        game->scenes[5].enemy_left == 0 && game->scenes[7].enemy_left == 0) {
             game->cur_scn = 6;
             perso->pos.y = 300;
             perso->pos.x = 70;

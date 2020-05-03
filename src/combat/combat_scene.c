@@ -51,7 +51,7 @@ game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy, int gameplay_
     if (enemy->hp <= 0) {
         earn_loot(game, enemy);
         destroy_enemy(enemy);
-        game.scenes[gameplay_scene].enemy_left--;
+        game.scenes[gameplay_scene].enemy_left = 0;
     } else {
         game_over(window, game.perso, game, enemy);
     }
