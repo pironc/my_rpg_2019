@@ -35,6 +35,17 @@ game_t enemy_attack(sfRenderWindow *window, game_t game, enemy_t *enemy)
 void earn_loot(game_t game, enemy_t *enemy)
 {
     game.perso->exp += enemy->giv_xp;
+    if (game.perso->exp >= game.perso->max_exp) {
+        game.perso->exp = 0;
+        game.perso->max_exp = 15;
+        game.perso->level++;
+        game.perso->attack += 2;
+        game.perso->armor += 1;
+        game.perso->max_hp += 5;
+    }
+    if (game.perso->level == 3) {
+        game.perso->hp = game.perso->max_hp;
+    }
 }
 
 game_t back_to_gameplay(game_t game)

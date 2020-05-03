@@ -44,14 +44,14 @@ void game_loop(sfRenderWindow *window, game_t game, enemy_t *enemy)
     }
 }
 
-game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy)
+game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy, int gameplay_scene)
 {
     game.player_turn = sfTrue;
     game_loop(window, game, enemy);
     if (enemy->hp <= 0) {
         earn_loot(game, enemy);
         destroy_enemy(enemy);
-        game.scenes[4].enemy_left--;
+        game.scenes[gameplay_scene].enemy_left = 0;
     } else {
         game_over(window, game.perso, game, enemy);
     }
