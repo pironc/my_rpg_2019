@@ -90,3 +90,24 @@ enemy_t init_enemy_lac(void)
     return (enemy);
 }
 
+enemy_t init_enemy_lava(void)
+{
+    enemy_t enemy;
+    sfVector2f scale_enemy = {1.5, 1.5};
+
+    enemy.name = "Lava Enemy";
+    enemy.hp = 100;
+    enemy.max_hp = 100;
+    enemy.attack = 10;
+    enemy.armor = 5;
+    enemy.giv_xp = 10;
+    enemy.spr = sfSprite_create();
+    enemy.text = sfTexture_createFromFile("ressources/monster.png", NULL);
+    enemy.rect = set_rect(64, 64);
+    enemy.pos = set_pos(945, 375);
+    sfSprite_setScale(enemy.spr, scale_enemy);
+    sfSprite_setTexture(enemy.spr, enemy.text, sfTrue);
+    sfSprite_setTextureRect(enemy.spr, enemy.rect);
+    sfSprite_setPosition(enemy.spr, enemy.pos);
+    return (enemy);
+}

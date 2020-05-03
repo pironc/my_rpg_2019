@@ -129,6 +129,7 @@ enemy_t *init_health_bar_combat(enemy_t *enemy);
 enemy_t init_enemy_desert(void);
 enemy_t init_enemy_forest(void);
 enemy_t init_enemy_lac(void);
+enemy_t init_enemy_lava(void);
 
 /*---------Inventory RPG---------*/
 void open_inventory(sfRenderWindow *window, game_t game);

@@ -49,7 +49,9 @@ void init_lava_map(game_t game)
     int scene_nb = 6;
     sfVector2f fight_but_pos = {100, 50};
 
-    game.scenes[6].enemy_left = 0;
+    game.scenes[6].enemy = malloc(sizeof(enemy_t) * 1);
+    game.scenes[6].enemy[0] = init_enemy_lava();
+    game.scenes[6].enemy_left = 1;
     game.scenes[6].name = malloc(sizeof(char) * 9);
     game.scenes[6].name = "lava_map";
     game.scenes[6].gm_objcts = malloc(sizeof(gm_obj_t) * 1);
