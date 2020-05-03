@@ -71,6 +71,7 @@ sfMouse_getPosition(window));
         game.scenes[1].but_nbr = 2;
     }
     if (but_clicked == 3) {
+        sfMusic_destroy(game.cave_music);
         sfMusic_destroy(game.cbt_music);
         sfMusic_destroy(game.am_music);
         sfMusic_stop(game.menu_music);
