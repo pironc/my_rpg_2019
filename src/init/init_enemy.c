@@ -16,7 +16,7 @@ enemy_t init_enemy_forest(void)
     enemy.max_hp = 25;
     enemy.attack = 2;
     enemy.armor = 2;
-    enemy.giv_xp = 10;
+    enemy.giv_xp = 5;
     enemy.spr = sfSprite_create();
     enemy.text = sfTexture_createFromFile("ressources/poke_forest.png", NULL);
     enemy.rect = set_rect(64, 64);
