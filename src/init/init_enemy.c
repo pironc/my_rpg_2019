@@ -90,11 +90,3 @@ enemy_t init_enemy_lac(void)
     return (enemy);
 }
 
-void check_enemy(enemy_t **enemies)
-{
-    for (int i = 0; i < 3; i++) {
-        printf("Enemy %d :\nName : %s\nHP : %d\nAttack : %d\n", i, \
-enemies[i]->name, enemies[i]->hp, enemies[i]->attack);
-        printf("Giv xp : %d\n", enemies[i]->giv_xp);
-    }
-}
