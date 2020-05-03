@@ -122,6 +122,7 @@ typedef struct scene_s {
     int enemy_left;
     char *name;
     char **map;
+    npc_t *npc;
     enemy_t *enemy;
     button_t *buttons;
     gm_obj_t *gm_objcts;

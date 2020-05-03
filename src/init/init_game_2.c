@@ -82,6 +82,8 @@ void init_forest_house(game_t game)
 {
     int scene_nb = 8;
 
+    game.scenes[8].npc = malloc(sizeof(npc_t) * 1);
+    game.scenes[8].npc[0] = init_professor(game);
     game.scenes[8].enemy_left = 0;
     game.scenes[8].name = malloc(sizeof(char) * 12);
     game.scenes[8].name = "forest_house";
