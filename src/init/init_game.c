@@ -90,6 +90,7 @@ game_t initialize_game(game_t game)
     game.menu_music = sfMusic_createFromFile("ressources/Audio/menu.ogg");
     game.am_music = sfMusic_createFromFile("ressources/Audio/ambiance.ogg");
     game.cbt_music = sfMusic_createFromFile("ressources/Audio/combat.ogg");
+    game.cave_music = sfMusic_createFromFile("ressources/Audio/cave.ogg");
     init_perso(perso);
     //check_perso(perso);
     game.perso = perso;

@@ -21,6 +21,8 @@ game->scenes[scene].map[cy + 1][lx] == '*' && game->scenes[scene].map\
 [cy + 1][rx] == '*')
         perso->pos.y += 8;
     else if (game->scenes[scene].map[cy + 1][lx] == 'D'&& game->cur_scn == 7) {
+        sfMusic_stop(game->cave_music);
+        sfMusic_play(game->am_music);
         game->cur_scn = 5;
         perso->pos.x = 960;
         perso->pos.y = 420;
