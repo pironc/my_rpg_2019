@@ -73,7 +73,7 @@ sfMouse_getPosition(window));
         sfMusic_destroy(game.cave_music);
         sfMusic_destroy(game.cbt_music);
         sfMusic_destroy(game.am_music);
-        sfMusic_destroy(game.door);
+        sfMusic_destroy(game.door_sound);
         sfMusic_stop(game.menu_music);
         sfMusic_destroy(game.menu_music);
         close_window(window);
@@ -161,7 +161,7 @@ game_t game, enemy_t *enemy)
             sfMusic_destroy(game.cbt_music);
             sfMusic_destroy(game.am_music);
             sfMusic_destroy(game.menu_music);
-            sfMusic_destroy(game.door);
+            sfMusic_destroy(game.door_sound);
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
@@ -188,7 +188,7 @@ game_t analyse_events(sfRenderWindow *window, sfEvent event, game_t game)
 {
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
-            sfMusic_destroy(game.door);
+            sfMusic_destroy(game.door_sound);
             sfMusic_destroy(game.cave_music);
             sfMusic_destroy(game.cbt_music);
             sfMusic_destroy(game.am_music);

@@ -31,8 +31,9 @@ game->scenes[scene].map[btm_y - 1][left_x] == '*' && game->scenes[scene].map\
             perso->pos.x = 928;
             perso->pos.y = 812;
         } else if (game->cur_scn == 4) {
-            sfMusic_play(game->door);
-            sfMusic_setVolume(game->door, 70);
+            sfSound_setBuffer(game->door_sound, game->door);
+            sfSound_setVolume(game->door_sound, 40);
+            sfSound_play(game->door_sound);
             game->cur_scn = 8;
             perso->pos.x = 926;
             perso->pos.y = 632;

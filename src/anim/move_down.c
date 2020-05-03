@@ -28,8 +28,9 @@ game->scenes[scene].map[cy + 1][lx] == '*' && game->scenes[scene].map\
         perso->pos.y = 420;
     } else if (game->scenes[scene].map[cy + 1][lx] == 'F'\
 && game->cur_scn == 8) {
-        sfMusic_play(game->door);
-        sfMusic_setVolume(game->door, 70);
+        sfSound_setBuffer(game->door_sound, game->door);
+        sfSound_setVolume(game->door_sound, 40);
+        sfSound_play(game->door_sound);
         game->cur_scn = 4;
         perso->pos.x = 512;
         perso->pos.y = 386;
