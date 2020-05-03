@@ -10,8 +10,8 @@
 void draw_leaves(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfSprite *leavesSprite = sfSprite_create();
-    sfTexture *leavesTexture = sfTexture_createFromFile("\
-ressources/leaves.png", NULL);
+    sfTexture *leavesTexture = sfTexture_createFromFile\
+    ("ressources/leaves.png", NULL);
     sfSprite_setTexture(leavesSprite, leavesTexture, sfTrue);
     if (game->cur_scn == 4)
         sfRenderWindow_drawSprite(window, leavesSprite, NULL);
@@ -23,7 +23,7 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
     draw_elements(window, *game);
     sfRenderWindow_drawSprite(window, perso->spr, NULL);
     for (int i = 0; i != game->scenes[game->cur_scn].enemy_left; i++) {
-        sfRenderWindow_drawSprite(window, game->enemies[i]->spr, NULL);
+        sfRenderWindow_drawSprite(window, game->scenes[game->cur_scn].enemy[i].spr, NULL);
     }
     //draw_leaves(window, game, perso);
     sfRenderWindow_display(window);
@@ -32,7 +32,7 @@ void reset_window(sfRenderWindow *window, game_t *game, perso_t *perso)
 int check_which_enemy(game_t game, int nmy_tested, sfVector2f perso_pos)
 {
     sfFloatRect g_bnd = \
-    sfSprite_getGlobalBounds(game.enemies[nmy_tested - 1]->spr);
+    sfSprite_getGlobalBounds(game.scenes[game.cur_scn].enemy[nmy_tested - 1].spr);
     if (perso_pos.x >= g_bnd.left && perso_pos.x <= \
     (g_bnd.left + g_bnd.width)) {
         if (perso_pos.y <= (g_bnd.top + g_bnd.height) && \
@@ -45,6 +45,7 @@ perso_pos.y >= g_bnd.top) {
 
 game_t check_collision_enemy(sfRenderWindow *window, game_t game)
 {
+    int gameplay_scene = game.cur_scn;
     int enemys_nbr = 0;
     for (int i = 1; enemys_nbr == 0 && (i - 1) != \
 game.scenes[game.cur_scn].enemy_left; i++)
@@ -57,9 +58,9 @@ game.scenes[game.cur_scn].enemy_left; i++)
         game.cur_scn = 3;
         game.scenes[3].but_nbr = 2;
         game.scenes[3].obj_nbr = 2;
-        init_combat_scene(game, window, game.enemies[enemys_nbr - 1]);
-        game = combat(window, game, game.enemies[enemys_nbr - 1]);
-        game.enemies[enemys_nbr - 1] = NULL;
+        init_combat_scene(game, window, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
+        game = combat(window, game, &game.scenes[gameplay_scene].enemy[enemys_nbr - 1]);
+        game.scenes[game.cur_scn].enemy = NULL;
     }
     return (game);
 }
@@ -86,7 +87,7 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
         seconds = time.microseconds / 1000000.000;
         if (seconds > 0.2 && sfRenderWindow_isOpen(window)) {
             perso_anim(perso);
-            enemy_anim_test(game.enemies, game);
+            enemy_anim_test(game.scenes[game.cur_scn].enemy, game);
             sfClock_restart(clock);
         }
     }

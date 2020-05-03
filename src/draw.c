@@ -80,8 +80,6 @@ NULL);
 int draw_window(sfRenderWindow *window, game_t game)
 {
     sfEvent event;
-    game.enemies = malloc(sizeof(enemy_t*) * 4);
-    init_enemies(game.enemies);
     //game.all_map = init_map();
     //check_map(game.all_map);
     //check_enemy(game.enemies);

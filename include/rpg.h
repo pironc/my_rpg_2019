@@ -122,7 +122,7 @@ typedef struct scene_s {
     int enemy_left;
     char *name;
     char **map;
-    enemy_t *enemys;
+    enemy_t *enemy;
     button_t *buttons;
     gm_obj_t *gm_objcts;
 } scene_t;
@@ -132,7 +132,6 @@ typedef struct game_s {
     filter_t *fade;
     scene_t *scenes;
     perso_t *perso;
-    enemy_t **enemies;
     sfBool player_turn;
     sfMusic *am_music;
     sfMusic *menu_music;

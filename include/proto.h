@@ -56,7 +56,7 @@ game_t analyse_combat_event(sfRenderWindow *window, sfEvent event, \
 game_t game, enemy_t *enemy);
 game_t button_is_clicked(sfRenderWindow *window, game_t game);
 void perso_anim(perso_t *perso);
-void enemy_anim_test(enemy_t **enemies, game_t game);
+void enemy_anim_test(enemy_t *enemy, game_t game);
 void move_rect(sfIntRect *rect, int offset, int max_value);
 void move_perso(game_t *game, perso_t *perso, int i);
 sfBool change_turn(sfBool player_turn);
@@ -116,6 +116,13 @@ int check_hvy_atk_cd(sfRenderWindow *window, button_t hvy_atk_but);
 void heavy_atk_dmg(sfRenderWindow *window, game_t game, enemy_t *enemy);
 game_t enemy_attack(sfRenderWindow *window, game_t game, enemy_t *enemy);
 void enemy_charge_forward(sfRenderWindow *window, game_t game, enemy_t *enemy);
+game_t combat_scene_intro(sfRenderWindow *window, game_t game, enemy_t *enemy);
+enemy_t *init_health_bar_combat(enemy_t *enemy);
+
+/*---------Enemy RPG-------------*/
+enemy_t init_enemy_desert(void);
+enemy_t init_enemy_forest(void);
+enemy_t init_enemy_lac(void);
 
 /*---------Inventory RPG---------*/
 void open_inventory(sfRenderWindow *window, game_t game);
