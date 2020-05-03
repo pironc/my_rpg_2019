@@ -50,11 +50,3 @@ void destroy_all(game_t game)
     sfSound_destroy(game.door_sound);
     sfSoundBuffer_destroy(game.door);
 }
-
-void destroy_in_game(game_t game)
-{
-    sfSound_destroy(game.oof_sound);
-    sfSoundBuffer_destroy(game.oof);
-    sfSound_destroy(game.slash_sound);
-    sfSoundBuffer_destroy(game.slash);
-}

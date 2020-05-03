@@ -149,4 +149,3 @@ void destroy_perso(perso_t *perso);
 void destroy_enemy(enemy_t *enemy);
 void destroy_map(game_t game);
 void destroy_all(game_t game);
-void destroy_in_game(game_t game);

@@ -15,7 +15,6 @@ game_t game, enemy_t *enemy)
         if (event.type == sfEvtClosed) {
             game.perso->hp = -1;
             destroy_all(game);
-            destroy_in_game(game);
             close_window(window);
         }
         if (event.type == sfEvtMouseButtonPressed) {
