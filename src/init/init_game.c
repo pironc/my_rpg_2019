@@ -76,7 +76,7 @@ void init_options_menu(game_t game)
     pos_play, "ressources/BUTTONS/Return.png");
     sfSprite_setScale(game.scenes[1].buttons[0].spr, scale);
     game.scenes[1].buttons[1] = init_button(game.scenes[1].buttons[1], \
-    pos_options, "ressources/BUTTONS/Sound.png");
+    pos_options, "ressources/BUTTONS/howtoplay.png");
     sfSprite_setScale(game.scenes[1].buttons[1].spr, scale);
 }
 
