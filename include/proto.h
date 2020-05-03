@@ -61,6 +61,7 @@ void move_rect(sfIntRect *rect, int offset, int max_value);
 void move_perso(game_t *game, perso_t *perso, int i);
 sfBool change_turn(sfBool player_turn);
 void move_up(game_t *game, perso_t *perso, int cur_x, int cur_y);
+void move_up_condition(game_t *game, perso_t *perso);
 void move_down(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_left(game_t *game, perso_t *perso, int cur_x, int cur_y);
 void move_right(game_t *game, perso_t *perso, int cur_x, int cur_y);
@@ -99,7 +100,8 @@ game_t button_is_clicked_htp(sfRenderWindow *window, game_t game);
 
 /*---------Combat RPG------------*/
 
-game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy, int gameplay_scene);
+game_t combat(sfRenderWindow *window, game_t game, enemy_t *enemy, \
+int gameplay_scene);
 game_t init_intro(game_t game, sfVector2f board_pos, enemy_t *enemy);
 enemy_t *refresh_hp_bar_enemy(sfRenderWindow *window, enemy_t *enemy);
 game_t refresh_hp_bar_player(sfRenderWindow *window, game_t game);

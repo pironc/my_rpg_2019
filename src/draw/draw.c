@@ -2,8 +2,9 @@
 ** EPITECH PROJECT, 2020
 ** draw
 ** File description:
-** draw
+** function to draw & destroy sprites, objects, buttons..
 */
+
 #include "proto.h"
 #include "rpg.h"
 
@@ -109,6 +110,5 @@ int draw_window(sfRenderWindow *window, game_t game)
         sfRenderWindow_display(window);
     }
     destroy_perso(game.perso);
-    //destroy_map(game.all_map);
     return (0);
 }
