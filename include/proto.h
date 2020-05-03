@@ -4,6 +4,7 @@
 ** File description:
 ** proto.h
 */
+
 #include "rpg.h"
 
 /*----------Basic functions-----------*/
@@ -12,6 +13,8 @@ void my_putstr(char*);
 char *nbr_str(int nb);
 int my_nbrlen(int nb);
 char **my_str_to_word_array_space(char *str);
+int my_put_nbr(int nb);
+char my_putchar(char c);
 
 /*----------RPG functions-------------*/
 
@@ -56,6 +59,11 @@ void perso_anim(perso_t *perso);
 void enemy_anim_test(enemy_t **enemies, game_t game);
 void move_rect(sfIntRect *rect, int offset, int max_value);
 void move_perso(game_t *game, perso_t *perso, int i);
+sfBool change_turn(sfBool player_turn);
+void move_up(game_t *game, perso_t *perso, int cur_x, int cur_y);
+void move_down(game_t *game, perso_t *perso, int cur_x, int cur_y);
+void move_left(game_t *game, perso_t *perso, int cur_x, int cur_y);
+void move_right(game_t *game, perso_t *perso, int cur_x, int cur_y);
 
 /*----------Init RPG-------------*/
 
@@ -73,11 +81,14 @@ sfVector2f set_pos(int x, int y);
 sfIntRect set_rect(int width, int height);
 void init_game_scenes(game_t game);
 void init_forest_map(game_t game);
-maps_t *init_map(void);
-void check_map(maps_t *map);
+void init_desert_map(game_t game);
+void init_lava_map(game_t game);
+void init_desert_house(game_t game);
+void init_forest_house(game_t game);
+char **init_map(game_t game, char *filepath, int scene_nb);
+void check_map(game_t game);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
-char **open_map(char **tileset);
 
 /*---------Combat RPG------------*/
 
@@ -117,4 +128,4 @@ int analyse_inventory_events(sfRenderWindow *window, sfEvent event, int flag);
 void destroy_menu(game_t game);
 void destroy_perso(perso_t *perso);
 void destroy_enemy(enemy_t *enemy);
-void destroy_map(maps_t *map);
+void destroy_map(game_t game);

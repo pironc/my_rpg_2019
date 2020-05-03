@@ -22,13 +22,6 @@
 #ifndef RPG_
 #define RPG_
 
-typedef struct map_s {
-    char **forest;
-    char **desert;
-    char **lava;
-    char ***maps;
-} maps_t;
-
 typedef struct button_s {
     int state; //(idle, hover, clicked);
     sfSprite *spr;
@@ -128,6 +121,7 @@ typedef struct scene_s {
     int obj_nbr;
     int enemy_left;
     char *name;
+    char **map;
     enemy_t *enemys;
     button_t *buttons;
     gm_obj_t *gm_objcts;
@@ -139,7 +133,6 @@ typedef struct game_s {
     scene_t *scenes;
     perso_t *perso;
     enemy_t **enemies;
-    maps_t **all_map;
     sfBool player_turn;
     sfMusic *am_music;
     sfMusic *menu_music;

@@ -11,7 +11,7 @@ void draw_leaves(sfRenderWindow *window, game_t *game, perso_t *perso)
 {
     sfSprite *leavesSprite = sfSprite_create();
     sfTexture *leavesTexture = sfTexture_createFromFile("\
-    ressources/leaves.png", NULL);
+ressources/leaves.png", NULL);
     sfSprite_setTexture(leavesSprite, leavesTexture, sfTrue);
     if (game->cur_scn == 4)
         sfRenderWindow_drawSprite(window, leavesSprite, NULL);
@@ -68,6 +68,7 @@ void gameplay(sfRenderWindow *window, game_t game, perso_t *perso)
     sfTime time;
     sfEvent event;
 
+    sfMusic_setVolume(game.am_music, 2.5);
     sfMusic_setLoop(game.am_music, sfTrue);
     sfMusic_play(game.am_music);
     while (game.cur_scn >= 4 && sfRenderWindow_isOpen(window)) {
