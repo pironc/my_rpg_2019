@@ -30,15 +30,6 @@ void init_menu(game_t game)
     sfSprite_setScale(game.scenes[0].buttons[2].spr, scale);
 }
 
-void init_game_scenes(game_t game)
-{
-    init_forest_map(game);
-    init_desert_map(game);
-    init_lava_map(game);
-    init_desert_house(game);
-    init_forest_house(game);
-}
-
 void init_pause_menu(game_t game)
 {
     button_t button;

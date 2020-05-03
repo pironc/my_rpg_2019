@@ -93,6 +93,8 @@ char **init_map(game_t game, char *filepath, int scene_nb);
 void check_map(game_t game);
 void init_combat_scene(game_t game, sfRenderWindow *window, enemy_t *enemy);
 game_t button_is_clicked_menu(sfRenderWindow *window, game_t game);
+game_t button_is_clicked_options(sfRenderWindow *window, game_t game);
+game_t button_is_clicked_htp(sfRenderWindow *window, game_t game);
 
 /*---------Combat RPG------------*/
 
