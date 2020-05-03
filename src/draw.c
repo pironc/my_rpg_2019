@@ -53,8 +53,10 @@ NULL);
         if (flag == 2) {
             sfMusic_destroy(game.cave_music);
             sfMusic_destroy(game.cbt_music);
+            sfMusic_destroy(game.door);
             sfMusic_stop(game.am_music);
             sfMusic_destroy(game.am_music);
+            sfMusic_destroy(game.menu_music);
             close_window(window);
             break;
         }
